@@ -1054,6 +1054,10 @@
     "@emotion/styled" "^10.0.0"
     "@mdx-js/react" "^1.0.0"
 
+"@theme-ui/preset-swiss@^0.3.0":
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/@theme-ui/preset-swiss/-/preset-swiss-0.3.0.tgz#ea170bc6e29d92a2e5b6e4cf90a17c68ca6f38f9"
+
 "@theme-ui/theme-provider@^0.3.1":
   version "0.3.1"
   resolved "https://registry.yarnpkg.com/@theme-ui/theme-provider/-/theme-provider-0.3.1.tgz#910bc43454fd61b1047d7bb0dce05e36ffb6b44b"
@@ -4144,9 +4148,9 @@ gatsby-plugin-page-creator@^2.1.46:
     lodash "^4.17.15"
     micromatch "^3.1.10"
 
-gatsby-plugin-theme-ui@^0.3.0:
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-theme-ui/-/gatsby-plugin-theme-ui-0.3.0.tgz#ab84216536ae45abe09a6edf24156b9dbf50d6a5"
+gatsby-plugin-theme-ui@^0.4.0-alpha.0:
+  version "0.4.0-alpha.0"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-theme-ui/-/gatsby-plugin-theme-ui-0.4.0-alpha.0.tgz#254823ab860237828f230563c36bf6418d6086fc"
 
 gatsby-react-router-scroll@^2.1.25:
   version "2.1.25"

@@ -1,3 +1,3 @@
 module.exports = {
-  plugins: [{ resolve: `gatsby-theme-golden-condor`, options: {} }]
+  plugins: [{ resolve: `@renrizzolo/gatsby-theme-golden-condor`, options: {} }]
 };

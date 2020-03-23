@@ -10,10 +10,9 @@
     "clean": "gatsby clean"
   },
   "dependencies": {
+    "@renrizzolo/gatsby-theme-golden-condor": "*",
     "gatsby": "^2.19.45",
-    "gatsby-theme-golden-condor": "*",
     "react": "^16.12.0",
     "react-dom": "^16.12.0"
   }
-
 }
