@@ -1,3 +1,3 @@
 import React from "react";
 
-export default () => <div>Nothing to see here.</div>;
+export default () => <div>Example overriding home page.</div>;
