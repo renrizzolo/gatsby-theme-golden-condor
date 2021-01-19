@@ -33,14 +33,15 @@ exports.onCreateWebpackConfig = ({ actions }) => {
   });
 };
 
-exports.createSchemaCustomization = ({ actions: { createTypes } }) => {
-  createTypes(`
-    type Mdx implements Node {
-      frontmatter: MdxFrontmatter
-    }
+// exports.createSchemaCustomization = ({ actions: { createTypes } }) => {
+//   createTypes(`
+//     type Mdx implements Node {
+//       frontmatter: MdxFrontmatter
+//     }
 
-    type MdxFrontmatter {
-      subHeading: String @mdx
-    }
-  `);
-};
+//     type MdxFrontmatter {
+//       content: String @mdx
+//       subHeading: String @mdx
+//     }
+//   `);
+// };

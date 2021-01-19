@@ -7,6 +7,7 @@ import MDX from "@components/MDX";
 
 function Page({ data }) {
   console.log(data);
+  const { pagesYaml: page } = data;
   return (
     <>
       <SEO
@@ -18,14 +19,19 @@ function Page({ data }) {
       />
 
       <Layout>
-        <Container>
-          <Heading as="h1" variant="display">
-            {data.page.title}
-          </Heading>
-          <Box pb={4} />
-          {/* @todo: slugify function for category/tag links */}
-          <MDX content={data.page.content} />
-        </Container>
+        <Box as="article" px={[3, 4, 5]}>
+          <Container>
+            <Box pb={[4, 5, 6]} />
+
+            <Heading as="h1" variant="display">
+              {page.title}
+            </Heading>
+            <Box pb={4} />
+
+            <MDX content={page.content?.body} />
+            <Box pb={[4, 5, 6]} />
+          </Container>
+        </Box>
       </Layout>
     </>
   );
@@ -35,9 +41,11 @@ export default Page;
 
 export const query = graphql`
   query($id: String!) {
-    page(id: { eq: $id }) {
+    pagesYaml(id: { eq: $id }) {
       title
-      content
+      content {
+        body
+      }
     }
     site {
       siteMetadata {

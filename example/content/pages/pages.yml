@@ -1,25 +1,25 @@
 - title: Home
   path: /
   locations: []
-  content: |
+  content: !mdx |
     
 - title: About
   path: /about
   locations: [top, footer]
-  content: |
+  content: !mdx |
     <h2>The gang.</h2>
     <p>We love pizza.</p>
 
 - title: Contact
   path: /contact
   locations: [top, footer]
-  content: |
+  content: !mdx |
     <p>get @ me here.</p>
     
 - title: Terms & Conditions
   path: /terms-and-conditions
   locations: [footer]
-  content: |
+  content: !mdx |
     #Using our website
 
     Use of our website is goverend by the below terms.

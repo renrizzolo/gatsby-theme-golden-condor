@@ -140,22 +140,27 @@ module.exports = ({
         remarkPlugins: [require("remark-slug"), require("rehype-stringify")], // eslint-disable-line global-require
       },
     },
-
     {
-      resolve: `gatsby-transformer-yaml`,
+      resolve: "gatsby-transformer-yaml-full",
       options: {
-        // Conditionally set the typeName so that we both use a lowercased and capitalized type name
-        typeName: ({ node }) => {
-          console.log(node);
-          const name = node.sourceInstanceName;
-          if (name === `pages`) {
-            return `Page`;
-          }
-          return name;
-        },
+        plugins: [`mdx-yaml-full`],
       },
     },
-    `gatsby-plugin-mdx-frontmatter`,
+    // {
+    //   resolve: `gatsby-transformer-yaml`,
+    //   options: {
+    //     // Conditionally set the typeName so that we both use a lowercased and capitalized type name
+    //     typeName: ({ node }) => {
+    //       console.log(node);
+    //       const name = node.sourceInstanceName;
+    //       if (name === `pages`) {
+    //         return `Page`;
+    //       }
+    //       return name;
+    //     },
+    //   },
+    // },
+    // `gatsby-plugin-mdx-frontmatter`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {

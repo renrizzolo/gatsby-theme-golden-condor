@@ -39,8 +39,10 @@ export default ({ data }) => (
 
 export const query = graphql`
   {
-    page(title: { eq: "Home" }) {
-      content
+    pagesYaml(title: { eq: "Home" }) {
+      content {
+        body
+      }
     }
     posts: allMdx {
       nodes {
