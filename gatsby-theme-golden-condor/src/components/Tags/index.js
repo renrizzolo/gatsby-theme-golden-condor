@@ -7,15 +7,15 @@ function Tags({ tags, ...props }) {
     <>
       {tags.map((tag) => (
         <Badge
-          as={Link}
-          to={`/tags/${tag}`}
+          // as={Link}
+          // to={`/tags/${tag}`}
           variant="secondaryLight"
           mr={1}
           sx={{
             textDecoration: "none",
-            "&:hover": {
-              bg: "secondary.3",
-            },
+            // "&:hover": {
+            //   bg: "secondary.3",
+            // },
           }}
           {...props}
         >
