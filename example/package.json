@@ -1,5 +1,5 @@
 {
-  "name": "example",
+  "name": "gatsby-theme-golden-condor-example",
   "version": "1.0.0",
   "main": "index.js",
   "author": "Ren Rizzolo",
@@ -10,10 +10,10 @@
     "clean": "gatsby clean"
   },
   "dependencies": {
-    "gatsby-theme-golden-condor": "file:../gatsby-theme-golden-condor",
-    "gatsby": "^2.29.3",
+    "gatsby": "^2.30.0",
+    "gatsby-plugin-manifest": "^2.10.0",
+    "gatsby-theme-golden-condor": "*",
     "react": "^17.0.1",
     "react-dom": "^17.0.1"
   }
-
 }

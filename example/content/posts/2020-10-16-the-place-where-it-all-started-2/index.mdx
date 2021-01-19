@@ -1,0 +1,107 @@
+---
+title: Gatsby Theme Golden Condor
+date: 2021-01-14
+author: Ren Rizzolo
+tags: 
+ - Gatsby
+ - Gatsby Themes
+image: ./images/cyrus-crossan-jM3Hul59BcU-unsplash.jpg
+excerpt: Westworld is a huge Western-themed park where human guests can interact with lifelike android "hosts", programmed to run through a daily narrative, without memory of prior days' events, and interact with guests.
+subHeading: _Westworld_ is a huge Western-themed park where human guests can interact with lifelike android "hosts".
+---
+
+Westworld is a huge Western-themed park where human guests can interact with lifelike android "hosts", programmed to run through a daily narrative, without memory of prior days' events, and interact with guests. As hosts are unable to harm guests, guests often live out their darkest desires, including violent and sexual ones.
+
+## Theme
+
+<h1>Heading 1</h1>
+<h2>Heading 2</h2>
+<h3>Heading 3</h3>
+<h4>Heading 4</h4>
+
+<h4>Primary</h4>
+<Grid columns={[2, 5]} gap={4} mb={4}>
+{Array.from(Array(5)).map((_, n) =>
+  <Box>
+    <Box bg={`primary.${n}`} sx={{width: '100%', height:  150}} mb={1}>
+    </Box>
+    <Text as="code">{`primary.${n}`}</Text>
+  </Box>
+)}
+</Grid>
+<h4>Secondary</h4>
+<Grid columns={[2, 5]} gap={4} mb={4}>
+{Array.from(Array(5)).map((_, n) =>
+  <Box>
+    <Box bg={`secondary.${n}`} sx={{width: '100%', height: 150}}>
+    </Box>
+    <Text as="code">{`secondary.${n}`}</Text>
+  </Box>
+)}
+</Grid>
+<h4>Gray</h4>
+<Grid columns={[2, 5]} gap={4} mb={4}>
+{Array.from(Array(4)).map((_, n) =>
+  <Box>
+    <Box bg={`gray.${n}`} sx={{width: '100%', height: 150}}>
+    </Box>
+    <Text as="code">{`gray.${n}`}</Text>
+  </Box>
+)}
+</Grid>
+<h4>Other</h4>
+<Grid columns={[2, 5]} gap={4} mb={4}>
+  <Box>
+    <Box bg={`muted`} sx={{width: '100%', height: 150}}>
+    </Box>
+    <Text as="code">{`muted`}</Text>
+  </Box>
+  <Box>
+    <Box bg={`highlight`} sx={{width: '100%', height: 150}}>
+    </Box>
+    <Text as="code">{`highlight`}</Text>
+  </Box>
+</Grid>
+
+<Panel bg="muted" color="text">
+
+  ### Call to action
+  You won't believe what's in my weekly newsletter.
+  
+  <Button mb={2} variant="secondary" >Click here!</Button>
+  <br/>
+  <br/>
+
+  <Button mb={2} variant="primary" sx={{fontSize: 3, textTransform: 'uppercase' }}>Click here!</Button>
+  <br/>
+
+
+</Panel>
+
+## Some markdown
+
+- another list
+- here
+  - list sub item
+
+
+---
+1. thing
+
+2. other thing that is so long that it wraps around into another line so we can see what that will look like. I think.
+3.  another list
+4. here
+
+## Embedded video
+
+`video: https://youtube.com/watch?v=9bmso7SP1xk`
+
+Hosts are artificially [a link](https://google.com) and don't exhibit some normal human reactions, for example, don't react to flies crawling over their faces. They can be put to hibernation or to other special states by code phrases said by park operators.
+
+## inline image
+![A wooden star with two tree branch candles](./images/max-letek-ulnh0KShbpg-unsplash.jpg "Photo: Max Letek")
+
+### 3rd level heading here
+Dolores says goodbye to her father Peter and travels into Sweetwater for supplies where she meets Teddy. They rekindle their old flame, and she invites him back to her farm, but when they arrive they hear shooting inside the house. They find Peter beaten by two bandits, Walter and Rebus, bragging about raping and killing his wife. 
+>Teddy shoots and kills the bandits but finds he cannot kill a third approaching figure from elsewhere, the Man in Black.
+The Man in Black reveals he is a guest, kills Teddy, and then drags Dolores off, upset she does not recognize him after thirty years of visits.
