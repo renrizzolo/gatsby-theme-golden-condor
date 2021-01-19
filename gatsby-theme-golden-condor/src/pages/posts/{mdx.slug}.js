@@ -7,6 +7,7 @@ import SEO from "@components/SEO";
 import Meta from "@components/Meta";
 import MDX from "@components/MDX";
 import TableOfContents from "@components/TableOfContents";
+import RelatedPosts from "@components/RelatedPosts";
 
 function BlogPost({ data }) {
   console.log(data);
@@ -76,6 +77,13 @@ function BlogPost({ data }) {
             <Box pb={[3, 4, 5]} />
           </Container>
         </Box>
+
+        {/*
+        These are not actually related posts, they're recent posts. 
+        we would have to stop using the file system api 
+        in order to query posts on the tags
+    */}
+        <RelatedPosts relatedPosts={data.relatedPosts?.nodes} />
       </Layout>
     </>
   );
@@ -84,14 +92,13 @@ function BlogPost({ data }) {
 export default BlogPost;
 
 export const query = graphql`
-  query($slug: String!) {
+  query($slug: String!, $id: String) {
     mdx(slug: { eq: $slug }) {
       frontmatter {
         date(formatString: "MMMM Do, YYYY")
         title
         subHeading
         author
-        category
         tags
         image {
           childImageSharp {
@@ -110,6 +117,11 @@ export const query = graphql`
     site {
       siteMetadata {
         postsPrefix
+      }
+    }
+    relatedPosts: allMdx(limit: 6, filter: { id: { ne: $id } }) {
+      nodes {
+        ...postPreview
       }
     }
   }
