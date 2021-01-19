@@ -1,13 +1,13 @@
 {
-  "name": "gatsby-starter-theme-workspace",
+  "name": "gatsby-theme-golden-condor-workspace",
   "private": true,
   "version": "0.0.1",
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "build": "yarn workspace example build",
-    "dev": "yarn workspace example develop",
-    "clean": "yarn workspace example clean"
+    "build": "yarn workspace gatsby-theme-golden-condor-example build",
+    "dev": "yarn workspace gatsby-theme-golden-condor-example develop",
+    "clean": "yarn workspace gatsby-theme-golden-condor-example clean"
   },
   "workspaces": [
     "gatsby-theme-golden-condor",
