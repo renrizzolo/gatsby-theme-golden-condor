@@ -20,7 +20,7 @@ function PostCard({ post, showExcerpt = false, ...rest }) {
         <Text mr={1} sx={{ fontSize: 1 }}>
           {post.frontmatter.date}{" "}
         </Text>
-        <Badge variant="primaryLight">{post.frontmatter.category}</Badge>
+        <Badge variant="primaryLight">{post.frontmatter.category?.name}</Badge>
       </Flex>
       <Box pb={2} />
       <Heading

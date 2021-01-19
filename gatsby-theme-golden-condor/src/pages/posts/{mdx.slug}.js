@@ -100,6 +100,10 @@ export const query = graphql`
         subHeading
         author
         tags
+        category {
+          name
+          slug
+        }
         image {
           childImageSharp {
             fluid(maxWidth: 700, maxHeight: 400) {

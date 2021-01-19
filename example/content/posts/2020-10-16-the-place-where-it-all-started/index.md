@@ -1,10 +1,12 @@
 ---
 title: The place where it all started
 date: 2020-10-16
-category: Dolores
 tags: 
  - TV shows
  - Dolores Abernathy
+category:
+  name: Test Category
+  slug: test-category
 image: ./images/canmandawe-W6qFhr2c8ak-unsplash.jpg
 excerpt: Westworld is a huge Western-themed park where human guests can interact with lifelike android "hosts", programmed to run through a daily narrative, without memory of prior days' events, and interact with guests.
 ---

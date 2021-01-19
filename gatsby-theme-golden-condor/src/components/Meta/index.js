@@ -21,14 +21,6 @@ function Meta({ post }) {
       justifyContent="space-between"
       alignItems="flex-start"
     >
-      {/* <Box>
-        {category && (
-          <>
-            <Link to={`/category/${category}`}>{category}</Link>
-          </>
-        )}
-      </Box> */}
-
       <Box pb={1}>
         <Text
           color="gray.3"
@@ -52,9 +44,16 @@ function Meta({ post }) {
           <Box as="span" color="gray.2" sx={{ whiteSpace: "nowrap" }}>
             {timeToRead && `${timeToRead} minute read`}
           </Box>
+          {" / "}
+          <Box as="span" color="gray.2" sx={{ whiteSpace: "nowrap" }}>
+            {category && (
+              <>
+                <Link to={`/categories/${category.slug}`}>{category.name}</Link>
+              </>
+            )}
+          </Box>
         </Text>
       </Box>
-
       <Flex flexDirection="row" flexWrap="wrap" align="start">
         {tags && <Tags mb={1} tags={tags} />}
       </Flex>
