@@ -1,8 +1,7 @@
 import React from "react";
-import { graphql, useStaticQuery } from "gatsby";
-import { Box, Grid } from "theme-ui";
-import PostCard from "@components/PostCard";
+import { Box } from "theme-ui";
 import { Heading } from "theme-ui";
+import PostsGrid from "@components/PostsGrid";
 
 function RelatedPosts({ relatedPosts }) {
   return (
@@ -10,11 +9,7 @@ function RelatedPosts({ relatedPosts }) {
       <Heading variant="display" mb={4}>
         Read next:
       </Heading>
-      <Grid columns={3}>
-        {relatedPosts.map((post) => (
-          <PostCard post={post} />
-        ))}
-      </Grid>
+      <PostsGrid columns={3} posts={relatedPosts} />
     </Box>
   );
 }
