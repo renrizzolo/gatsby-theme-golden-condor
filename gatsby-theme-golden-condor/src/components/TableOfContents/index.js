@@ -6,14 +6,15 @@ function TableOfContents({ headings, label }) {
   return (
     <Box
       as="aside"
-      mt={3}
       px={3}
       py={3}
-      bg={"muted"}
       sx={{
         top: 4,
         position: "sticky",
         listStyleType: "none",
+        borderColor: "primary.1",
+        borderWidth: 2,
+        borderStyle: "solid",
       }}
     >
       <Box
@@ -23,16 +24,18 @@ function TableOfContents({ headings, label }) {
           p: 0,
         }}
       >
-        <Heading as="h3">{label}</Heading>
+        <Heading as="h3" mb={2} sx={{ fontFamily: "body" }}>
+          {label}
+        </Heading>
         {headings.map(({ title, url }) => (
           <Text as="li">
             <Link
-              variant="secondary"
+              variant="dark"
               href={url}
               sx={{
                 display: "block",
-                fontWeight: "bold",
-                fontSize: 1,
+                // fontWeight: "bold",
+                fontSize: 2,
                 textDecoration: "none",
                 py: 2,
                 "&:lastOfType": {

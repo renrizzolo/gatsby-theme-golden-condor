@@ -8,6 +8,7 @@ import Meta from "@components/Meta";
 import MDX from "@components/MDX";
 import TableOfContents from "@components/TableOfContents";
 import RelatedPosts from "@components/RelatedPosts";
+import { Flex } from "@components/UI";
 
 function BlogPost({ data }) {
   console.log(data);
@@ -65,14 +66,14 @@ function BlogPost({ data }) {
             <Divider />
             <Box pb={[3, 4]} />
             <Grid variant="articleWithSidebar">
-              <Box>
+              <Flex order={[2, 2, 2, 1]}>
                 <MDX content={data.mdx.body} />
-              </Box>
-              <Box>
+              </Flex>
+              <Flex order={[1, 1, 1, 2]}>
                 {data.mdx?.tableOfContents?.items && (
                   <TableOfContents headings={data.mdx.tableOfContents.items} />
                 )}
-              </Box>
+              </Flex>
             </Grid>
             <Box pb={[3, 4, 5]} />
           </Container>
