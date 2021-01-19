@@ -44,18 +44,24 @@ export const query = graphql`
     }
     posts: allMdx {
       nodes {
-        slug
-        frontmatter {
-          date(formatString: "MMMM Do, YYYY")
-          title
-          category
-          excerpt
-          image {
-            childImageSharp {
-              fluid(maxWidth: 400, maxHeight: 225) {
-                ...GatsbyImageSharpFluid
-              }
-            }
+        ...postPreview
+      }
+    }
+  }
+`;
+
+export const postPreviewFragment = graphql`
+  fragment postPreview on Mdx {
+    slug
+    frontmatter {
+      date(formatString: "MMMM Do, YYYY")
+      title
+      category
+      excerpt
+      image {
+        childImageSharp {
+          fluid(maxWidth: 400, maxHeight: 225) {
+            ...GatsbyImageSharpFluid
           }
         }
       }
