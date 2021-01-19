@@ -43,7 +43,7 @@ const Nav = () => {
               }}
             >
               {pages.nodes.map((page) => (
-                <Text as="li">
+                <Text as="li" key={page.path}>
                   <Link color="white" nav mx={2} p={2} to={page.path}>
                     {page.title}
                   </Link>
