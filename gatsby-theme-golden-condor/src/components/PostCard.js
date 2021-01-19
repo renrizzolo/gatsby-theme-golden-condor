@@ -1,6 +1,7 @@
 import React from "react";
 import Img from "gatsby-image";
-import { Text, Heading, Box, Card, Grid, sx, Badge, Flex } from "theme-ui";
+import { Flex } from "@components/UI";
+import { Text, Heading, Box, Card, Grid, sx, Badge } from "theme-ui";
 import { Link } from "gatsby";
 
 function PostCard({ post, showExcerpt = false, ...rest }) {
@@ -16,8 +17,15 @@ function PostCard({ post, showExcerpt = false, ...rest }) {
       )}
       <Box pb={3} />
 
-      <Flex sx={{ alignItems: "center", justifyContent: "space-between" }}>
-        <Text mr={1} sx={{ fontSize: 1 }}>
+      <Flex
+        flexDirection="row"
+        sx={{
+          alignItems: "center",
+          justifyContent: "space-between",
+          flexWrap: "wrap",
+        }}
+      >
+        <Text mr={1} sx={{ fontSize: [0, 1] }}>
           {post.frontmatter.date}{" "}
         </Text>
         <Badge variant="primaryLight">{post.frontmatter.category?.name}</Badge>
