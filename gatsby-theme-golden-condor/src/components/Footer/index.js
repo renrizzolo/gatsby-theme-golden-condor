@@ -18,7 +18,7 @@ function Footer() {
           }
         }
       }
-      allPage(filter: { locations: { in: "footer" } }) {
+      allPagesYaml(filter: { locations: { in: "footer" } }) {
         nodes {
           title
           path
@@ -29,7 +29,7 @@ function Footer() {
   `);
   const {
     site: { siteMetadata },
-    allPage: pages,
+    allPagesYaml: pages,
   } = data;
   console.log(data);
   return (
@@ -49,15 +49,14 @@ function Footer() {
                 listStyleType: "none",
               }}
             >
-              {pages.nodes?.map(
-                ({ locations, path, title }) =>
-                  locations.includes("footer") && (
-                    <Text key={path} as="li">
-                      <Link variant="dark" nav ml={2} p={2} to={path}>
-                        {title}
-                      </Link>
-                    </Text>
-                  )
+              {pages.nodes?.map(({ locations, path, title }) =>
+                locations.includes("footer") ? (
+                  <Text key={path} as="li">
+                    <Link variant="dark" nav ml={2} p={2} to={path}>
+                      {title}
+                    </Link>
+                  </Text>
+                ) : null
               )}
             </Text>
           </Flex>
@@ -66,7 +65,7 @@ function Footer() {
       <Box p={2} bg="primary.1">
         <Flex flexDirection="row" align="center">
           {siteMetadata.social?.map(({ url, name }) => (
-            <Link variant="light" mr={2} href={url}>
+            <Link key={name} variant="light" mr={2} href={url}>
               {name}
             </Link>
           ))}

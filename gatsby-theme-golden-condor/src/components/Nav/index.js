@@ -15,7 +15,7 @@ const Nav = () => {
           siteUrl
         }
       }
-      allPage(filter: { locations: { in: "top" } }) {
+      allPagesYaml(filter: { locations: { in: "top" } }) {
         nodes {
           title
           path
@@ -23,7 +23,7 @@ const Nav = () => {
       }
     }
   `);
-  const { site, allPage: pages } = data;
+  const { site, allPagesYaml: pages } = data;
   return (
     <Box as="nav" px={3} py={4} bg="navBar">
       <Container>
@@ -39,7 +39,7 @@ const Nav = () => {
               flexDirection="row"
               sx={{
                 margin: 0,
-                "list-style-type": "none",
+                listStyleType: "none",
               }}
             >
               {pages.nodes.map((page) => (
