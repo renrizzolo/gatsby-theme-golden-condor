@@ -8,12 +8,12 @@ function PostsGrid({ posts, columns, ...rest }) {
   return (
     <Grid columns={columns} {...rest}>
       {posts.map((post) => (
-        <PostCard key={post.id} post={post} />
+        <PostCard key={post.slug} post={post} />
       ))}
     </Grid>
   );
 }
 PostsGrid.defaultProps = {
-  columns: 3,
+  columns: [2, 3],
 };
 export default PostsGrid;
