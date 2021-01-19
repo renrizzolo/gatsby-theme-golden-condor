@@ -218,8 +218,6 @@ export default {
       padding: [3, 4],
       borderRadius: 4,
       boxShadow: "0 0 2px 0px rgba(0, 0, 0, 0.2)",
-      bg: "background",
-
       textDecoration: "none",
       color: "gray.0",
       fontFamily: "body",
@@ -227,9 +225,6 @@ export default {
       "&:hover": {
         transition: "all 400ms ease",
         boxShadow: "0 0 24px 4px rgba(0, 0, 0, 0.2)",
-        // borderColor: "secondary",
-        // borderWidth: 1,
-        // borderStyle: "solid",
       },
     },
     post: {
