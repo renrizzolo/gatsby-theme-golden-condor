@@ -160,19 +160,27 @@ module.exports = ({
     //     },
     //   },
     // },
-    // `gatsby-plugin-mdx-frontmatter`,
+    `gatsby-plugin-mdx-frontmatter`,
+    `gatsby-plugin-catch-links`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: path.resolve(`${postsDir}`),
-        name: `posts`,
+        name: `post`,
       },
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: path.resolve(`${pagesDir}`),
-        name: `pages`,
+        name: `page`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: path.resolve(`src/images`),
+        name: `assets`,
       },
     },
   ],
