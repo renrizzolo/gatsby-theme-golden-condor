@@ -4,11 +4,11 @@ import { Box, Grid } from "theme-ui";
 import PostCard from "@components/PostCard";
 import { Heading } from "theme-ui";
 
-function PostsGrid({ posts, columns, ...rest }) {
+function PostsGrid({ posts, columns, textColor, ...rest }) {
   return (
     <Grid columns={columns} {...rest}>
       {posts.map((post) => (
-        <PostCard key={post.slug} post={post} />
+        <PostCard key={post.slug} post={post} textColor={textColor} />
       ))}
     </Grid>
   );

@@ -4,7 +4,7 @@ import { Flex } from "@components/UI";
 import { Text, Heading, Box, Card, Grid, sx, Badge } from "theme-ui";
 import { Link } from "gatsby";
 
-function PostCard({ post, showExcerpt = false, ...rest }) {
+function PostCard({ post, showExcerpt = false, textColor = "text", ...rest }) {
   return (
     <Card
       as={Link}
@@ -30,13 +30,14 @@ function PostCard({ post, showExcerpt = false, ...rest }) {
           flexWrap: "wrap",
         }}
       >
-        <Text mr={1} sx={{ fontSize: [0, 1] }}>
+        <Text color={textColor} mr={1} sx={{ fontSize: [0, 1] }}>
           {post.frontmatter.date}{" "}
         </Text>
         <Badge variant="primaryLight">{post.frontmatter.category?.name}</Badge>
       </Flex>
       <Box pb={2} />
       <Heading
+        color={textColor}
         sx={{
           fontSize: [4, 4, 5],
           fontWeight: "600",
@@ -47,7 +48,9 @@ function PostCard({ post, showExcerpt = false, ...rest }) {
       {showExcerpt && (
         <>
           <Box pb={2} />
-          <Text as="p">{post.frontmatter.excerpt}</Text>
+          <Text color={textColor} as="p">
+            {post.frontmatter.excerpt}
+          </Text>
         </>
       )}
     </Card>
