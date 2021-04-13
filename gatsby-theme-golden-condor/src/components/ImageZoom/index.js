@@ -29,7 +29,7 @@ const ImageZoom = ({ className, ...props }) => {
       wrapElement={ZoomWrapper}
       isZoomed={isZoomed}
       onZoomChange={handleZoomChange}
-      zoomMargin={theme.space[4]}
+      // zoomMargin={theme.space[4]}
       overlayBgColorEnd={theme.colors.gray[2]}
     >
       <img
