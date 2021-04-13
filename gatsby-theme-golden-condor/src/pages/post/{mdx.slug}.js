@@ -75,7 +75,7 @@ function BlogPost({ data }) {
                 )}
               </Flex>
             </Grid>
-            <Box pb={[3, 4, 5]} />
+            <Box pb={[4, 5, 6]} />
           </Container>
         </Box>
 
