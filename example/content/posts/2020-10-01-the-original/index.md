@@ -1,6 +1,7 @@
 ---
 title: The Original
 date: 2020-10-24
+author: Ren Rizzolo
 category:
   name: Test Category
   slug: test-category

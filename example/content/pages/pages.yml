@@ -6,9 +6,11 @@
 - title: About
   path: /about
   locations: [top, footer]
-  content: !mdx |
-    <h2>The gang.</h2>
-    <p>We love pizza.</p>
+  content: !mdx |    
+    <Panel>
+      <h2>The gang.</h2>
+      <p>We love pizza.</p>
+    </Panel>
 
 - title: Contact
   path: /contact
