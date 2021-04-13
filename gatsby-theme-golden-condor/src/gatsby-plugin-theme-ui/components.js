@@ -42,6 +42,7 @@ export default {
   Button,
   Grid,
   Box,
+  Text,
   figure: ({ children, ...props }) => {
     return (
       <Box as="figure" {...props}>

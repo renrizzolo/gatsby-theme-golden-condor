@@ -4,6 +4,7 @@ import styled from "@emotion/styled";
 import { useThemeUI } from "theme-ui";
 import "react-medium-image-zoom/dist/styles.css";
 import { ThemeContext } from "@emotion/react";
+import { Box } from "theme-ui";
 
 const ZoomWrapper = styled.div`
   position: absolute;
@@ -23,6 +24,7 @@ const ImageZoom = ({ className, ...props }) => {
   }, []);
 
   return (
+    // <Box sx={{ position: "relative" }}>
     <ControlledZoom
       wrapElement={ZoomWrapper}
       isZoomed={isZoomed}
@@ -41,6 +43,7 @@ const ImageZoom = ({ className, ...props }) => {
         // }}
       />
     </ControlledZoom>
+    // </Box>
   );
 };
 

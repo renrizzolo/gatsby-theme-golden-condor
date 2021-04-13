@@ -7,6 +7,7 @@ function Tags({ tags, ...props }) {
     <>
       {tags.map((tag) => (
         <Badge
+          key={tag}
           // as={Link}
           // to={`/tags/${tag}`}
           variant="secondaryLight"

@@ -28,7 +28,7 @@ function TableOfContents({ headings, label }) {
           {label}
         </Heading>
         {headings.map(({ title, url }) => (
-          <Text as="li">
+          <Text as="li" key={title}>
             <Link
               variant="dark"
               href={url}

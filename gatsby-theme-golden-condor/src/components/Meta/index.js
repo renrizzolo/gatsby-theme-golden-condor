@@ -23,34 +23,33 @@ function Meta({ post }) {
     >
       <Box pb={1}>
         <Text
-          color="gray.3"
+          color="gray.1"
           mb={2}
           sx={{ fontWeight: 600, fontSize: 0, fontFamily: "heading" }}
         >
-          <Box as="span" color="gray.0">
-            {author && (
-              <>
+          <Box>
+            <Box as="span" color="gray.0">
+              {author && (
                 <Box itemProp="author" as="span" sx={{ whiteSpace: "nowrap" }}>
                   {author}
                 </Box>
-              </>
-            )}
-          </Box>
-          {" / "}
-          <Box as="span" color="gray.1" sx={{ whiteSpace: "nowrap" }}>
-            {date}
-          </Box>
-          {" / "}
-          <Box as="span" color="gray.2" sx={{ whiteSpace: "nowrap" }}>
-            {timeToRead && `${timeToRead} minute read`}
-          </Box>
-          {" / "}
-          <Box as="span" color="gray.2" sx={{ whiteSpace: "nowrap" }}>
-            {category && (
-              <>
+              )}
+            </Box>
+            {" / "}
+            <Box as="span" sx={{ whiteSpace: "nowrap" }}>
+              {category && (
                 <Link to={`/categories/${category.slug}`}>{category.name}</Link>
-              </>
-            )}
+              )}
+            </Box>
+          </Box>
+          <Box>
+            <Box as="span" sx={{ whiteSpace: "nowrap" }}>
+              {date}
+            </Box>
+            {" / "}
+            <Box as="span" sx={{ whiteSpace: "nowrap" }}>
+              {timeToRead && `${timeToRead} minute read`}
+            </Box>
           </Box>
         </Text>
       </Box>

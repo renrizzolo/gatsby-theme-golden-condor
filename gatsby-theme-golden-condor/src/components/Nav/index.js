@@ -25,9 +25,9 @@ const Nav = () => {
   `);
   const { site, allPagesYaml: pages } = data;
   return (
-    <Box as="nav" px={3} py={4} bg="navBar">
+    <Box as="nav" px={3} py={4} bg="primary.3">
       <Container>
-        <Flex flexDirection="row" align="center">
+        <Flex flexDirection="row" align="center" justify="center">
           <Heading>
             <Link to="/" color="white" nav sx={{ textDecoration: "none" }}>
               {site.siteMetadata.title}

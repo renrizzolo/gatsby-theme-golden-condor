@@ -1,7 +1,7 @@
 import React from "react";
-import { useStaticQuery } from "gatsby";
-import { Box, Container, Text, Grid } from "theme-ui";
-import { Flex, Button, Link } from "@components/UI";
+import { useStaticQuery, graphql } from "gatsby";
+import { Box, Container, Text } from "theme-ui";
+import { Flex, Link } from "@components/UI";
 
 function Footer() {
   const data = useStaticQuery(graphql`
@@ -36,7 +36,11 @@ function Footer() {
     <Box as="footer">
       <Box p={4} bg="muted">
         <Container>
-          <Flex align="center" flexDirection={["column", "row"]}>
+          <Flex
+            align="center"
+            justify="center"
+            flexDirection={["column", "row"]}
+          >
             <Text as="p">© {siteMetadata.author}</Text>
             <Text
               as="ul"

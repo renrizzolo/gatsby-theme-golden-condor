@@ -10,17 +10,35 @@ const Flex = styled(Box)`
   ${variant({
     prop: "align",
     variants: {
+      start: {
+        alignItems: "start",
+      },
       center: {
-        justifyContent: "center",
         alignItems: "center",
       },
+      end: {
+        alignItems: "end",
+      },
+      stretch: {
+        alignItems: "stretch",
+      },
+    },
+    prop: "justify",
+    variants: {
       start: {
-        justifyContent: "flex-start",
-        alignItems: "flex-start",
+        justifyContent: "start",
+      },
+      center: {
+        justifyContent: "center",
       },
       end: {
-        justifyContent: "flex-end",
-        alignItems: "flex-end",
+        justifyContent: "end",
+      },
+      even: {
+        justifyContent: "space-evenly",
+      },
+      around: {
+        justifyContent: "space-around",
       },
     },
   })}

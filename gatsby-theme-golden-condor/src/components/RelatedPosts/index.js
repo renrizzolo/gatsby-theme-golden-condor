@@ -5,11 +5,11 @@ import PostsGrid from "@components/PostsGrid";
 
 function RelatedPosts({ relatedPosts }) {
   return (
-    <Box p={[4, 4, 4, 6]} bg="secondary.3">
+    <Box px={[4, 4, 4, 6]} py={[4, 5]} bg="secondary.3">
       <Heading variant="display" mb={4}>
         Read next:
       </Heading>
-      <PostsGrid columns={3} posts={relatedPosts} />
+      <PostsGrid posts={relatedPosts} />
     </Box>
   );
 }

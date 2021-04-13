@@ -6,7 +6,12 @@ import { Link } from "gatsby";
 
 function PostCard({ post, showExcerpt = false, ...rest }) {
   return (
-    <Card as={Link} to={`/posts/${post.slug}`} variant="post" {...rest}>
+    <Card
+      as={Link}
+      to={`/${post.parent?.sourceInstanceName || "post"}/${post.slug}`}
+      variant="post"
+      {...rest}
+    >
       {post.frontmatter.image && (
         <>
           <Img
