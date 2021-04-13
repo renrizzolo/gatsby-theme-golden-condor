@@ -72,5 +72,11 @@ export const postPreviewFragment = graphql`
         }
       }
     }
+    parent {
+      __typename
+      ... on File {
+        sourceInstanceName
+      }
+    }
   }
 `;

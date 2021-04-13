@@ -21,7 +21,7 @@ function BlogPost({ data }) {
         title={post.title}
         description={post.excerpt}
         image={post.image}
-        pathname={`${data.postsPrefix}/${post.slug}`}
+        pathname={`${data.parent?.sourceInstanceName || "post"}/${post.slug}`}
         article
       />
 
@@ -115,9 +115,14 @@ export const query = graphql`
         excerpt
       }
       timeToRead
-
       tableOfContents
       body
+      parent {
+        __typename
+        ... on File {
+          sourceInstanceName
+        }
+      }
     }
     site {
       siteMetadata {

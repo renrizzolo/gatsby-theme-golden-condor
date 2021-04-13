@@ -1,27 +1,21 @@
 import React from "react";
-import Img from "gatsby-image";
-import { graphql, Link } from "gatsby";
-import { Container, Box, Heading, Text, Grid, Divider } from "theme-ui";
+import { graphql } from "gatsby";
+import { Container, Box } from "theme-ui";
 import Layout from "@components/Layout";
 import SEO from "@components/SEO";
-import Meta from "@components/Meta";
-import MDX from "@components/MDX";
-import TableOfContents from "@components/TableOfContents";
-import RelatedPosts from "@components/RelatedPosts";
+
 import PostsGrid from "@components/PostsGrid";
 
 function TagPage({ data, params }) {
   console.log(data, params);
-
+  const post = data.allMdx?.nodes?.[0];
   return (
     <>
-      {/* <SEO
-        title={post.title}
-        description={post.excerpt}
-        image={post.image}
-        pathname={`tag/${post.slug}`}
-        article
-      /> */}
+      <SEO
+        title={`Posts in the ${post.category?.name} category`}
+        description={""}
+        pathname={`category/${post.category?.slug}`}
+      />
 
       <Layout>
         <Box p={[3, 4, 5]}>
@@ -46,6 +40,7 @@ export const query = graphql`
       }
     ) {
       nodes {
+        postSlug: gatsbyPath(filePath: "/post/{mdx.slug}")
         ...postPreview
       }
     }
