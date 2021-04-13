@@ -1,11 +1,15 @@
 import theme from "@theme-ui/preset-swiss";
 import colors from "./colors";
+
 const headingFont = "Space Grotesk";
 const bodyFont = "Libre Franklin";
 
+const space = [0, 4, 8, 16, 32, 64, 128, 256, 512];
+const articleWidth = 732;
+
 export default {
   ...theme,
-  space: [0, 4, 8, 16, 32, 64, 128, 256, 512],
+  space,
   colors: {
     ...theme.colors,
     ...colors,
@@ -29,13 +33,18 @@ export default {
       maxWidth: 1024,
     },
     article: {
-      maxWidth: 732,
+      maxWidth: articleWidth,
     },
   },
   grids: {
     articleWithSidebar: {
       // columns doesn't seem to map correctly to the grid columns prop here
-      gridTemplateColumns: ["1fr", "1fr", "1fr", "750px 1fr"],
+      gridTemplateColumns: [
+        "1fr",
+        "1fr",
+        "1fr",
+        `${articleWidth + space[4]}px 1fr`,
+      ],
       gap: [4],
     },
   },
