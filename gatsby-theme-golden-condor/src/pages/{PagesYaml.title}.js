@@ -1,5 +1,5 @@
 import React from "react";
-import { graphql, Link } from "gatsby";
+import { graphql } from "gatsby";
 import SEO from "@components/SEO";
 import Layout from "@components/Layout";
 import { Container, Box, Heading, Text } from "theme-ui";
@@ -11,11 +11,10 @@ function Page({ data }) {
   return (
     <>
       <SEO
-      // title={post.title}
-      // description={post.excerpt}
-      // image={post.image}
-      // pathname={`${data.postsPrefix}/${post.slug}`}
-      // article
+        title={page.title}
+        description={page.excerpt}
+        image={page.image}
+        pathname={`${page.path.split("/")[1]}`}
       />
 
       <Layout>
@@ -43,6 +42,7 @@ export const query = graphql`
   query($id: String!) {
     pagesYaml(id: { eq: $id }) {
       title
+      path
       content {
         body
       }
