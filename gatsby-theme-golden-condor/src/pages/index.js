@@ -66,9 +66,7 @@ export const postPreviewFragment = graphql`
       excerpt
       image {
         childImageSharp {
-          fluid(maxWidth: 400, maxHeight: 225) {
-            ...GatsbyImageSharpFluid
-          }
+          gatsbyImageData(width: 400, height: 225, layout: FULL_WIDTH)
         }
       }
     }

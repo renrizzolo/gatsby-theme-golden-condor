@@ -1,10 +1,11 @@
 import React from "react";
-import Img from "gatsby-image";
+import PropTypes from "prop-types";
+import { GatsbyImage } from "gatsby-plugin-image";
 import { Flex } from "@components/UI";
 import { Text, Heading, Box, Card, Grid, sx, Badge } from "theme-ui";
 import { Link } from "gatsby";
 
-function PostCard({ post, showExcerpt = false, textColor = "text", ...rest }) {
+function PostCard({ post, showExcerpt, textColor, ...rest }) {
   return (
     <Card
       as={Link}
@@ -14,10 +15,9 @@ function PostCard({ post, showExcerpt = false, textColor = "text", ...rest }) {
     >
       {post.frontmatter.image && (
         <>
-          <Img
-            fluid={post.frontmatter.image.childImageSharp.fluid}
-            alt={post.frontmatter.title}
-          />
+          <GatsbyImage
+            image={post.frontmatter.image.childImageSharp.gatsbyImageData}
+            alt={post.frontmatter.title} />
         </>
       )}
       <Box pb={3} />
@@ -56,4 +56,13 @@ function PostCard({ post, showExcerpt = false, textColor = "text", ...rest }) {
     </Card>
   );
 }
+PostCard.propTypes = {
+  post: PropTypes.object.isRequired,
+  showExcerpt: PropTypes.bool,
+  textColor: PropTypes.string,
+};
+PostCard.defaultProps = {
+  textColor: "text",
+  showExcerpt: false,
+};
 export default PostCard;

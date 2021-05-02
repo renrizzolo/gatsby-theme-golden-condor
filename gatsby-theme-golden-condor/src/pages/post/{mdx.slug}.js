@@ -1,5 +1,5 @@
 import React from "react";
-import Img from "gatsby-image";
+import { GatsbyImage } from "gatsby-plugin-image";
 import { graphql, Link } from "gatsby";
 import { Container, Box, Heading, Text, Grid, Divider } from "theme-ui";
 import Layout from "@components/Layout";
@@ -32,7 +32,7 @@ function BlogPost({ data }) {
             {post.image && (
               <>
                 <Box>
-                  <Img
+                  <GatsbyImage
                     // style={{
                     //   zIndex: -1,
                     //   marginRight: "-2em",
@@ -41,7 +41,7 @@ function BlogPost({ data }) {
                     // imgStyle={{
                     //   "clip-path": "polygon(0 0, 100% 5%, 100% 100%, 0 95%)",
                     // }}
-                    fluid={post.image.childImageSharp.fluid}
+                    image={post.image.childImageSharp.gatsbyImageData}
                     alt={post.title}
                   />
                 </Box>
@@ -83,8 +83,8 @@ function BlogPost({ data }) {
         These are not actually related posts, they're recent posts. 
         we would have to stop using the file system api 
         in order to query posts on the tags
-    */}
-        <RelatedPosts relatedPosts={data.relatedPosts?.nodes} />
+      */}
+        <RelatedPosts posts={data.relatedPosts?.nodes} />
       </Layout>
     </>
   );
@@ -107,9 +107,7 @@ export const query = graphql`
         }
         image {
           childImageSharp {
-            fluid(maxWidth: 700, maxHeight: 400) {
-              ...GatsbyImageSharpFluid
-            }
+            gatsbyImageData(width: 700, height: 400, layout: FULL_WIDTH)
           }
         }
         excerpt

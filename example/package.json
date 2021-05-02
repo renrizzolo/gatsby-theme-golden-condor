@@ -10,8 +10,8 @@
     "clean": "gatsby clean"
   },
   "dependencies": {
-    "gatsby": "^2.30.0",
-    "gatsby-plugin-manifest": "^2.10.0",
+    "gatsby": "^3.4.0",
+    "gatsby-plugin-manifest": "^3.4.0",
     "gatsby-theme-golden-condor": "*",
     "react": "^17.0.1",
     "react-dom": "^17.0.1"
