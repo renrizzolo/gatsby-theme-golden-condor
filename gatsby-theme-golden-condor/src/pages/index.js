@@ -66,7 +66,12 @@ export const postPreviewFragment = graphql`
       excerpt
       image {
         childImageSharp {
-          gatsbyImageData(width: 400, height: 225, layout: FULL_WIDTH)
+          gatsbyImageData(
+            width: 400
+            height: 225
+            aspectRatio: 1.666
+            layout: FULL_WIDTH
+          )
         }
       }
     }

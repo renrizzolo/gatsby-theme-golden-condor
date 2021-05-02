@@ -84,6 +84,7 @@ function BlogPost({ data }) {
         we would have to stop using the file system api 
         in order to query posts on the tags
       */}
+
         <RelatedPosts posts={data.relatedPosts?.nodes} />
       </Layout>
     </>
@@ -107,7 +108,12 @@ export const query = graphql`
         }
         image {
           childImageSharp {
-            gatsbyImageData(width: 700, height: 400, layout: FULL_WIDTH)
+            gatsbyImageData(
+              width: 700
+              height: 400
+              aspectRatio: 1.666
+              layout: FULL_WIDTH
+            )
           }
         }
         excerpt
