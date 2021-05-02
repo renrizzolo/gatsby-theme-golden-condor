@@ -148,8 +148,8 @@ export default {
       cursor: "pointer",
       "&:focus": {
         outline: "none",
-
-        boxShadow: (theme) => `inset 0px 0px 0px 2px ${theme.colors.text}`,
+        boxShadow: (theme) =>
+          `inset 0px 0px 0px 2px rgba(255,255,255,0.8), 0px 0px 0px 2px ${theme.colors.pop}`,
       },
       transition: "all 300ms ease",
       "&:hover": {

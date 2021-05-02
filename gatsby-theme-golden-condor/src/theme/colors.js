@@ -13,7 +13,7 @@ const colors = {
   primary,
   secondary,
   text: "#111",
-
+  pop: " #f56905",
   modes: {
     dark: {
       muted: "#131314",
