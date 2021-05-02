@@ -6,7 +6,7 @@ import { Heading } from "theme-ui";
 
 function PostsGrid({ posts, columns, textColor, ...rest }) {
   return (
-    <Grid columns={columns} {...rest}>
+    <Grid columns={columns} gap={4} {...rest}>
       {posts.map((post) => (
         <PostCard key={post.slug} post={post} textColor={textColor} />
       ))}

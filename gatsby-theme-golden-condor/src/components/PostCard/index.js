@@ -17,7 +17,8 @@ function PostCard({ post, showExcerpt, textColor, ...rest }) {
         <>
           <GatsbyImage
             image={post.frontmatter.image.childImageSharp.gatsbyImageData}
-            alt={post.frontmatter.title} />
+            alt={post.frontmatter.title}
+          />
         </>
       )}
       <Box pb={3} />
