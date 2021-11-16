@@ -1,15 +1,15 @@
 ---
-title: The Original
-date: 2020-10-24
-author: Ren Rizzolo
+title: Intro to Westworld
+date: 2020-10-01
+author: ""
 category:
-  name: Test Category
-  slug: test-category
-tags: 
- - TV shows
- - Dolores Abernathy
-
-image: ./images/max-letek-ulnh0KShbpg-unsplash.jpg
+  name: Westworld
+  slug: westworld
+tags:
+  - TV shows
+  - Dolores Abernathy
+  - The Man In Black
+image: ./images/westowrld-main.jpeg
 excerpt: Westworld is a huge Western-themed park where human guests can interact with lifelike android "hosts", programmed to run through a daily narrative, without memory of prior days' events, and interact with guests.
 ---
 

@@ -1,0 +1,182 @@
+---
+title: Sidebar
+excerpt: How to configure and use the sidebar navigation
+parent: configuration
+date: 2021-12-29
+---
+
+import Sidebar from "@components/Sidebar";
+
+## Sidebar overview
+
+The sidebar is a component which lists other pages in the same collection, so users can easily navigate through the related content. This is a standard pattern for documentation websites, but could be used to group any kind of content together.
+
+All content in the collection is listed, ordered by `frontmatter.date`.
+
+## Enabling the sidebar
+
+The sidebar can be opted in to on a per-collection basis.
+
+To do so, the `sidebarNav` object needs to be present on the collection's config:
+
+`gatsby-config.js`
+
+```js {5-8}
+  {
+    resolve: `gatsby-theme-golden-condor`,
+    options: {
+      collections: {
+        pages: {
+          sidebarNav: {
+            heading: "Pages",
+            width: 220
+          }
+        }
+      }
+    }
+  }
+```
+
+The above will enable a 300px wide sidebar with the heading Pages, on all entries under content/pages.
+
+## Add parent/child relationships via frontmatter
+
+The sidebar supports a sub-level with togglable display of child entries. It also supports a sub-sub-level, which is further indented but doesn't have an expand/collapse toggle.
+
+1. In the parent `md(x)` file, add an `id` field:
+
+```md {3}
+---
+title: Parent Page
+id: parent-page
+---
+```
+
+2. In the child `md(x)` files, add a `parent` field, with the parent's `id` value:
+
+```md {3}
+---
+title: Child Page
+parent: parent-page
+---
+```
+
+```md {3}
+---
+title: Another Child Page
+parent: parent-page
+---
+```
+
+This would result in a sidebar with the following layout:
+
+<Sidebar
+  options={{ heading: "Pages", width: 220 }}
+  entries={[
+    {
+      childMdx: {
+        childEntries: [
+          {
+            slug: "child-page/",
+            path: "/page/child-page/",
+            collection: "page",
+            frontmatter: {
+              id: null,
+              title: "Child Page",
+              parent: "parent-page",
+            },
+            parent: {
+              sourceInstanceName: "page",
+            },
+          },
+          {
+            slug: "another-child-page/",
+            path: "/page/another-child-page/",
+            collection: "page",
+            frontmatter: {
+              id: null,
+              title: "Another Child Page",
+              parent: "parent-page",
+            },
+            parent: {
+              sourceInstanceName: "page",
+            },
+          },
+        ],
+        slug: "parent-page/",
+        path: "/page/parent-page/",
+        collection: "page",
+        frontmatter: {
+          id: null,
+          title: "Parent Page",
+          parent: null,
+        },
+        parent: {
+          sourceInstanceName: "page",
+        },
+      },
+    },
+  ]}
+/>
+
+## Create a heading without a page
+
+To create a 'linkless' parent page, in the parent page's `md(x)` file, add a null path field.
+
+```md {4}
+---
+title: Parent Page
+id: parent-page
+path: null
+---
+```
+
+The result of this is that this page isn't created by Gatsby at all. It will show in the sidebar with its title but it won't link to anything:
+
+<Sidebar
+  options={{ heading: "Pages", width: 220 }}
+  entries={[
+    {
+      childMdx: {
+        childEntries: [
+          {
+            slug: "child-page/",
+            path: "/page/child-page/",
+            collection: "page",
+            frontmatter: {
+              id: null,
+              title: "Child Page",
+              parent: "parent-page",
+            },
+            parent: {
+              sourceInstanceName: "page",
+            },
+          },
+          {
+            slug: "another-child-page/",
+            path: "/page/another-child-page/",
+            collection: "page",
+            frontmatter: {
+              id: null,
+              title: "Another Child Page",
+              parent: "parent-page",
+            },
+            parent: {
+              sourceInstanceName: "page",
+            },
+          },
+        ],
+        slug: "parent-page/",
+        collection: "page",
+        frontmatter: {
+          id: null,
+          title: "Parent Page",
+          parent: null,
+        },
+        parent: {
+          sourceInstanceName: "page",
+        },
+      },
+    },
+  ]}
+/>

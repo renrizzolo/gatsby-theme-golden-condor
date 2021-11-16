@@ -7,10 +7,29 @@
   "scripts": {
     "build": "yarn workspace gatsby-theme-golden-condor-example build",
     "dev": "yarn workspace gatsby-theme-golden-condor-example develop",
-    "clean": "yarn workspace gatsby-theme-golden-condor-example clean"
+    "clean": "yarn workspace gatsby-theme-golden-condor-example clean",
+    "serve": "yarn workspace gatsby-theme-golden-condor-example serve",
+    "docs:build": "yarn workspace gatsby-theme-golden-condor-docs build",
+    "docs:dev": "yarn workspace gatsby-theme-golden-condor-docs develop",
+    "docs:clean": "yarn workspace gatsby-theme-golden-condor-docs clean",
+    "docs:serve": "yarn workspace gatsby-theme-golden-condor-docs serve",
+    "prettier": "prettier \"{packages/gatsby-theme-golden-condor/src/**,example/src,example/src/**,docs/src,docs/src/**}/*.{md,mdx,js,jsx,json}\"",
+    "format": "yarn prettier --write",
+    "lint": "eslint --ext .js,.jsx ./packages/gatsby-theme-golden-condor/src"
   },
   "workspaces": [
-    "gatsby-theme-golden-condor",
-    "example"
-  ]
+    "packages/*",
+    "example",
+    "docs"
+  ],
+  "packageManager": "yarn@3.1.1",
+  "devDependencies": {
+    "eslint": "^8.5.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-config-react-app": "^7.0.0",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react-hooks": "^4.3.0",
+    "prettier": "^2.5.1"
+  }
 }

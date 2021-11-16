@@ -1,0 +1,40 @@
+---
+title: Navigation
+excerpt: edit the header & footer navigation menus
+parent: configuration
+date: 2021-12-28
+---
+
+## Navigation
+
+The header and footer nav menus are defined in a yaml file, `content/pages/navigation.yml`.
+
+It looks like this:
+
+```yaml
+- label: Docs
+  path: /docs
+  locations: [top]
+
+- label: About
+  path: /about
+  locations: [top, footer]
+```
+
+### `label`
+
+The text to display on the menu item
+
+### `path`
+
+The path the menu item links to
+
+### `locations`
+
+Where the menu item should be shown. Options are `top` and `footer`. As this is an array, you can choose either or both.
+
+<hr />
+
+## Social links
+
+The footer also has a social links section. These are defined by an array of label/url objects under `social` in `gatsby-config.js` <Link to="/doc/site-metadata#social">siteMetadata</Link>

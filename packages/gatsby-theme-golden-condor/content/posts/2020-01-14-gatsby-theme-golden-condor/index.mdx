@@ -1,0 +1,220 @@
+---
+title: Gatsby Theme Golden Condor
+subTitle: Gatsby Theme Golden Condor is a customizable Gatsby theme for blogs, docs and more.
+date: 2021-01-14
+author: Ren Rizzolo
+tags:
+  - Gatsby
+  - Gatsby Themes
+category:
+  name: Test Category
+  slug: test-category
+image: ./images/cyrus-crossan-jM3Hul59BcU-unsplash.jpg
+embeddedImages:
+  - ./images/cyrus-crossan-jM3Hul59BcU-unsplash.jpg
+excerpt: Gatsby Theme Golden Condor is a customizable Gatsby theme for blogs, docs and more.
+---
+
+## Theme
+
+### Typography
+
+<h1>Heading 1</h1>
+<h2>Heading 2</h2>
+<h3>Heading 3</h3>
+<h4>Heading 4</h4>
+
+<p>
+  <strong>Westworld</strong> is a huge Western-themed park where human guests
+  can interact with lifelike android "hosts", programmed to run through a daily
+  narrative, without memory of prior days' events, and interact with guests. As
+  hosts are unable to harm guests, guests often live out their darkest desires,
+  including violent and sexual ones.
+</p>
+
+### Colors
+
+<h4>Primary</h4>
+<Grid columns={[2, 6]} gap={4} mb={4}>
+  {Array.from(Array(6)).map((_, n) => (
+    <Box key={n}>
+      <Box bg={`primary.${n}`} sx={{ width: "100%", height: 100 }} mb={1}></Box>
+      <code>{`primary.${n}`}</code>
+    </Box>
+  ))}
+</Grid>
+<h4>Secondary</h4>
+<Grid columns={[2, 6]} gap={4} mb={4}>
+  {Array.from(Array(6)).map((_, n) => (
+    <Box key={n}>
+      <Box bg={`secondary.${n}`} sx={{ width: "100%", height: 100 }}></Box>
+      <code>{`secondary.${n}`}</code>
+    </Box>
+  ))}
+</Grid>
+<h4>Gray</h4>
+<Grid columns={[2, 6]} gap={4} mb={4}>
+  {Array.from(Array(5)).map((_, n) => (
+    <Box key={n}>
+      <Box bg={`gray.${n}`} sx={{ width: "100%", height: 100 }}></Box>
+      <code>{`gray.${n}`}</code>
+    </Box>
+  ))}
+</Grid>
+<h4>Other</h4>
+<Grid columns={[2, 5]} gap={4} mb={4}>
+  <Box>
+    <Box bg={`muted`} sx={{ width: "100%", height: 100 }}></Box>
+    <code>{`muted`}</code>
+  </Box>
+  <Box>
+    <Box bg={`paper`} sx={{ width: "100%", height: 100 }}></Box>
+    <code>{`paper`}</code>
+  </Box>
+  <Box>
+    <Box bg={`dark`} sx={{ width: "100%", height: 100 }}></Box>
+    <code>
+      {`dark`}
+      <br />
+      (regardless of dark/light mode)
+    </code>
+  </Box>
+  <Box>
+    <Box bg={`light`} sx={{ width: "100%", height: 100 }}></Box>
+    <code>{`light`} (regardless of dark/light mode)</code>
+  </Box>
+</Grid>
+
+### bits & pieces (`theme-ui`)
+
+#### Grid / embedded images example
+
+<Grid mb={3} columns={[1, 2]}>
+  <GridItem>
+    <GatsbyImage
+      imgStyle={{ maxWidth: "100%", height: "auto" }}
+      alt="Alt text"
+      image={getImage(props.embeddedImages?.[0])}
+    />
+  </GridItem>
+  <GridItem>
+    <GatsbyImage
+      imgStyle={{ maxWidth: "100%", height: "auto" }}
+      alt="Alt text"
+      image={getImage(props.embeddedImages?.[0])}
+    />
+  </GridItem>
+</Grid>
+
+#### Panel / Button
+
+<Panel mb={3} bg="muted" color="text">
+
+### Sign up
+
+You won't believe what's in my weekly newsletter (I don't have one).
+
+<Button mb={2} variant="primary">
+  Click here!
+</Button>
+
+</Panel>
+
+## Some markdown
+
+---
+
+- A _list_
+- here
+  - list sub item
+
+#### another list
+
+1. thing
+
+2. other thing that is so long that it wraps around into another line so we can see what that will look like. I think.
+3. another list
+4. here
+
+## Syntax highlighting
+
+The syntax highlighting uses `@atomiks/mdx-pretty-code` (which uses `shikijs`), and is confgured in `src/theme/mdxPrettyCode.js`.
+This is a modified (read: butchered) version of the _Ayu Mirage_ vscode theme.
+
+### mdx-pretty-code API
+
+Code blocks are configured via the meta string after the top codeblock fence.
+
+### Line highlighting
+
+Highlight lines 1, 2 through 4, and 6.
+
+\`\`\`jsx {3, 11-14}
+
+```jsx {3, 11-14}
+import React from "react";
+import PropTypes from "prop-types";
+import { GatsbyImage } from "gatsby-plugin-image";
+import { Card } from "theme-ui";
+import { Link } from "gatsby";
+
+function PostCard({ post }) {
+  return (
+    <Card as={Link} variant="post">
+      {post.frontmatter.image && (
+        <GatsbyImage
+          image={post.frontmatter.image.childImageSharp.gatsbyImageData}
+          alt={post.frontmatter.title}
+        />
+      )}
+    </Card>
+  );
+}
+
+PostCard.propTypes = {
+  post: PropTypes.object.isRequired,
+  showExcerpt: PropTypes.bool,
+  textColor: PropTypes.string,
+};
+
+PostCard.defaultProps = {
+  textColor: "text",
+  showExcerpt: false,
+};
+
+export default PostCard;
+```
+
+### Word highlighting
+
+Highlight the literal word `carrot`. Regex is not currently supported.
+
+` ```js /carrot/ `
+
+```js /carrot/
+const carrot = "orange";
+```
+
+#### Limit word highlighting to specific instances
+
+If you want to limit which words get highlighted, this is possible. For
+instance:
+
+` ```js /carrot/1-2,4 `
+
+The numeric range must be directly after the `/`.
+
+This will only highlight the first, second, and fourth instances of `carrot`,
+but not the third, or fifth+.
+
+### Inline highlighting
+
+The default `` `...` `` inline code blocks are styled by the theme definition - `theme.styles.inlineCode`.
+
+To get language specific highlighting like fenced code blocks, append {:lang} (e.g. {:js}) at the end of the inline code to highlight it
+like it's a regular code block.
+
+`` `function inline(code) { /* with syntax highlighting */ }{:js}` ``
+
+Becomes:
+`function inline(code) { /* with syntax highlighting */ }{:js}`

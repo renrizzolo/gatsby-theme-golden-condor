@@ -1,0 +1,11 @@
+- label: Blog
+  path: /posts
+  locations: [top]
+
+- label: About
+  path: /page/about
+  locations: [top, footer]
+
+- label: Terms & Conditions
+  path: /page/terms-and-conditions
+  locations: [footer]

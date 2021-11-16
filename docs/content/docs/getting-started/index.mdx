@@ -1,0 +1,94 @@
+---
+title: Getting started
+excerpt: get set up using the Gatsby Theme
+date: 2022-01-01
+---
+
+<Panel type="info">
+  If you aren't experienced with Gatsby yet, you should go ahead and follow the{" "}
+  <Link href="https://www.gatsbyjs.com/docs/tutorial/">tutorial</Link> to get
+  things up and running first.
+</Panel>
+
+## Get started with a new project
+
+First init a new gatsby project:
+
+```bash
+npm init gatsby
+```
+
+cd into the directory of your new project
+
+```bash
+cd my-gatsby-site
+```
+
+Install the theme
+
+```bash
+npm i gatsby-theme-golden-condor
+```
+
+## Install the theme in an existing project
+
+In your project folder
+
+```bash
+npm i gatsby-theme-golden-condor
+```
+
+## Theme Setup
+
+### Gatsby config
+
+Edit your `gatsby-config.js`
+We need to add the plugin `gatsby-theme-golden-condor`, plus there are a few required `siteMetadata` options that the theme uses for SEO and the like.
+
+```js {16-19}
+module.exports = {
+  siteMetadata: {
+    siteUrl: "https://www.yourdomain.tld",
+    title: "Your Title",
+    author: "Your Name",
+    description: "site description",
+    image: "static-image.png",
+    social: [
+      {
+        name: "...",
+        url: "...",
+      },
+    ],
+  },
+  plugins: [
+    {
+      resolve: `gatsby-theme-golden-condor`,
+      options: {},
+    },
+  ],
+};
+```
+
+<Panel type="info">
+For more information on these options check out <Link to="/doc/theme-options">Theme Options</Link> and <Link to="/doc/site-metadata">Site Metadata</Link>
+
+</Panel>
+
+### Remove default pages `index.js`
+
+Delete the `src/pages/index.js` file that was created by gatsby init.
+
+### Run develop
+
+Run the develop script.
+This will create the default `posts`, `pages` and `navigation.yaml` file in the `content` folder.
+
+```bash
+npm run develop
+```
+
+### Edit content
+
+The content for the home page is located at `content/pages/index.mdx`. For more info, check out <Link to="/doc/frontmatter">Frontmatter</Link>
+
+The header and footer menus are configurable in `content/pages/navigation.yaml`. For more info, check out <Link to="/doc/navigation">Navigation</Link>

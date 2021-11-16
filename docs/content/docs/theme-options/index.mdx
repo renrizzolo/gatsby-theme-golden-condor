@@ -1,0 +1,106 @@
+---
+title: Theme Options
+parent: configuration
+order:
+subTitle: Define options for layout and UI per-collection
+excerpt: available theme options for gatsby-config setup
+date: 2021-12-31
+---
+
+## Theme Options
+
+### Overview
+
+The theme's options are defined in the plugin options just as with any other gatsby plugin.
+
+In your `gatsby-config.js` file, add an options object to `gatsby-theme-golden-condor`.
+
+```js
+{
+  resolve: `gatsby-theme-golden-condor`,
+  options: {
+   // ...
+  }
+}
+
+```
+
+### Example
+
+Here is the configuration for this site's `doc` collection type, resulting in the layout you see now.
+
+```js {6-10}
+  {
+    resolve: `gatsby-theme-golden-condor`,
+    options: {
+      collections: {
+        docs: {
+          showTOC: true,
+          containerVariant: "container",
+          sidebarNav: {
+            heading: "Documentation"
+          }
+        }
+      }
+    }
+  }
+```
+
+### Options table
+
+| Option               | Type                 | Description                                                                                                    | Default                     |
+| -------------------- | -------------------- | -------------------------------------------------------------------------------------------------------------- | --------------------------- |
+| `hideOnHomePage`     | `bool`               | Don't query this collection in home page **recent posts** section.                                             | `false` (pages: `true`)     |
+| `disableIndexPage`   | `bool`               | Redirects the `/[collectionName]` index page to `/`.                                                           | `false` (pages: `true`)     |
+| `showRelatedPosts`   | `bool`               | Shows a grid of recent posts under posts in this collection.                                                   | `true` (pages: `false`)     |
+| `meta`               | `bool`               | Show author, date, time to read, tags metadata on posts in this collection. Further configurable as an object. | `true` (pages: `false`)     |
+| `meta.author`        | `bool`               | Set to false to hide author on posts in this collection.                                                       | `true` (pages: `false`)     |
+| `meta.timeToRead`    | `bool`               | Set to false to hide time to read on posts in this collection.                                                 | `true` (pages: `false`)     |
+| `meta.date`          | `bool`               | Set to false to hide date on posts in this collection.                                                         | `true` (pages: `false`)     |
+| `meta.tags`          | `bool`               | Set to false to hide tags on posts in this collection.                                                         | `true` (pages: `false`)     |
+| `showBreadcrumbs`    | `bool`               | Show breadcrumbs on posts in this collection.                                                                  | `true` (pages: `false`)     |
+| `showTOC`            | `bool`               | Shows Table Of Contents (h2 as parents + h3 as children).                                                      | `false`                     |
+| `containerVariant`   | `string`             | Width variant (`theme.layout.[variant]`) for container for posts in this collection.                           | `post` (pages: `container`) |
+| `sidebarNav`         | `object`             | Show left sidebar page navigation (via frontmatter.parent = id / frontmatter.id relationships you define.).    | `undefined`                 |
+| `sidebarNav.heading` | `string`             | sidebarNav Heading text.                                                                                       | `undefined`                 |
+| `sidebarNav.width`   | `number` or `string` | pixel width of sidebar.                                                                                        | `280`                       |
+
+### Options JSON
+
+<Panel type="info" mb="4">
+
+Hint: `collectionName` comes from the `sourceInstanceName` which is defined by `gatsby-source-filesystem`'s `options.name`.
+
+By default `page` and `post` collections are set up, but you can add your own. See @todo<Link to="/doc/collections">collections</Link> for more details.
+
+</Panel>
+
+```js
+{
+  collections: {
+    [collectionName]: {
+      // hide this collection from 'recent posts' grid on home page
+      hideOnHomePage: false
+      // disable the /[collectionName] index page
+      disableIndexPage: false
+      // shows a grid of recent posts under posts in this collection
+      showRelatedPosts: true
+      // show author/date metadata on posts in this collection
+      meta: true
+      // show breadcrumbs on posts in this collection
+      showBreadcrumbs: true
+      // shows Table Of Contents (h2 as parents + h3 as children)
+      showTOC: true
+      // width variant for container for posts in this collection.
+      containerVariant: "post",
+      // left sidebar page navigation (via frontmatter.parent = id / frontmatter.id relationships you define.)
+      sidebarNav: {
+        // sidebarNav Heading text
+        heading: "Pages",
+        // pixel width of sidebar (default: 280)
+        width: 320
+      },
+    },
+  },
+}
+```

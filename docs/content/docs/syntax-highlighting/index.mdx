@@ -1,0 +1,146 @@
+---
+title: Syntax Highlighting
+excerpt: Changing the code blocks plugin and theme
+parent: configuration
+date: 2021-12-28
+---
+
+## Syntax Highlighting
+
+The syntax highlighting uses `@atomiks/mdx-pretty-code` (which uses `shikijs`), and is confgured in `src/theme/mdxPrettyCode.js`.
+This plugin can use any vscode theme JSON file. The theme is set up with `github-light` for the default color theme and a modified version of `ayu-mirage` for the dark theme.
+
+### Overriding the theme
+
+To use your own syntax highlighting theme, you need to:
+
+- create your own `@atomiks/mdx-pretty-code` remark plugin
+- add that plugin to your `gatsby-config.js`'s remarkPlugins
+
+```js
+//mdxPretty.js
+const { createRemarkPlugin } = require("@atomiks/mdx-pretty-code");
+const fs = require("fs");
+
+module.exports = createRemarkPlugin({
+  // Options passed to shiki.getHighlighter()
+  shikiOptions: {
+    // Link to your VS Code theme JSON file
+    theme: JSON.parse(
+      fs.readFileSync(require.resolve("./src/theme/ayu-mirage.json"), "utf-8")
+    ),
+  },
+  // other optional stuff
+});
+```
+
+require the above file like so:
+
+```js {8}
+// import to the theme's existing remark plugins
+const gatsbyRemarkPlugins = require("gatsby-theme-golden-condor/gatsbyRemarkPlugins");
+  // ...
+  {
+    resolve: `gatsby-plugin-mdx`,
+    options: {
+      gatsbyRemarkPlugins,
+      remarkPlugins: [require("./mdxPretty")],
+    },
+  },
+```
+
+<Panel type="info" bg="muted">
+
+You most likely have to run gatsby clean and rebuild in order for changes to take effect.
+
+</Panel>
+
+## mdx-pretty-code API
+
+Code blocks are configured via the meta string after the top codeblock fence.
+
+The below was extracted from the `mdx-pretty-code` docs, and may be out of date.
+
+<Panel type="info">
+
+See the full docs here: [https://github.com/atomiks/mdx-pretty-code](https://github.com/atomiks/mdx-pretty-code)
+
+</Panel>
+
+### Line highlighting
+
+Highlight lines 3, and 11 through 14.
+
+\`\`\`jsx {3, 11-14}
+
+< your code \>
+
+\`\`\`
+
+```jsx {3, 11-14}
+import React from "react";
+import PropTypes from "prop-types";
+import { GatsbyImage } from "gatsby-plugin-image";
+import { Card } from "theme-ui";
+import { Link } from "gatsby";
+
+function PostCard({ post }) {
+  return (
+    <Card as={Link} variant="post">
+      {post.frontmatter.image && (
+        <GatsbyImage
+          image={post.frontmatter.image.childImageSharp.gatsbyImageData}
+          alt={post.frontmatter.title}
+        />
+      )}
+    </Card>
+  );
+}
+
+PostCard.propTypes = {
+  post: PropTypes.object.isRequired,
+  showExcerpt: PropTypes.bool,
+  textColor: PropTypes.string,
+};
+
+PostCard.defaultProps = {
+  textColor: "text",
+  showExcerpt: false,
+};
+
+export default PostCard;
+```
+
+### Word highlighting
+
+Highlight the literal word `carrot`. Regex is not currently supported.
+
+` ```js /carrot/ `
+
+```js /carrot/
+const carrot = "orange";
+```
+
+#### Limit word highlighting to specific instances
+
+If you want to limit which words get highlighted, this is possible. For
+instance:
+
+` ```js /carrot/1-2,4 `
+
+The numeric range must be directly after the `/`.
+
+This will only highlight the first, second, and fourth instances of `carrot`,
+but not the third, or fifth+.
+
+### Inline highlighting
+
+The default `` `...` `` inline code blocks are styled by the theme definition - `theme.styles.inlineCode`.
+
+To get language specific highlighting like fenced code blocks, append {:lang} (e.g. {:js}) at the end of the inline code to highlight it
+like it's a regular code block.
+
+`` `function inline(code) { /* with syntax highlighting */ }{:js}` ``
+
+Becomes:
+`function inline(code) { /* with syntax highlighting */ }{:js}`

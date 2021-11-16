@@ -1,0 +1,48 @@
+{
+  "name": "gatsby-theme-golden-condor",
+  "version": "0.0.1",
+  "main": "index.js",
+  "author": "Ren Rizzolo",
+  "license": "MIT",
+  "peerDependencies": {
+    "gatsby": "^3.4.0"
+  },
+  "dependencies": {
+    "@atomiks/mdx-pretty-code": "0.0.5",
+    "@emotion/react": "^11.4.1",
+    "@emotion/styled": "^11.3.0",
+    "@mdx-js/mdx": "^1.6.22",
+    "@mdx-js/react": "^1.6.22",
+    "@theme-ui/preset-swiss": "^0.6.0-alpha.4",
+    "@theme-ui/prism": "^0.11.3",
+    "gatsby-plugin-catch-links": "^3.4.0",
+    "gatsby-plugin-image": "^1.4.0",
+    "gatsby-plugin-mdx": "^2.4.0",
+    "gatsby-plugin-mdx-frontmatter": "^0.0.2",
+    "gatsby-plugin-react-helmet": "4.4.0",
+    "gatsby-plugin-sharp": "^3.4.0",
+    "gatsby-plugin-theme-ui": "0.11.3",
+    "gatsby-remark-autolink-headers": "^4.1.0",
+    "gatsby-remark-copy-linked-files": "^2.8.0",
+    "gatsby-remark-embed-video": "^3.1.1",
+    "gatsby-remark-external-links": "^0.0.4",
+    "gatsby-remark-images": "^5.1.0",
+    "gatsby-remark-responsive-iframe": "^4.1.0",
+    "gatsby-remark-unwrap-images": "^1.0.2",
+    "gatsby-source-filesystem": "^3.4.0",
+    "gatsby-transformer-sharp": "^3.4.0",
+    "gatsby-transformer-yaml": "^3.14.0",
+    "lodash.merge": "^4.6.2",
+    "react-helmet": "^6.1.0",
+    "shiki": "^0.9.14",
+    "theme-ui": "0.11.3",
+    "unist-util-visit": "2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.10",
+    "@babel/plugin-syntax-jsx": "^7.12.1",
+    "@babel/plugin-transform-react-jsx": "^7.12.12",
+    "@emotion/babel-plugin-jsx-pragmatic": "^0.1.5",
+    "babel-preset-gatsby": "2.4.0"
+  }
+}

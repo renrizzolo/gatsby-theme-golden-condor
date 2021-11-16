@@ -1,0 +1,31 @@
+---
+# this is the home page of the site.
+title: Golden Condor Example
+excerpt: Golden Condor is a gatsby theme with posts and pages in mdx. It can be used for blogs or documentation or whatever. #SEO description
+
+# remove this to not show any recent posts after the markdown content
+# use gatsby-theme-golden-condor settings in gatsby-config
+# to remove certain post types from being displayed here
+recentPosts:
+  # layout: "list" # 'card' | 'list'
+  # columns: "1" # [2,3] etc
+  heading: Recent Posts
+  layout: "card"
+  columns: "[1, 2, 3]"
+  container: "container" # 'article' | 'post' | 'container'
+---
+
+<Panel>
+  <Box sx={{textAlign: "center"}}>
+    <h1>Gatsby Theme Golden Condor</h1>
+    <h4>Check out my fake blog it's rly cool.</h4>
+
+This is all editable in `src/pages/index.mdx`. Go on, have a geez.
+
+<Button href="https://netlify.app/gatsby-theme-golden-condor">
+  Read the docs
+</Button>
+
+  </Box>
+
+</Panel>
