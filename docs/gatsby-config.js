@@ -34,11 +34,13 @@ module.exports = {
               heading: "Documentation",
               width: 200,
             },
+            meta: {
+              date: false,
+            },
             relatedPosts: {
               heading: "Continue Reading",
               columns: "[1, 2]",
               layout: "list",
-              // container: "post",
               showImage: true,
               meta: false,
             },
