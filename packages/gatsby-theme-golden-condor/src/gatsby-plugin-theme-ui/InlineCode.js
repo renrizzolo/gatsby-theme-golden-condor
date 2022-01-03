@@ -11,12 +11,12 @@ const InlineCode = ({ children, wrapperProps, codeProps, ...props }) => {
         as="span"
         sx={{
           "html.default &": {
-            ".mdx-pretty-code-theme-1": {
+            "[data-theme='dark']": {
               display: "none",
             },
           },
           "html.dark &": {
-            ".mdx-pretty-code-theme-0": {
+            "[data-theme='default']": {
               display: "none",
             },
           },
