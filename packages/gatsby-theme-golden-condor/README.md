@@ -1,51 +1,85 @@
-# The smallest possible Gatsby theme
+# Gatsby Theme Golden Condor
+
+A gatsby theme with **MDX** support, **theming** & **dark mode** via **[theme-ui](https://theme-ui.com)**, unlimited **collections** (custom post types), configurable **layouts**, built in **SEO**, component shadowing and more.
 
 ## Quick Start
 
-```shell
-mkdir my-site
-cd my-site
-yarn init
-# install gatsby-theme-minimal and it's dependencies
-yarn add gatsby react react-dom gatsby-theme-minimal
+## Get started with a new project
+
+First init a new gatsby project:
+
+```bash
+npm init gatsby
 ```
 
-Then add the theme to your `gatsby-config.js`. We'll use the long form
-here for education purposes.
+cd into the directory of your new project
 
-```javascript
+```bash
+cd my-gatsby-site
+```
+
+Install the theme
+
+```bash
+npm i gatsby-theme-golden-condor
+```
+
+## Install the theme in an existing project
+
+In your project folder
+
+```shell
+npm i gatsby-theme-golden-condor
+```
+
+## Theme Setup
+
+### Gatsby config
+
+Edit your `gatsby-config.js`
+We need to add the plugin `gatsby-theme-golden-condor`, plus there are a few required `siteMetadata` options that the theme uses for SEO and the like.
+
+```js
 module.exports = {
+  siteMetadata: {
+    siteUrl: "https://www.yourdomain.tld",
+    title: "Your Title",
+    author: "Your Name",
+    description: "site description",
+    image: "static-image.png",
+    social: [
+      {
+        name: "...",
+        url: "...",
+      },
+    ],
+  },
   plugins: [
     {
-      resolve: "gatsby-theme-minimal",
+      resolve: `gatsby-theme-golden-condor`,
       options: {},
     },
   ],
-}
+};
 ```
 
-That's it, you can now run your gatsby site using
+For more information on these options check out [Theme Options](https://gatsby-theme-golden-condor.netlify.app/doc/theme-options) and [Site Metadata](https://gatsby-theme-golden-condor.netlify.app/doc/site-metadata)
+
+### Remove default pages `index.js`
+
+Delete the `src/pages/index.js` file that was created by gatsby init.
+
+### Run develop
+
+Run the develop script.
+This will create the default `posts`, `pages` and `navigation.yaml` file in the `content` folder.
 
 ```shell
-yarn gatsby develop
+npm run develop
 ```
 
-Note that this site doesn't _do_ anything, so you're see a missing
-resources error. Create a simple page in `src/pages/index.js` to see a
-page on the root url.
+### Edit content
 
-```jsx
-import React from "react"
+The content for the home page is located at `content/pages/index.mdx`. For more info, check out [Frontmatter](https://gatsby-theme-golden-condor.netlify.app/doc/frontmatter)
 
-export default () => <div>My Site!</div>
-```
-
-## Doing more with themes
-
-You can use this as a place to start when developing themes. I
-generally suggest using [yarn
-workspaces](https://yarnpkg.com/lang/en/docs/workspaces/) like the
-[gatsby-theme-examples repo
-does](https://github.com/ChristopherBiscardi/gatsby-theme-examples),
-but using `yarn link` or `npm link` is a viable alternative if you're
-not familiar with workspaces.
+The header and footer menus are configurable in `content/pages/navigation.yaml`. For more info, check out [Navigation](https://gatsby-theme-golden-condor.netlify.app/doc/navigation)

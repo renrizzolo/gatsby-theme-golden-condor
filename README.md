@@ -1,56 +1,46 @@
-<p align="center">
-  <a href="https://www.gatsbyjs.org">
-    <img alt="Gatsby" src="https://www.gatsbyjs.org/monogram.svg" width="60" />
-  </a>
-</p>
-<h1 align="center">
-  Starter for creating a Gatsby Theme workspace
-</h1>
-
-```shell
-gatsby new my-theme https://github.com/gatsbyjs/gatsby-starter-theme-workspace
-cd my-theme
-yarn workspace example develop
-```
+# Gatsby Theme Golden Condor workspace
 
 ## Layout
 
 ```text
 .
 ├── README.md
-├── gatsby-theme-minimal
+├── packages
+│   ├──gatsby-theme-golden-condor
+│   │   ├── README.md
+│   │   ├── gatsby-config.js
+│   │   ├── index.js
+│   │   └── package.json
+├── example
 │   ├── README.md
 │   ├── gatsby-config.js
-│   ├── index.js
-│   └── package.json
-├── example
+│   ├── package.json
+│   └── src
+├── docs
 │   ├── README.md
 │   ├── gatsby-config.js
 │   ├── package.json
 │   └── src
 ├── package.json
 └── yarn.lock
-
-3 directories, 10 files
 ```
 
-### `gatsby-theme-minimal`
+### `packages/gatsby-theme-golden-condor`
 
-This directory is the theme package itself. You should rename this at
-some point to be `gatsby-theme-{my-theme-name}`. Also change the
-`package.json` name field and the corresponding dependency in the
-example directory's `package.json`/`gatsby-config.js` to match the chosen name.
+This directory is the theme package itself.
 
-- `gatsby-theme-minimal/`
-  - `gatsby-config.js`: An empty gatsby-config that you can use as a starting point for building functionality into your theme.
-  - `index.js`: Since themes also function as plugins, this is an empty file that
-    gatsby needs to use this theme as a plugin.
-  - `package.json`: The dependencies that your theme will pull in when people install it. `gatsby` should be a `peerDependency`.
+### `docs`
+
+This is the docs site for the theme, which uses the 'stock' theme.
+You can run the docs site with:
+
+```shell
+yarn docs:dev
+```
 
 ### `example`
 
-This is an example usage of your theme. It should look the same as the
-site of someone who installed and used your theme from npm.
+This is an example usage of the theme. This site is customized with component shadowing, syntax highlighting themes and theme-ui theme config.
 
 - `example/`
   - `gatsby-config.js`: Specifies which theme to use and any other one-off config a site might need.
@@ -60,5 +50,5 @@ site of someone who installed and used your theme from npm.
 You can run the example with:
 
 ```shell
-yarn workspace example develop
+yarn dev
 ```
