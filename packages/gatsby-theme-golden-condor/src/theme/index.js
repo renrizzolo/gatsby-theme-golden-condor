@@ -54,9 +54,9 @@ const theme = {
     container: "1536px",
   },
   borders: {
+    0: 0,
     1: "1px solid",
     2: "2px solid",
-    2: "3px solid",
   },
   letterSpacings: {
     1: "-0.63px",
@@ -195,12 +195,6 @@ const theme = {
       color: "secondary.5",
       "&:hover": {
         color: "secondary.4",
-      },
-    },
-    dark: {
-      color: "primary.0",
-      "&:hover": {
-        color: "primary.2",
       },
     },
     primary: {

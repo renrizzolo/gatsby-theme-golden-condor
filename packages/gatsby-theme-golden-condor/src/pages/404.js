@@ -3,7 +3,7 @@ import { Button } from "@components/UI";
 import { Box, Container, Heading } from "@theme-ui/components";
 import React from "react";
 
-export default () => (
+const PageNotFound = () => (
   <Layout>
     <Container>
       <Box p={4} sx={{ textAlign: "center" }}>
@@ -19,3 +19,5 @@ export default () => (
     </Container>
   </Layout>
 );
+
+export default PageNotFound;

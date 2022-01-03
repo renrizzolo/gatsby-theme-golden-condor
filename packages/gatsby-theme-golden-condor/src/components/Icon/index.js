@@ -2,7 +2,7 @@ import { Flex } from "@components/UI";
 import React from "react";
 import * as Icons from "./svg";
 
-export default ({ name, svgProps, ...props }) => {
+const Icon = ({ name, svgProps, ...props }) => {
   let Component;
   if (Icons[name]) Component = Icons[name].default;
   return Component ? (
@@ -11,3 +11,5 @@ export default ({ name, svgProps, ...props }) => {
     </Flex>
   ) : null;
 };
+
+export default Icon;

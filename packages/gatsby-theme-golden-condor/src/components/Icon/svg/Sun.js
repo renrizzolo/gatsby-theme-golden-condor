@@ -1,5 +1,6 @@
 import React from "react";
-export default (props) => (
+
+const Sun = (props) => (
   <svg
     fill="none"
     stroke="currentColor"
@@ -15,3 +16,5 @@ export default (props) => (
     />
   </svg>
 );
+
+export default Sun;

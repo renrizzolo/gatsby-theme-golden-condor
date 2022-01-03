@@ -7,15 +7,13 @@ import {
   Message,
   Text,
   Heading,
-  useThemeUI,
-  useColorMode,
 } from "theme-ui";
 import { getImage, GatsbyImage } from "gatsby-plugin-image";
 import { Button, Caption, GridItem, Link } from "@components/UI";
 import Panel from "@components/Panel";
 import InlineCode from "./InlineCode";
 
-export default {
+const components = {
   Container,
   Panel,
   Link,
@@ -73,3 +71,5 @@ export default {
     );
   },
 };
+
+export default components;

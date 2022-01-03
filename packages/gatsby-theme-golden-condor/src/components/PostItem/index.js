@@ -1,8 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { GatsbyImage, StaticImage } from "gatsby-plugin-image";
+import { GatsbyImage } from "gatsby-plugin-image";
 import { Flex } from "@components/UI";
-import { Text, Heading, Box, Card, Grid, sx, Badge } from "theme-ui";
+import { Text, Heading, Box, Card, Badge } from "theme-ui";
 import { Link } from "gatsby";
 import { getPath } from "@util";
 import PostPlaceholder from "@components/PostPlaceholder";

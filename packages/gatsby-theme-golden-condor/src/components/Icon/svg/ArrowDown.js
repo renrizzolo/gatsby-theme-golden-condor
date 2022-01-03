@@ -1,6 +1,6 @@
 import React from "react";
 
-export default (props) => (
+const ArrowDown = (props) => (
   <svg
     className="w-6 h-6"
     fill="currentColor"
@@ -15,3 +15,5 @@ export default (props) => (
     />
   </svg>
 );
+
+export default ArrowDown;

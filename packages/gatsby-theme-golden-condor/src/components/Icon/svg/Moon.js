@@ -1,6 +1,6 @@
 import React from "react";
 
-export default (props) => (
+const Moon = (props) => (
   <svg
     fill="none"
     stroke="currentColor"
@@ -16,3 +16,5 @@ export default (props) => (
     />
   </svg>
 );
+
+export default Moon;

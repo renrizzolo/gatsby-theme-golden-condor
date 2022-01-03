@@ -34,6 +34,7 @@ function usePosts({
         return true;
       }
     }
+    return false;
   });
   return filteredPosts;
 }

@@ -1,6 +1,6 @@
 import React from "react";
-import { Switch, Label, useColorMode } from "theme-ui";
-import { Button, Flex } from "@components/UI";
+import { Label, useColorMode } from "theme-ui";
+import { Flex } from "@components/UI";
 import Icon from "@components/Icon";
 import ColorModeSwitch from "./ColorModeSwitch";
 

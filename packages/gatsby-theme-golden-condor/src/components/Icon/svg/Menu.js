@@ -1,6 +1,6 @@
 import React from "react";
 
-export default (props) => (
+const Menu = (props) => (
   <svg
     className="w-6 h-6"
     fill="none"
@@ -17,3 +17,5 @@ export default (props) => (
     />
   </svg>
 );
+
+export default Menu;

@@ -16,7 +16,7 @@ function Node({ to, label, lastNode }) {
 
 function BreadCrumbs({ post, entries }) {
   const {
-    frontmatter: { title, category, id, parent: postParent },
+    frontmatter: { title, category, parent: postParent },
     parent: { sourceInstanceName },
   } = post;
 
