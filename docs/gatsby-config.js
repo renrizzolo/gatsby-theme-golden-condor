@@ -2,7 +2,7 @@ const path = require("path");
 
 module.exports = {
   siteMetadata: {
-    siteUrl: "http://localhost:8000",
+    siteUrl: "https://gatsby-theme-golden-condor.netlify.app",
     title: "Gatsby Theme Golden Condor",
     author: "Ren Rizzolo",
     description: "Documentation site for Gatsby Theme Golden Condor",
