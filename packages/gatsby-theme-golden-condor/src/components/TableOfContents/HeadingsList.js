@@ -49,7 +49,7 @@ function HeadingsList({ items, level, setId }) {
 }
 
 HeadingsList.propTypes = {
-  items: PropTyes.array.isRequired,
+  items: PropTyes.array,
   level: PropTyes.number.isRequired,
   setId: PropTyes.func.isRequired,
 };
