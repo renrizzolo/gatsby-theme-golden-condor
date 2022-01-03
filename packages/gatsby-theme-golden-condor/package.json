@@ -8,7 +8,7 @@
     "gatsby": "^3.4.0"
   },
   "dependencies": {
-    "@atomiks/mdx-pretty-code": "https://github.com/renrizzolo/mdx-pretty-code#multiple-themes-build",
+    "@atomiks/mdx-pretty-code": "latest",
     "@emotion/react": "^11.4.1",
     "@emotion/styled": "^11.3.0",
     "@mdx-js/mdx": "^1.6.22",

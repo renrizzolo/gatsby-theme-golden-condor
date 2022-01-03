@@ -14,16 +14,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@atomiks/mdx-pretty-code@https://github.com/renrizzolo/mdx-pretty-code#multiple-themes-build":
-  version: 0.0.5
-  resolution: "@atomiks/mdx-pretty-code@https://github.com/renrizzolo/mdx-pretty-code.git#commit=fd80fe5a0f2cc15f0396e3a874a62bb6873bb701"
+"@atomiks/mdx-pretty-code@npm:latest":
+  version: 0.1.0
+  resolution: "@atomiks/mdx-pretty-code@npm:0.1.0"
   dependencies:
     jsdom: ^19.0.0
     parse-numeric-range: ^1.3.0
     sanitize-html: ^2.6.0
   peerDependencies:
     shiki: "*"
-  checksum: 6ec678dac4a9e9640017ccef987390ee51273140fa41c065d227564deef312bd305dac1ac17a7598550b4de4b0d4b8d60b33c84e2c0bd72eedcd7b982d3dbd1e
+  checksum: 4a119ef3d9b929338bdd1239351d95387f2470fdb1b113e69b9da799659413bfd1e5e8fccbccf1edc50a9cd7316a111cad555eea8c9a4f1a63a9973c54278103
   languageName: node
   linkType: hard
 
@@ -9013,7 +9013,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "gatsby-theme-golden-condor@workspace:packages/gatsby-theme-golden-condor"
   dependencies:
-    "@atomiks/mdx-pretty-code": "https://github.com/renrizzolo/mdx-pretty-code#multiple-themes-build"
+    "@atomiks/mdx-pretty-code": latest
     "@babel/core": ^7.12.10
     "@babel/plugin-syntax-jsx": ^7.12.1
     "@babel/plugin-transform-react-jsx": ^7.12.12
