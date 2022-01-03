@@ -45,6 +45,9 @@ module.exports = {
               meta: false,
             },
           },
+          page: {
+            containerVariant: "post",
+          },
         },
       },
     },

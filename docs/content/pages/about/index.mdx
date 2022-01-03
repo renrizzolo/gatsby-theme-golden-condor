@@ -1,17 +1,32 @@
 ---
 title: About
-excerpt: About our website
+excerpt: About Gatsby Theme Golden Condor
+author: Ren Rizzolo
 id: about
 ---
 
-## About Us
+## Gatsby Theme Golden Condor
 
-We’re on a mission to make building websites fun
+Gatsby Theme Golden Condor is a blog/docs/anything theme for [Gatsby](https://gatsbyjs.org)
 
-## Mission and Vision
+It has all this stuff:
 
-To help create and inspire improvements to the web, a critical resource for all of humanity. We do this by shortening the time to experiment, to collaborate around changes, and to deploy incremental improvements.
+- **MDX**
+- **Theming** & **dark mode** via **[theme-ui](https://theme-ui.com)**
+- Awesome syntax highlighting via **[mdx-pretty-code](https://github.com/atomiks/mdx-pretty-code)**
+- Unlimited **collections** (custom post types)
+- Categories & tags
+- Configurable **layouts**
+- Configurable **recent/related posts** grids
+- Built in **SEO**
+- **TOC** with active **section highlighting**
+- Configurable **Sidebar navigation**
+- Component **shadowing**
 
-Gatsby provides development teams an open source frontend framework for creating dynamic, optimized websites and a cloud platform for delivering them on a blazing fast edge network.
+## Motivation
 
-More than just a static site generator, Gatsby has all the tools for building the modern web: Plugins for seamlessly integrating data from a CMS (Content Management System), a performant React-based runtime for the framework, and a Cloud platform for delivering the fastest sites on the web. Performance. SEO. Security. Integrations. Accessibility. We’ve got it covered for you. Gatsby makes the hardest parts of building an amazing digital experience simple.
+I really just wanted to a) make a gatsby theme and b) try to do so only using the [File System Route API](https://www.gatsbyjs.com/docs/reference/routing/file-system-route-api/)
+
+I kind of built out the basic blog theme in 2020 and left it for dead. Later on in 2021 I had the need to produce a docs site for another project, so I began refining the theme and adding various extras like syntax highlighting, multiple content types and layout configurations.
+
+Was using the File System Route API worth it? There's a whole lot of customization in `gatsby-node.js` regardless, and I still haven't figured out a way to do pagination with it. I'd say it's not quite there in terms of a catch-all solution.

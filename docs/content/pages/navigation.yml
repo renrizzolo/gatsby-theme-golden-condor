@@ -4,4 +4,4 @@
 
 - label: About
   path: /page/about
-  locations: [top]
+  locations: [top, footer]
