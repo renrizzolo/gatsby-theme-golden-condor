@@ -21,7 +21,7 @@ function HeadingsList({ items, level, setId }) {
           title ? (
             <Text as="li" key={title}>
               <Link
-                variant="dark"
+                variant="primary"
                 href={url}
                 onClick={() => setId(url.substring(1))}
                 sx={{
