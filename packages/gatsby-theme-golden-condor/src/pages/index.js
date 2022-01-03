@@ -35,6 +35,7 @@ export const query = graphql`
         extension: { in: ["md", "mdx"] }
         sourceInstanceName: { nin: $collectionsNotIn }
       }
+      sort: { fields: [childMdx___frontmatter___date], order: DESC }
     ) {
       nodes {
         childMdx {
