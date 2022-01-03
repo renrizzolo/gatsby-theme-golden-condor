@@ -1,0 +1,92 @@
+---
+title: Site Metadata
+parent: configuration
+excerpt: How site metadata is used in the theme
+date: 2021-12-30
+---
+
+## Site Metadata
+
+Site Metadata is used by the theme for SEO and other purposes. Please be aware that if you don't add these to your gatsby-config, they will be empty strings in most cases.
+
+**`gatsby-config.js`**
+
+```js {3-17}
+module.exports = {
+  siteMetadata: {
+    siteUrl: "https://www.yourdomain.tld",
+    title: "Your Title",
+    titleTemplate: "%s | Your Title",
+    author: "Your Name",
+    description: "site description",
+    image: "static-image.png",
+    social: [
+      {
+        name: "@gatsbyjs",
+        url: "https://twitter.com/gatsbyjs",
+      },
+      {
+        name: "Github",
+        url: "https://github.com/gatsbyjs",
+      },
+    ],
+  },
+  plugins: [
+    {
+      resolve: `gatsby-theme-golden-condor`,
+      options: {},
+    },
+  ],
+};
+```
+
+### `siteUrl`
+
+`siteUrl` is used to generate the urls in the `SEO` component, for open graph / twitter meta tags and image urls.
+
+This should be your full URL including the protocol, without a trailing slash.
+
+### `title`
+
+`title` is used in the header and footer logo components, as a fallback for when no logo images are provided. It is also used as the alt text for said logo images.
+
+`title` is also used in the SEO component for the document /meta titles, for pages without a frontmatter title.
+
+### `titleTemplate`
+
+The title template to pass to <Link href="https://github.com/nfl/react-helmet">`react-helmet`</Link>
+
+### `author`
+
+`author` is used in the footer, after **© currentYear**.
+
+### `description`
+
+`description` is used for meta tags where `frontmatter.excerpt` isn't present.
+
+### `image`
+
+An image filename, placed in the `static` folder in the root of your project.
+
+`image` is used as the default SEO image where `frontmatter.image` isn't present.
+
+### `social`
+
+`social` is an array of objects with `label` and `url` keys. These links are displayed in the footer. They can be any links you like, not limited to social media.
+
+```js
+social: [
+  {
+    label: "facebook",
+    url: "https://fb.me/...",
+  },
+  {
+    label: "twitter",
+    url: "https://twitter.com/...",
+  },
+];
+```
+
+### `twitterHandle`
+
+This will be used for the `twitter:site` meta tag, e.g `@yourname`.

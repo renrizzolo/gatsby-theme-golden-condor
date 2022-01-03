@@ -1,0 +1,7 @@
+- label: Docs
+  path: /docs
+  locations: [top]
+
+- label: About
+  path: /page/about
+  locations: [top]
