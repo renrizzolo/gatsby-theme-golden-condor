@@ -1,5 +1,5 @@
 import React from "react";
-import { Label, useColorMode } from "theme-ui";
+import { Box, useColorMode } from "theme-ui";
 import { Flex } from "@components/UI";
 import Icon from "@components/Icon";
 import ColorModeSwitch from "./ColorModeSwitch";
@@ -15,14 +15,9 @@ const iconStyles = {
 
 function ToggleColorMode() {
   const [colorMode, setColorMode] = useColorMode();
-
   return (
     <Flex flexDirection="row">
-      <Label
-        htmlFor="change-color-mode"
-        ariaLabel="Change color mode"
-        sx={{ flex: 1, position: "relative", pointerEvents: "none" }}
-      >
+      <Box sx={{ flex: 1, position: "relative", pointerEvents: "none" }}>
         {colorMode === "default" ? (
           <Icon name="Sun" sx={{ ...iconStyles, color: "primary.1" }} />
         ) : (
@@ -31,7 +26,7 @@ function ToggleColorMode() {
             sx={{ ...iconStyles, left: 22, color: "primary.3" }}
           />
         )}
-      </Label>
+      </Box>
       <ColorModeSwitch
         colorMode={colorMode}
         onChange={() =>

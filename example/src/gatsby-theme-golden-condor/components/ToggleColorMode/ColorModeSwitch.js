@@ -6,9 +6,9 @@ const ColorModeSwitchShadowed = (props) => {
     <ColorModeSwitch
       sx={{
         bg: "primary.3",
-        "input:checked ~ &": {
-          backgroundColor: "primary.4",
-        },
+      }}
+      checkedSx={{
+        backgroundColor: "primary.4",
       }}
       {...props}
     />
