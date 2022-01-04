@@ -8,7 +8,10 @@ module.exports = createRemarkPlugin({
   // Options passed to shiki.getHighlighter()
   shikiOptions: {
     // Link to your VS Code theme JSON file
-    themes: ["monokai", "github-dark"],
+    theme: {
+      light: "github-dark",
+      dark: "monokai",
+    },
   },
   // These are hooks which allow you to style the node. `node` is an element
   onVisitHighlightedLine(node) {

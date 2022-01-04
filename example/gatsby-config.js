@@ -51,13 +51,10 @@ module.exports = {
             disableIndexPage: true,
             showTOC: true,
           },
-          doc: {
+          podcast: {
             containerVariant: "container",
-            sidebarNav: { heading: "Documentation" },
-            showTOC: true,
-            hideOnHomePage: true,
+            sidebarNav: { heading: "Podcasts" },
             meta: {
-              tags: false,
               timeToRead: false,
             },
           },
@@ -79,13 +76,6 @@ module.exports = {
       options: {
         path: path.resolve(`content/podcasts`),
         name: "podcast",
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: path.resolve(`content/docs`),
-        name: "doc",
       },
     },
   ],

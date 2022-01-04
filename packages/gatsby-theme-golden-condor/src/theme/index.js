@@ -190,6 +190,9 @@ const theme = {
       "&:hover": {
         color: "primary.4",
       },
+      "&:focus": {
+        boxShadow: `0px 0px 0px 2px ${colors.primary[4]}`,
+      },
     },
     secondaryLight: {
       color: "secondary.5",
@@ -221,8 +224,7 @@ const theme = {
       cursor: "pointer",
       "&:focus": {
         outline: "none",
-        boxShadow: (theme) =>
-          `inset 0px 0px 0px 2px rgba(255,255,255,0.8), 0px 0px 0px 2px ${theme.colors.primary[3]}`,
+        boxShadow: `0px 0px 0px 2px ${colors.primary[0]}`,
       },
       transition: "all 300ms ease",
       "&:hover": {
@@ -240,8 +242,7 @@ const theme = {
       },
       "&:focus": {
         outline: "none",
-        boxShadow: (theme) =>
-          `inset 0px 0px 0px 2px rgba(255,255,255,0.8), 0px 0px 0px 2px ${theme.colors.secondary[3]}`,
+        boxShadow: `0px 0px 0px 2px ${colors.secondary[3]}`,
       },
     },
     transparent: {
@@ -431,9 +432,15 @@ const theme = {
         p: 3,
         "html.dark &": {
           backgroundColor: "dark",
+          "&[data-theme='light']": {
+            display: "none",
+          },
         },
         "html.default &": {
           backgroundColor: "light",
+          "&[data-theme='dark']": {
+            display: "none",
+          },
         },
         borderRadius: 1,
         overflow: "auto",

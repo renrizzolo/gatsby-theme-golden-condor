@@ -10,6 +10,8 @@ const InlineCodeShadowed = (props) => {
       codeProps={{
         sx: {
           ...theme.styles.inlineCode,
+          // as both themes in mdxPretty.js are dark themes,
+          // override the default behaviour of light bg for light theme and dark bg for dark theme.
           backgroundColor: "dark",
         },
       }}

@@ -16,7 +16,7 @@ const InlineCode = ({ children, wrapperProps, codeProps, ...props }) => {
             },
           },
           "html.dark &": {
-            "[data-theme='default']": {
+            "[data-theme='light']": {
               display: "none",
             },
           },
