@@ -12,7 +12,7 @@ module.exports = createRemarkPlugin({
       dark: JSON.parse(
         fs.readFileSync(require.resolve("./ayu-mirage.json"), "utf-8")
       ),
-      default: "github-light",
+      light: "github-light",
     },
   },
   // These are hooks which allow you to style the node. `node` is an element
