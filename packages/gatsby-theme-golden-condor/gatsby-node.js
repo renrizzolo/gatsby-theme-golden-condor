@@ -67,7 +67,7 @@ exports.onCreatePage = ({ page, getNode, actions, reporter }, themeOptions) => {
   // const node = getNode(page)
   if (page.path.endsWith("/.js/")) return;
   // don't create a page for a page with an explicitly null frontmatter.path
-  if (page.context?.id) {
+  if (page.context?.id && page.context?.__params?.slug) {
     const node = getNode(page.context?.id);
     if (node.frontmatter?.path === null) {
       reporter.info(
