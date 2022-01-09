@@ -14,8 +14,7 @@ import { Button, Caption, GridItem, Link } from "@components/UI";
 import Panel from "@components/Panel";
 import CodeDisclosure from "@components/CodeDisclosure";
 import CodeSummary from "@components/CodeDisclosure/CodeSummary";
-
-import InlineCode from "./InlineCode";
+import PrettyCode from "./PrettyCode";
 
 const components = {
   Container,
@@ -62,7 +61,7 @@ const components = {
   ),
   hr: Divider,
   span(props) {
-    return <InlineCode {...props} />;
+    return <PrettyCode {...props} />;
   },
   table(props) {
     return (

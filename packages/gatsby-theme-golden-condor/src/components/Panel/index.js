@@ -29,7 +29,11 @@ function Panel({ children, ...props }) {
   return (
     <PanelBox
       bg="muted"
-      sx={{ borderRadius: 1, ">:last-child": { marginBottom: 0 } }}
+      sx={{
+        borderRadius: 1,
+        ">:last-child": { marginBottom: 0 },
+        ">p:only-child, >p:first-of-type": { my: 0 },
+      }}
       p={[2, 3]}
       {...props}
     >

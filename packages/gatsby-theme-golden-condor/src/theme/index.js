@@ -489,15 +489,9 @@ const theme = {
         flexDirection: "column",
         "html.dark &": {
           backgroundColor: "dark",
-          "&[data-theme='light']": {
-            display: "none",
-          },
         },
         "html.default &": {
           backgroundColor: "light",
-          "&[data-theme='dark']": {
-            display: "none",
-          },
         },
         borderRadius: 1,
         overflow: "auto",
