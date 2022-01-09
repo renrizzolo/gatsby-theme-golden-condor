@@ -10,7 +10,12 @@ const LogoFooter = (props) => {
           title
         }
       }
-      file(relativePath: { glob: "site-logo--footer.*" }) {
+      logoDefault: file(relativePath: { glob: "site-logo--footer.*" }) {
+        childImageSharp {
+          gatsbyImageData(height: 38, placeholder: BLURRED)
+        }
+      }
+      logoDark: file(relativePath: { glob: "site-logo--footer-dark.*" }) {
         childImageSharp {
           gatsbyImageData(height: 38, placeholder: BLURRED)
         }
@@ -18,15 +23,18 @@ const LogoFooter = (props) => {
     }
   `);
 
-  const { file, site } = data;
-  const logo = file?.childImageSharp?.gatsbyImageData;
+  const { logoDefault, logoDark, site } = data;
+  const logoData = logoDefault?.childImageSharp?.gatsbyImageData;
+  const logoDarkData = logoDark?.childImageSharp?.gatsbyImageData;
 
   return (
     <Logo
-      logo={logo}
+      logo={logoData}
+      logoDark={logoDarkData}
       fallback={site.siteMetadata.title}
-      color={"light"}
+      color={"gray.1"}
       {...props}
+      nav={false}
     />
   );
 };

@@ -10,7 +10,12 @@ const LogoHeader = (props) => {
           title
         }
       }
-      file(relativePath: { glob: "site-logo--header.*" }) {
+      logoDefault: file(relativePath: { glob: "site-logo--header.*" }) {
+        childImageSharp {
+          gatsbyImageData(height: 38, placeholder: BLURRED)
+        }
+      }
+      logoDark: file(relativePath: { glob: "site-logo--header-dark.*" }) {
         childImageSharp {
           gatsbyImageData(height: 38, placeholder: BLURRED)
         }
@@ -18,9 +23,17 @@ const LogoHeader = (props) => {
     }
   `);
 
-  const { file, site } = data;
-  const logo = file?.childImageSharp?.gatsbyImageData;
-  return <Logo logo={logo} fallback={site.siteMetadata.title} {...props} />;
+  const { logoDefault, logoDark, site } = data;
+  const logoData = logoDefault?.childImageSharp?.gatsbyImageData;
+  const logoDarkData = logoDark?.childImageSharp?.gatsbyImageData;
+  return (
+    <Logo
+      logo={logoData}
+      logoDark={logoDarkData}
+      fallback={site.siteMetadata.title}
+      {...props}
+    />
+  );
 };
 
 export default LogoHeader;

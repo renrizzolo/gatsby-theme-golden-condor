@@ -1,6 +1,6 @@
 import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
-import { Box, Container, Text } from "theme-ui";
+import { Box, Container, Divider, Text } from "theme-ui";
 import { Flex, Link } from "@components/UI";
 import LogoFooter from "@components/Logo/LogoFooter";
 
@@ -32,7 +32,7 @@ function Footer() {
 
   return (
     <Box as="footer">
-      <Box py={4} px={["lx.1", "lx.2"]} bg="dark">
+      <Box py={4} px={["lx.1", "lx.2"]} bg="primary.5">
         <Container>
           <Flex
             align="center"
@@ -50,46 +50,41 @@ function Footer() {
                 alignItems: "center",
                 justifyContent: "center",
                 listStyleType: "none",
+                gap: 3,
               }}
             >
               {links.nodes?.map(({ locations, path, label }) => (
                 <Text key={path} as="li">
-                  <Link
-                    variant="light"
-                    nav
-                    p={2}
-                    sx={{ fontSize: 1 }}
-                    to={path}
-                  >
+                  <Link nav py={2} to={path}>
                     {label}
                   </Link>
                 </Text>
               ))}
             </Text>
           </Flex>
-        </Container>
-      </Box>
-      <Box
-        py={3}
-        px={["lx.1", "lx.2"]}
-        bg="primary.2"
-        sx={{ fontSize: 1, textAlign: "center" }}
-      >
-        <Flex flexDirection="row" align="center" justifyContent="space-between">
-          <Text as="p" sx={{ color: "muted", fontSize: 1 }}>
-            {`© ${new Date().getFullYear()} ${siteMetadata.author}`}
-          </Text>
-          <Box>
-            {siteMetadata.social?.map(
-              ({ url, label }) =>
-                url && (
-                  <Link key={label} variant="primaryLight" mr={2} href={url}>
-                    {label}
-                  </Link>
-                )
-            )}
+          <Divider sx={{ borderColor: "gray.2" }} />
+          <Box py={3} sx={{ fontSize: 1, textAlign: "center" }}>
+            <Flex
+              flexDirection="row"
+              align="center"
+              justifyContent="space-between"
+            >
+              <Text as="p" sx={{ color: "gray.1", fontSize: 1 }}>
+                {`© ${new Date().getFullYear()} ${siteMetadata.author}`}
+              </Text>
+              <Flex gap={3} direction="row">
+                {siteMetadata.social?.map(
+                  ({ url, label }) =>
+                    url && (
+                      <Link key={label} variant="primary" href={url}>
+                        {label}
+                      </Link>
+                    )
+                )}
+              </Flex>
+            </Flex>
           </Box>
-        </Flex>
+        </Container>
       </Box>
     </Box>
   );

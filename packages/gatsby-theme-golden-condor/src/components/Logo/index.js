@@ -1,9 +1,10 @@
 import React from "react";
-import { Box } from "theme-ui";
+import { Box, useColorMode } from "theme-ui";
 import { Link } from "@components/UI";
 import { GatsbyImage } from "gatsby-plugin-image";
 
-const Logo = React.memo(({ logo, fallback, ...rest }) => {
+const Logo = React.memo(({ logo, logoDark, fallback, ...rest }) => {
+  const [colorMode] = useColorMode();
   return (
     <Link
       to="/"
@@ -16,7 +17,13 @@ const Logo = React.memo(({ logo, fallback, ...rest }) => {
       }}
       {...rest}
     >
-      {logo ? <GatsbyImage as={Box} image={logo} alt={fallback} /> : fallback}
+      {colorMode === "dark" && logoDark ? (
+        <GatsbyImage as={Box} image={logoDark} alt={fallback} />
+      ) : logo ? (
+        <GatsbyImage as={Box} image={logo} alt={fallback} />
+      ) : (
+        fallback
+      )}
     </Link>
   );
 });

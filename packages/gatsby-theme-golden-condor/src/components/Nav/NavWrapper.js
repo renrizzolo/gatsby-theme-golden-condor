@@ -7,7 +7,7 @@ const NavWrapper = ({ isOpen, children, ...props }) => {
       as="nav"
       px={["lx.1", "lx.2"]}
       py={[2, 3]}
-      bg={"primary.2"}
+      bg={"primary.5"}
       sx={{
         visibility: [isOpen ? "visible" : "hidden", "visible"],
         opacity: [isOpen ? 1 : 0, 1],

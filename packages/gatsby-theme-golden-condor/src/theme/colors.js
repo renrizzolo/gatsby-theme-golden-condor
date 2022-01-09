@@ -8,6 +8,18 @@ const primary = [
   "#baacf1",
   "#EFEDF7",
 ];
+// similar to primary.reverse() but darks are more muted to work better on the dark bg
+// and lights are slightly lighter/more saturated
+const primaryDark = [
+  "#EFEDF7",
+  "#d3c8ff",
+  "#a38cf9",
+  "#5339BD",
+  "#302268",
+  "#1f1839",
+];
+
+// secondary is pretty much not used in the theme aside from the tag badges
 const secondary = [
   "#271A00",
   "#7E5910",
@@ -18,7 +30,6 @@ const secondary = [
 ];
 
 // invert colour pallettes for dark mode
-const primaryDark = [...primary].reverse();
 const secondaryDark = [...secondary].reverse();
 const grayDark = [...gray].reverse();
 
