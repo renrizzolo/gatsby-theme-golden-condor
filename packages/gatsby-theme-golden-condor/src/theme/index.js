@@ -1,5 +1,3 @@
-import swiss from "@theme-ui/preset-swiss";
-
 import colors from "./colors";
 
 const headingFont = "Space Grotesk";
@@ -67,13 +65,14 @@ const theme = {
     body: `"${bodyFont}", Georgia, serif`,
     monospace: `"${monoFont}", monospace`,
   },
-  fontSizes: [10, 13, baseFontSize, 20, 24, 30, 46, 64, 72],
+  fontSizes: [11, 14, baseFontSize, 20, 24, 30, 46, 64, 72],
   lineHeights: {
     body: 1.5,
     heading: 1.25,
   },
   radii: {
     0: 0,
+    0.5: "2px",
     1: "4px",
     2: "6px",
     3: "8px",
@@ -115,7 +114,10 @@ const theme = {
       lineHeight: "heading",
       mb: 3.5,
     },
-
+    bold: {
+      variant: "text.heading",
+      fontWeight: 600,
+    },
     subHeading: {
       variant: "text.heading",
       fontSize: [3, 4],
@@ -127,8 +129,8 @@ const theme = {
     display: {
       variant: "text.heading",
       color: "primary.2",
-      fontSize: [5, 6],
-      fontWeight: "heading",
+      fontSize: [4, 5],
+      fontWeight: 600,
       letterSpacing: "-0.01em",
       mt: 3,
     },
@@ -168,7 +170,8 @@ const theme = {
   links: {
     nav: {
       fontFamily: "heading",
-      variant: "links.primaryLight",
+      variant: "links.primary",
+      fontWeight: 400,
     },
     bold: {
       fontWeight: "bold",
@@ -191,7 +194,7 @@ const theme = {
         color: "primary.4",
       },
       "&:focus": {
-        boxShadow: `0px 0px 0px 2px ${colors.primary[4]}`,
+        boxShadow: (theme) => `0px 0px 0px 2px ${theme.colors.primary[4]}`,
       },
     },
     secondaryLight: {
@@ -213,18 +216,25 @@ const theme = {
       },
     },
   },
+  shadows: {
+    1: "1px 1px 8px rgba(0,0,0,0.12)",
+    2: "3px 3px 16px rgba(0,0,0,0.07)",
+    focus: (theme) =>
+      `inset 0px 0px 0px 2px rgba(255,255,255,0.8), 0px 0px 0px 2px ${theme.colors.primary[3]}`,
+    focusInset: (theme) => `0px 0px 0px 2px inset ${theme.colors.primary[3]}`,
+  },
   buttons: {
     // all the buttons inherit this variant
     primary: {
       bg: "primary.2",
       borderRadius: 2,
       color: "primary.5",
-      fontSize: 1,
+      fontSize: 2,
       fontWeight: 600,
       cursor: "pointer",
       "&:focus": {
         outline: "none",
-        boxShadow: `0px 0px 0px 2px ${colors.primary[0]}`,
+        boxShadow: "focus",
       },
       transition: "all 300ms ease",
       "&:hover": {
@@ -242,7 +252,7 @@ const theme = {
       },
       "&:focus": {
         outline: "none",
-        boxShadow: `0px 0px 0px 2px ${colors.secondary[3]}`,
+        boxShadow: (theme) => `0px 0px 0px 2px ${theme.colors.secondary[3]}`,
       },
     },
     transparent: {
@@ -332,12 +342,12 @@ const theme = {
         },
       },
       "&:focus": {
-        boxShadow: `0px 10px 16px 0px rgb(0 0 0 / 9%), 0px 0px 0px 2px ${colors.primary[3]}`,
+        boxShadow: (theme) =>
+          `0px 10px 16px 0px rgb(0 0 0 / 9%), 0px 0px 0px 2px ${theme.colors.primary[3]}`,
       },
     },
   },
   styles: {
-    ...swiss.styles,
     body: {
       color: "text",
     },
@@ -353,7 +363,7 @@ const theme = {
       },
       "&:focus": {
         outline: "none",
-        boxShadow: `inset 0px 0px 0px 2px rgba(255,255,255,0.8), 0px 0px 0px 2px ${colors.primary[3]}`,
+        boxShadow: "focus",
       },
     },
     ul: {
@@ -397,6 +407,26 @@ const theme = {
           boxShadow: `0px 0px 0px 2px ${colors.primary[3]}`,
         },
       },
+      // is just throwing classes here bad vs emotion global style?
+      ".visually-hidden": {
+        position: "absolute",
+        left: "-10000px",
+        width: "1px",
+        height: "1px",
+        overflow: "hidden",
+      },
+      ".highlighted-code-line": {
+        backgroundColor: "rgba(143, 143, 149, 0.15)",
+        boxShadow: "rgb(83, 57, 189) -4px 0px 0px 0px",
+        marginLeft: -2.5,
+        paddingLeft: 2.5,
+        marginRight: -3,
+      },
+      ".highlighted-code-word": {
+        backgroundColor: "rgba(143, 143, 149, 0.15)",
+        padding: 1,
+        borderRadius: 0.5,
+      },
     },
     h1: {
       variant: "text.display",
@@ -430,6 +460,8 @@ const theme = {
         color: "inherit",
         fontFamily: "monospace",
         p: 3,
+        display: "grid",
+        flexDirection: "column",
         "html.dark &": {
           backgroundColor: "dark",
           "&[data-theme='light']": {
@@ -457,10 +489,9 @@ const theme = {
         // },
       },
     },
+
     code: {
       fontSize: 2,
-      display: "grid",
-      flexDirection: "column",
       ".line": {
         lineHeight: "26px",
       },
@@ -468,10 +499,10 @@ const theme = {
     inlineCode: {
       margin: 0,
       borderRadius: 1,
-      display: "inline-block",
+      display: "inline",
       padding: "3px 5px",
       fontSize: "90%",
-      lineHeight: 1,
+      lineHeight: 1.1,
       backgroundColor: "muted",
       color: "primary.1",
       fontFamily: "monospace",
@@ -482,10 +513,11 @@ const theme = {
       my: 4,
       borderCollapse: "separate",
       borderSpacing: 0,
+      fontSize: 1,
       "th,td": {
         textAlign: "left",
-        py: "4px",
-        pr: "4px",
+        py: 1,
+        pr: 2,
         pl: 0,
         borderColor: "gray.4",
         borderBottomStyle: "solid",

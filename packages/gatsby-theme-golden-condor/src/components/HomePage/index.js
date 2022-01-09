@@ -5,10 +5,11 @@ import MDX from "@components/MDX";
 import PostsGrid from "@components/PostsGrid";
 import SEO from "@components/SEO";
 import useGetPostOptions from "@hooks/useGetPostOptions";
+import AfterPostsGrid from "@components/ContentInjection/AfterPostsGrid";
 
 const HomePage = ({ data, posts, path }) => {
   const {
-    childMdx: { body, frontmatter },
+    childMdx: { collection, body, frontmatter },
   } = data;
   const { recentPosts = {} } = frontmatter;
   const postProps = useGetPostOptions(recentPosts);
@@ -17,7 +18,7 @@ const HomePage = ({ data, posts, path }) => {
     <>
       {data && (
         <SEO
-          title={data.title}
+          title={frontmatter.title}
           description={data.excerpt}
           image={data.image}
           pathname={path}
@@ -27,7 +28,7 @@ const HomePage = ({ data, posts, path }) => {
         {data && (
           <Box p={4}>
             <Container>
-              <MDX content={body} />
+              <MDX content={body} embeddedImages={frontmatter.embeddedImages} />
             </Container>
           </Box>
         )}
@@ -35,11 +36,16 @@ const HomePage = ({ data, posts, path }) => {
           <Box p={4}>
             <Container as="section" variant={recentPosts.container || "post"}>
               <Heading variant="jumbo">
-                {recentPosts.heading || "Latest Posts"}
+                {recentPosts.heading || `Latest ${frontmatter.collection}s`}
               </Heading>
               <Box pb={[3, 5]} />
 
               <PostsGrid {...postProps} posts={posts.nodes || posts} />
+              <AfterPostsGrid
+                path={path}
+                type={"home-page"}
+                colletion={collection}
+              />
               <Box pb={[3, 5]} />
             </Container>
           </Box>

@@ -5,6 +5,7 @@ import Layout from "@components/Layout";
 import SEO from "@components/SEO";
 import PostsGrid from "@components/PostsGrid";
 import NotFound from "../404";
+import AfterPostsGrid from "@components/ContentInjection/AfterPostsGrid";
 
 function CategoryPage({ data, params, path }) {
   if (!data) return <NotFound />;
@@ -26,6 +27,11 @@ function CategoryPage({ data, params, path }) {
               {post.frontmatter.category?.name}
             </Heading>
             <PostsGrid posts={allMdx?.nodes} />
+            <AfterPostsGrid
+              path={path}
+              type={"category"}
+              category={post.frontmatter.category}
+            />
           </Container>
         </Box>
       </Layout>

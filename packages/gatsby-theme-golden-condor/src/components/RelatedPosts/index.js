@@ -7,16 +7,17 @@ import { Container } from "@theme-ui/components";
 import usePosts from "@hooks/usePosts";
 import useThemeOptions from "@hooks/useThemeOptions";
 import useGetPostOptions from "@hooks/useGetPostOptions";
-import { DEFAULT_SOURCE_INSTANCE_NAME } from "@constants";
+import AfterPostsGrid from "@components/ContentInjection/AfterPostsGrid";
 
 function RelatedPosts({
   posts,
   category,
-  collectionName = DEFAULT_SOURCE_INSTANCE_NAME,
+  collectionName,
   tags,
   heading,
   wrapperProps,
   headingProps,
+  path,
 }) {
   const opts = useThemeOptions(collectionName);
   const { relatedPosts = {} } = opts;
@@ -24,12 +25,17 @@ function RelatedPosts({
   const filteredPosts = usePosts({ posts, category, tags, collectionName });
 
   return filteredPosts.length ? (
-    <Box px={[4, 4, 4, 6]} py={[4, 5]} bg="gray.4" {...wrapperProps}>
+    <Box px={[4, 4, 4, 6]} py={[4, 5]} bg="paper" {...wrapperProps}>
       <Container variant={relatedPosts.container || "container"}>
         <Heading variant="display" mb={4} color={"gray.1"} {...headingProps}>
           {relatedPosts.heading || heading}
         </Heading>
         <PostsGrid posts={filteredPosts} {...postProps} />
+        <AfterPostsGrid
+          path={path}
+          type={"related-posts"}
+          collection={collectionName}
+        />
       </Container>
     </Box>
   ) : null;
