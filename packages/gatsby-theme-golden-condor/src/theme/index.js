@@ -67,8 +67,8 @@ const theme = {
   },
   fontSizes: [11, 14, baseFontSize, 20, 24, 30, 46, 64, 72],
   lineHeights: {
-    body: 1.5,
-    heading: 1.25,
+    body: 1.65,
+    heading: 1.23,
   },
   radii: {
     0: 0,
@@ -122,7 +122,6 @@ const theme = {
       variant: "text.heading",
       fontSize: [3, 4],
       fontWeight: 400,
-      lineHeight: "body",
       letterSpacing: "-0.01em",
       mt: 2,
     },
@@ -386,6 +385,11 @@ const theme = {
       variant: "text.heading",
       fontSize: 4,
       color: "primary.1",
+      marginTop: 4,
+      marginBottom: 3,
+      "& + p": {
+        marginTop: 3,
+      },
     },
     h4: {
       variant: "text.heading",

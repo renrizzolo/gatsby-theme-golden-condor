@@ -32,7 +32,6 @@ module.exports = {
             containerVariant: "container",
             sidebarNav: {
               heading: "Documentation",
-              width: 200,
             },
             meta: {
               date: false,
@@ -41,7 +40,7 @@ module.exports = {
               heading: "Continue Reading",
               columns: "[1, 2]",
               layout: "list",
-              showImage: true,
+              showImage: false,
               meta: false,
             },
           },

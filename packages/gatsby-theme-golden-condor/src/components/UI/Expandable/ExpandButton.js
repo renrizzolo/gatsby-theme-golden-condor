@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import Icon from "@components/Icon";
 import { Flex } from "@components/UI";
-import { Text } from "@theme-ui/components";
+import { Text, Box } from "@theme-ui/components";
 
 const ExpandButton = ({
   expandable,
@@ -27,6 +27,8 @@ const ExpandButton = ({
         outline: "none",
         backgroundColor: "transparent",
         border: "none",
+        // just to apply font styles
+        fontFamily: "heading",
         color: "gray.2",
         "&:hover": {
           backgroundColor: "transparent",
@@ -39,9 +41,9 @@ const ExpandButton = ({
       {...props}
       as={expandable ? "button" : props.as}
     >
-      <Text mr={2} sx={{ fontSize: 1, ...textSx }}>
+      <Box mr={2} sx={{ fontSize: 1, ...textSx }}>
         {children}
-      </Text>
+      </Box>
       {expandable && (
         <Icon
           sx={{

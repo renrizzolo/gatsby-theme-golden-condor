@@ -41,12 +41,14 @@ const myTheme = {
     primary,
     secondary,
     gray,
+    background: "#ffffff",
     modes: {
       dark: {
         ...theme.colors.modes.dark,
         primary: primaryDark,
         secondary: secondaryDark,
         gray: grayDark,
+        background: "#000000",
       },
     },
   },
