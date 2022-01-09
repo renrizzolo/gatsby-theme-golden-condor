@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import React from "react";
-import { Box } from "theme-ui";
+import { Box, Heading } from "theme-ui";
 import HeadingsList from "./HeadingsList";
 import Expandable from "@components/UI/Expandable";
 import useWindowSize from "@hooks/useWindowSize";
@@ -30,7 +30,7 @@ function TableOfContents({ headings, label }) {
       )}
       as="aside"
       sx={{
-        top: 4,
+        top: 3,
         position: "sticky",
       }}
     >
@@ -39,17 +39,21 @@ function TableOfContents({ headings, label }) {
         py={3}
         sx={{
           listStyleType: "none",
-          borderColor: "muted",
+          borderColor: "primary.5",
           borderWidth: 2,
           borderStyle: "solid",
           transition: 1,
           borderRadius: 1,
-          bg: "muted",
+          bg: "primary.5",
           "&:hover": {
-            borderColor: "secondary.4",
+            borderColor: "primary.4",
           },
         }}
       >
+        <Heading mt={0} mb={3} variant="subHeading" as={"h4"}>
+          On this page
+        </Heading>
+
         <HeadingsList items={headings} level={2} setId={setId} />
       </Box>
     </Expandable>

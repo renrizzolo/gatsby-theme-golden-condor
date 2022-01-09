@@ -72,7 +72,7 @@ function BlogPost({ data, path }) {
             )}
             <Box>{meta && <Meta post={mdx} meta={meta} />}</Box>
             <Divider />
-            <Box pb={"lx.1"} />
+            <Box pb={"lx.2"} />
             <Grid variant="base">
               {sidebarNav && (
                 <Sidebar

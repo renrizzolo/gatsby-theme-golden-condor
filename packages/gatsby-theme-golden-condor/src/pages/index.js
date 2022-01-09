@@ -26,6 +26,11 @@ export const query = graphql`
           }
         }
         frontmatter {
+          embeddedImages {
+            childImageSharp {
+              gatsbyImageData(layout: CONSTRAINED)
+            }
+          }
           ...recentPostsConfig
         }
       }

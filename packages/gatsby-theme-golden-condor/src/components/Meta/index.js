@@ -3,11 +3,7 @@ import PropTypes from "prop-types";
 import { Box, Text } from "theme-ui";
 import { Flex } from "@components/UI";
 import Tags from "../Tags";
-import styled from "@emotion/styled";
 
-const TextWrapper = styled(Box)`
-  white-space: nowrap;
-`;
 function Meta({ post, meta: metaOpts }) {
   const {
     timeToRead,
@@ -37,23 +33,25 @@ function Meta({ post, meta: metaOpts }) {
           <Box mb={1}>
             {meta.author && author && (
               <Box as="span" color="gray.0">
-                <TextWrapper itemProp="author" as="span">
+                <Box sx={{ whiteSpace: "nowrap" }} itemProp="author" as="span">
                   {author}
-                </TextWrapper>
+                </Box>
               </Box>
             )}
           </Box>
           <Box color="gray.2" sx={{ fontSize: 0 }}>
             {meta.date && date && (
               <>
-                <TextWrapper as="span">{date}</TextWrapper>
+                <Box sx={{ whiteSpace: "nowrap" }} as="span">
+                  {date}
+                </Box>
                 {meta.timeToRead && " / "}
               </>
             )}
             {meta.timeToRead && (
-              <TextWrapper as="span">
+              <Box sx={{ whiteSpace: "nowrap" }} as="span">
                 {timeToRead && `${timeToRead} minute read`}
-              </TextWrapper>
+              </Box>
             )}
           </Box>
         </Text>

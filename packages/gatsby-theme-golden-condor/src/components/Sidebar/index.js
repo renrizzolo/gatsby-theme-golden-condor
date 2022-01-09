@@ -26,7 +26,7 @@ function Sidebar({ options, entries = [], currentPath, ...props }) {
         sx={{
           width: windowWidth >= breakpoints[1] ? width : "100%",
           position: "sticky",
-          top: 2,
+          top: 3,
         }}
         id="gtgt-sidebar-nav"
         expandable
@@ -42,7 +42,7 @@ function Sidebar({ options, entries = [], currentPath, ...props }) {
           </ExpandButton>
         )}
       >
-        <Heading variant="subHeading" as="h4">
+        <Heading mt={0} mb={3} variant="subHeading" as={"h4"}>
           {heading}
         </Heading>
         <Text as="ul" sx={{ listStyleType: "none", p: 0 }}>

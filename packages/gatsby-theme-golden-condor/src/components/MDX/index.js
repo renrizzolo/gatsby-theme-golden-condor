@@ -11,7 +11,6 @@ import { useColorMode } from "theme-ui";
 
 const MDX = ({ content, children, ...props }) => {
   const [colorMode] = useColorMode();
-
   return (
     <Box
       sx={{

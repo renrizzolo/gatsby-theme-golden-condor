@@ -6,7 +6,7 @@ const SubItemWrapper = (props) => {
     <Flex
       as="ul"
       direction="column"
-      gap={2}
+      gap={3}
       sx={{
         pl: 2,
         mb: 2,

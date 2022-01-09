@@ -76,7 +76,7 @@ function PostItem({
           <Heading
             color={textColor}
             sx={{
-              fontSize: [3, 4, 5],
+              fontSize: [3, 4],
               fontWeight: "600",
             }}
           >
