@@ -11,17 +11,63 @@ Gatsby Theme Golden Condor is a blog/docs/anything theme for [Gatsby](https://ga
 
 It has all this stuff:
 
-- **MDX**
+<Box>
+
+<Box
+  sx={{
+    "&:hover": {
+    },
+    span: {
+      transition: "color 400ms ease",
+    },
+    "&:hover span": {
+      transform: "translateX(5px)",
+      color: "primary.2",
+    },
+    "&:hover span:nth-child(1)": {
+      fontWeight: 600,
+      color: "primary.2",
+    },
+    "&:hover span:nth-child(2)": {
+      fontWeight: 600,
+      transitionDelay: "100ms",
+      color: "primary.3",
+    },
+    "&:hover span:nth-child(3)": {
+      fontWeight: 600,
+      transitionDelay: "200ms",
+      color: "primary.4",
+    },
+  }}
+>
+
+  <li>
+    <span>M</span>
+    <span>D</span>
+    <span>X</span>
+  </li>
+</Box>
+
 - **Theming** & **dark mode** via **[theme-ui](https://theme-ui.com)**
-- Awesome syntax highlighting via **[mdx-pretty-code](https://github.com/atomiks/mdx-pretty-code)**
+- Awesome syntax highlighting via **[rehype-pretty-code](https://rehype-pretty-code.netlify.app/)**
 - Unlimited **collections** (custom post types)
-- Categories & tags
+- **Categories** & tags
 - Configurable **layouts**
 - Configurable **recent/related posts** grids
 - Built in **SEO**
 - **TOC** with active **section highlighting**
 - Configurable **Sidebar navigation**
 - Component **shadowing**
+
+</Box>
+
+## Who is this for?
+
+This theme has been developed to make customizations relatively easy - quite a lot can be achieved just by editing the shadowed theme file `src/gatsby-theme-golden-condor/theme/index.js` and making some adjustments to the [theme options](/doc/theme-options) for collections.
+
+Having said that, a good amount of Gatsby/React experience will unlock most of the power due to [Theme componenet shadowing](https://www.gatsbyjs.com/docs/how-to/plugins-and-themes/shadowing).
+
+I Think if you're building a site with MDX you probably know what you're doing ;)
 
 ## Motivation
 

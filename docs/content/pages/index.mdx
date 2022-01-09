@@ -3,32 +3,149 @@
 title: Golden Condor Docs
 date: 2021-12-27
 excerpt: Golden Condor is a gatsby theme with posts and pages in mdx. It can be used for blogs or documentation. #SEO description
+embeddedImages:
+  - "./images/golden-condor--dark.png"
 # remove this to not show recent posts
 recentPosts:
   heading: Documentation
   layout: "list"
-  columns: "1"
+  columns: "[1,2]"
   showImage: false
   meta: false
   showExcerpt: true
   container: "post"
 ---
 
-<Container variant="post">
-<Panel bg="muted" p={4}>
-  <Box sx={{textAlign: "center"}}>
+import { getImage } from "gatsby-plugin-image";
+import ColorModeLogo from "../../src/components/Logo/ColorModeLogo";
 
-# Gatsby Theme Golden Condor
+<Container variant="post">
+<Box pb={4} />
+
+<Box sx={{textAlign: "center"}}>
+
+<Heading as="h1" color="primary.2" className="visually-hidden">
+  Gatsby Theme Golden Condor
+</Heading>
+
+<Box p={3} mb={4}  sx={{display: 'flex', justifyContent: 'center', }}>
+
+<ColorModeLogo sx={{ width: 430 }} />
+
+</Box>
+
+<!-- need a better way to opt out of gatsby-remark-autolink-headers... -->
+
+<Box sx={{".heading-anchor": {display: 'none'}}}>
 
 ### A gatsby theme with **MDX** support, **theming** & **dark mode** via **[theme-ui](https://theme-ui.com)**, unlimited **collections** (custom post types), configurable **layouts**, built in **SEO**, component shadowing and more.
 
+</Box>
 <Button mb={3} to="/doc/getting-started">
   get started
 </Button>
 
-⚠️ Docs are incomplete ⚠️
+⚠️ Docs are incomplete | Not tested with Gatsby 4 ⚠️
 
   </Box>
 
-</Panel>
+<Box pb={4} />
+
+<Divider />
+
+<Box pb={4} />
+
+<Heading variant="jumbo">Theme installation</Heading>
+
+```bash /gatsby-theme-golden-condor/
+npm i gatsby-theme-golden-condor
+```
+
+<CodeDisclosure>
+
+```js
+// gatsby-config.js
+module.exports = {
+```
+
+  <details>
+
+<summary data-summary="site metadata config" />
+
+```js
+  siteMetadata: {
+    siteUrl: "https://www.yourdomain.tld",
+    // SEO title
+    title: "Your Title",
+    // footer name after copyright
+    author: "Your Name",
+    // SEO description
+    description: "site description",
+    // fallback SEO image in /static directory
+    image: "static-image.png",
+    // footer links
+    social: [
+      {
+        name: "...",
+        url: "...",
+      },
+    ],
+  },
+```
+
+  </details>
+
+```js
+  plugins: [
+    {
+      resolve: `gatsby-theme-golden-condor`,
+      options: {
+```
+
+<details>
+
+<CodeSummary summary="theme options" indent="6" />
+
+```js
+        collections: {
+          post: {
+            // hide this collection from 'recent posts' grid on home page
+            hideOnHomePage: false
+            // disable the /[collectionName]s index page
+            disableIndexPage: false
+            // shows a grid of recent posts under posts in this collection
+            showRelatedPosts: true
+            // show author/date metadata on posts in this collection
+            meta: true
+            // show breadcrumbs on posts in this collection
+            showBreadcrumbs: true
+            // shows Table Of Contents (h2 as parents + h3 as children)
+            showTOC: true
+            // width variant for container for posts in this collection.
+            containerVariant: "post",
+            // left sidebar page navigation
+            // via frontmatter.parent = id / frontmatter.id relationships you define.
+            sidebarNav: {
+              // sidebarNav Heading text
+              heading: "Pages",
+              // pixel width of sidebar (default: 280)
+              width: 320
+            },
+          },
+          page: {
+            // config for the content/pages collection
+          }
+        },
+```
+
+</details>
+
+```js
+      },
+    },
+  ],
+};
+```
+
+</CodeDisclosure>
 </Container>

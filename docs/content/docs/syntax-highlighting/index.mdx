@@ -7,36 +7,22 @@ date: 2021-12-28
 
 ## Syntax Highlighting
 
-The syntax highlighting uses `@atomiks/mdx-pretty-code` (which uses `shikijs`), and is confgured in `src/theme/mdxPrettyCode.js`.
-This plugin can use any vscode theme JSON file. The theme is set up with `github-light` for the default color theme and a modified version of `ayu-mirage` for the dark theme.
+The syntax highlighting uses [`rehype-pretty-code`](https://rehype-pretty-code.netlify.app/) (which uses `shikijs`), and is confgured in `src/theme/mdxPrettyCode.js`.
+This plugin can use any vscode theme JSON file, or a [shiki theme string](https://github.com/shikijs/shiki/blob/main/docs/themes.md#all-themes).
+
+The theme is set up with `github-light` for the default color theme and a modified version of `ayu-mirage` for the dark theme.
 
 ### Overriding the theme
 
 To use your own syntax highlighting theme, you need to:
 
-- create your own `@atomiks/mdx-pretty-code` remark plugin
+- add the `rehype-pretty-code` plugin to `rehypePlugins` in the `gatsby-plugin-mdx` options
 - add that plugin to your `gatsby-config.js`'s remarkPlugins
 
-```js
-//mdxPretty.js
-const { createRemarkPlugin } = require("@atomiks/mdx-pretty-code");
-const fs = require("fs");
+```js {12-23}
+// gatsby-config.js
+const rehypePrettyCode = require("rehype-pretty-code");
 
-module.exports = createRemarkPlugin({
-  // Options passed to shiki.getHighlighter()
-  shikiOptions: {
-    // Link to your VS Code theme JSON file
-    theme: JSON.parse(
-      fs.readFileSync(require.resolve("./src/theme/ayu-mirage.json"), "utf-8")
-    ),
-  },
-  // other optional stuff
-});
-```
-
-require the above file like so:
-
-```js {8}
 // import to the theme's existing remark plugins
 const gatsbyRemarkPlugins = require("gatsby-theme-golden-condor/gatsbyRemarkPlugins");
   // ...
@@ -44,10 +30,50 @@ const gatsbyRemarkPlugins = require("gatsby-theme-golden-condor/gatsbyRemarkPlug
     resolve: `gatsby-plugin-mdx`,
     options: {
       gatsbyRemarkPlugins,
-      remarkPlugins: [require("./mdxPretty")],
+      rehypePlugins: [
+        [
+          rehypePrettyCode,
+          {
+            options: {
+              // parse your VS Code theme JSON file or a shiki theme string
+              theme: JSON.parse(
+                fs.readFileSync(
+                  require.resolve("./src/theme/ayu-mirage.json"),
+                  "utf-8"
+                )
+              ),
+            },
+            // other optional stuff
+          },
+        ],
+      ],
     },
-  },
+  };
 ```
+
+### Different theme for dark/light mode
+
+instead of passing the theme directly to the `theme` key, create separate keys for each theme.
+These will both be rendered on the page, as `<code data-theme="light" />{:html}` and `<code data-theme="light" />{:html}`.
+
+The theme hides the opposite color mode's syntax highlighting theme with css, in the `PrettyCode` component and `theme.styles.pre.code` for code blocks.
+
+```js
+options: {
+  // parse your VS Code theme JSON file or a shiki theme string
+  theme: {
+    dark: JSON.parse(
+      fs.readFileSync(
+        require.resolve("./src/theme/ayu-mirage.json"),
+        "utf-8"
+      )
+    ),
+    light: 'github-light'
+  }
+},
+```
+
+You can see a list of ready to use themes [here](https://github.com/shikijs/shiki/blob/main/docs/themes.md#all-themes).
 
 <Panel type="info" bg="muted">
 
@@ -55,15 +81,15 @@ You most likely have to run gatsby clean and rebuild in order for changes to tak
 
 </Panel>
 
-## mdx-pretty-code API
+## rehype-pretty-code API
 
 Code blocks are configured via the meta string after the top codeblock fence.
 
-The below was extracted from the `mdx-pretty-code` docs, and may be out of date.
+The below was extracted from the `rehype-pretty-code` docs, and may be out of date.
 
 <Panel type="info">
 
-See the full docs here: [https://github.com/atomiks/mdx-pretty-code](https://github.com/atomiks/mdx-pretty-code)
+See the full docs here: [https://github.com/atomiks/rehype-pretty-code](https://github.com/atomiks/rehype-pretty-code)
 
 </Panel>
 

@@ -1,0 +1,85 @@
+---
+title: Frontmatter
+parent: configuration
+excerpt: special parameters for layouts
+date: 2022-01-01
+---
+
+Gatsby Theme Golden Condor has some special frontmatter parameters that are used to configure layouts for pages and collection home pages.
+
+## Frontmatter types
+
+Here's a non-exhaustive list of the frontmatter types the theme defines
+
+```js
+type MdxFrontmatter {
+  id: String
+  parent: String
+  recentPosts: RecentPosts
+  hideTOC: Boolean
+  subTitle: String
+  author: String
+  tags: [String]
+  category: Category
+  excerpt: String
+  image: File @fileByRelativePath
+  embeddedImages: [File] @fileByRelativePath
+}
+type Category {
+    name: String
+    slug: String
+}
+type RecentPosts {
+  heading: String
+  layout: String
+  columns: String
+  container: String
+  showExcerpt: Boolean
+  showImage: Boolean
+  meta: Boolean
+}
+```
+
+## Collection Indexes
+
+when you create an `index.md` or `index.mdx` file directly inside a collection's content folder, that becomes the 'index' or home page (e.g what is displayed under the path `/docs/` for the `doc` collection).
+
+<Panel type="info">
+
+The site home page content / layout is in `content/pages/index.md`.
+
+</Panel>
+
+Here's the `content/docs/index.mdx` file for this site:
+
+```md
+---
+# this is the /docs/ index page
+title: Golden Condor Docs
+date: 2021-12-27
+excerpt: Golden Condor is a gatsby theme with posts and pages in mdx. It can be used for blogs or documentation. #SEO description
+# remove this to not show recent posts
+recentPosts:
+  heading: Documentation
+  layout: "list"
+  columns: "1"
+  showImage: false
+  meta: false
+  showExcerpt: true
+  container: "post"
+---
+```
+
+Notably the `recentPosts` object is used to configure how the list of posts looks for this collection.
+
+The options are as follows:
+
+| Option      | Type    | Description                                                                                                                                            | Default                     |
+| ----------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------- |
+| heading     | string  | Sets the heading above the                                                                                                                             | `Latest ${collectionName}s` |
+| layout      | string  | Whether the post is a horizontal list type or a vertically stacked card type - either "list" or "card"                                                 | "card"                      |
+| columns     | string  | The number of grid columns of posts to display. This is passed to `theme-ui` so a responsive value (in quotes e.g "[1,2]") also works                  | "[1,2,3]"                   |
+| showImage   | boolean | Wether to show the image or not                                                                                                                        | true                        |
+| meta        | boolean | shows or hides the 'meta' info on the post item (date, category, collection name)                                                                      | true                        |
+| showExcerpt | boolean | shows the `frontmatter.excerpt` under the title                                                                                                        | false                       |
+| container   | string  | the theme-ui `container` variant to use to wrap the receont posts - the theme uses "post", "article", "container" but they are definable in your theme | "container"                 |

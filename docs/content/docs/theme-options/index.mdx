@@ -34,7 +34,7 @@ Here is the configuration for this site's `doc` collection type, resulting in th
     resolve: `gatsby-theme-golden-condor`,
     options: {
       collections: {
-        docs: {
+        doc: {
           showTOC: true,
           containerVariant: "container",
           sidebarNav: {
@@ -71,7 +71,9 @@ Here is the configuration for this site's `doc` collection type, resulting in th
 
 Hint: `collectionName` comes from the `sourceInstanceName` which is defined by `gatsby-source-filesystem`'s `options.name`.
 
-By default `page` and `post` collections are set up, but you can add your own. See @todo<Link to="/doc/collections">collections</Link> for more details.
+By default `page` and `post` collections are set up, but you can add your own.
+
+<!-- See @todo<Link to="/doc/collections">collections</Link> for more details. -->
 
 </Panel>
 
@@ -81,7 +83,7 @@ By default `page` and `post` collections are set up, but you can add your own. S
     [collectionName]: {
       // hide this collection from 'recent posts' grid on home page
       hideOnHomePage: false
-      // disable the /[collectionName] index page
+      // disable the /[collectionName]s index page
       disableIndexPage: false
       // shows a grid of recent posts under posts in this collection
       showRelatedPosts: true
