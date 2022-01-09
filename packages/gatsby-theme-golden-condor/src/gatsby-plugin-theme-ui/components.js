@@ -7,10 +7,14 @@ import {
   Message,
   Text,
   Heading,
+  AspectRatio,
 } from "theme-ui";
 import { getImage, GatsbyImage } from "gatsby-plugin-image";
 import { Button, Caption, GridItem, Link } from "@components/UI";
 import Panel from "@components/Panel";
+import CodeDisclosure from "@components/CodeDisclosure";
+import CodeSummary from "@components/CodeDisclosure/CodeSummary";
+
 import InlineCode from "./InlineCode";
 
 const components = {
@@ -21,9 +25,13 @@ const components = {
   Grid,
   GridItem,
   Box,
+  Divider,
+  AspectRatio,
   Text,
   Heading,
   Caption,
+  CodeDisclosure,
+  CodeSummary,
   GatsbyImage,
   getImage,
   figure: ({ children, ...props }) => {

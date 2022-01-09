@@ -2,6 +2,8 @@ const path = require("path");
 const merge = require("lodash.merge");
 const { defaultCollectionsConfig } = require("./src/constants");
 const gatsbyRemarkPlugins = require("./gatsbyRemarkPlugins");
+const rehypePrettyCode = require("rehype-pretty-code");
+const prettyCodeOptions = require("./src/theme/prettyCodeOptions");
 
 module.exports = ({ collections }) => {
   const mergedOpts = merge(defaultCollectionsConfig, collections);
@@ -29,15 +31,26 @@ module.exports = ({ collections }) => {
         resolve: `gatsby-plugin-mdx`,
         options: {
           extensions: [`.mdx`, `.md`],
+          rehypePlugins: [[rehypePrettyCode, prettyCodeOptions]],
           gatsbyRemarkPlugins,
-          remarkPlugins: [require("./src/theme/mdxPrettyCode")],
+          plugins: [`gatsby-remark-images`], // https://github.com/gatsbyjs/gatsby/issues/15486
         },
       },
       {
         resolve: "gatsby-plugin-theme-ui",
       },
       "gatsby-plugin-react-helmet",
-      `gatsby-plugin-sharp`,
+      {
+        resolve: `gatsby-plugin-sharp`,
+        options: {
+          defaults: {
+            formats: [`auto`, `webp`],
+            placeholder: `dominantColor`,
+            quality: 70,
+            backgroundColor: `transparent`,
+          },
+        },
+      },
       `gatsby-transformer-sharp`,
       {
         resolve: `gatsby-transformer-yaml`,
