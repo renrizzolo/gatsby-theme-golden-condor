@@ -1,7 +1,7 @@
 import PropTyes from "prop-types";
 import React from "react";
-import { Box, Text } from "theme-ui";
-import { Link } from "@components/UI";
+import { Text } from "theme-ui";
+import { Link, Flex } from "@components/UI";
 
 function HeadingsList({ items, level, setId }) {
   // tableOfContents isn't limited by level
@@ -9,8 +9,10 @@ function HeadingsList({ items, level, setId }) {
   // This will prevent showing e.g h4s that
   // won't be linkable
   return level > 3 || !items || !items.length ? null : (
-    <Box
+    <Flex
       as="ul"
+      direction="column"
+      gap={2}
       sx={{
         listStyleType: "none",
         p: 0,
@@ -32,7 +34,6 @@ function HeadingsList({ items, level, setId }) {
                   "&.active": {
                     fontWeight: "bold",
                   },
-                  lineHeight: 2,
                   fontSize: 1,
                   textDecoration: "none",
                   ml: level === 3 ? 2.5 : 0,
@@ -44,7 +45,7 @@ function HeadingsList({ items, level, setId }) {
             </Text>
           ) : null
         )}
-    </Box>
+    </Flex>
   );
 }
 

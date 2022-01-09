@@ -172,6 +172,12 @@ const theme = {
       fontFamily: "heading",
       variant: "links.primary",
       fontWeight: 400,
+      "&:hover": {
+        color: "primary.2",
+        textDecorationColor: "primary.4",
+        textDecorationStyle: "solid",
+        textDecorationLine: "underline",
+      },
     },
     bold: {
       fontWeight: "bold",
@@ -205,8 +211,12 @@ const theme = {
     },
     primary: {
       color: "primary.1",
+      borderRadius: 1,
       "&:hover": {
         color: "primary.0",
+      },
+      "&active, &:focus": {
+        color: "primary.2",
       },
     },
     secondary: {
@@ -256,9 +266,15 @@ const theme = {
       },
     },
     transparent: {
-      variant: "buttons.primary",
+      // variant: "buttons.primary",
       backgroundColor: "unset",
       color: "primary.1",
+      "&:focus": {
+        // not sure why this isn't inherited from the buttons.primary variant
+        // or why the boxShadow: 'focus' variant doesn't apply
+        outline: "none",
+        boxShadow: (theme) => `0px 0px 0px 2px ${theme.colors.primary[3]}`,
+      },
     },
     link: {
       variant: "buttons.primary",
@@ -353,8 +369,35 @@ const theme = {
     },
     p: {
       lineHeight: "body",
-      mt: 0,
-      mb: 3.5,
+      my: 3.5,
+    },
+    h1: {
+      variant: "text.display",
+    },
+    h2: {
+      variant: "text.heading",
+      fontSize: 5,
+      fontWeight: 600,
+      color: "primary.2",
+      letterSpacing: 1,
+      marginTop: 4.5,
+    },
+    h3: {
+      variant: "text.heading",
+      fontSize: 4,
+      color: "primary.1",
+    },
+    h4: {
+      variant: "text.heading",
+      fontSize: 3,
+    },
+    h5: {
+      variant: "text.heading",
+      fontSize: 2,
+    },
+    h6: {
+      variant: "text.heading",
+      fontSize: 1,
     },
     a: {
       color: "primary.2",
@@ -362,8 +405,12 @@ const theme = {
         color: "primary.3",
       },
       "&:focus": {
+        color: "currentColor",
         outline: "none",
         boxShadow: "focus",
+      },
+      "&:active": {
+        color: "currentColor",
       },
     },
     ul: {
@@ -404,7 +451,7 @@ const theme = {
       a: {
         "&:focus": {
           outline: "none",
-          boxShadow: `0px 0px 0px 2px ${colors.primary[3]}`,
+          boxShadow: `0px 0px 0px 2px ${colors.primary[2]}`,
         },
       },
       // is just throwing classes here bad vs emotion global style?
@@ -428,33 +475,7 @@ const theme = {
         borderRadius: 0.5,
       },
     },
-    h1: {
-      variant: "text.display",
-    },
-    h2: {
-      variant: "text.heading",
-      fontSize: 5,
-      fontWeight: 600,
-      color: "primary.2",
-      letterSpacing: 1,
-    },
-    h3: {
-      variant: "text.heading",
-      fontSize: 4,
-      color: "primary.1",
-    },
-    h4: {
-      variant: "text.heading",
-      fontSize: 3,
-    },
-    h5: {
-      variant: "text.heading",
-      fontSize: 2,
-    },
-    h6: {
-      variant: "text.heading",
-      fontSize: 1,
-    },
+
     pre: {
       code: {
         color: "inherit",

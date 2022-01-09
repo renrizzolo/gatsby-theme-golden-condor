@@ -32,7 +32,15 @@ function Footer() {
 
   return (
     <Box as="footer">
-      <Box py={4} px={["lx.1", "lx.2"]} bg="primary.5">
+      <Box
+        py={4}
+        px={["lx.1", "lx.2"]}
+        sx={{
+          borderTop: 2,
+          borderTopColor: "gray.4",
+        }}
+        bg="primary.5"
+      >
         <Container>
           <Flex
             align="center"

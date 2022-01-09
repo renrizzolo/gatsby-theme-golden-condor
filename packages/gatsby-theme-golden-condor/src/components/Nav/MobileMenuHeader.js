@@ -11,7 +11,7 @@ const MobileMenuHeader = ({ onToggleMenu, sx, ...props }) => {
       align="center"
       justify="between"
       display={["flex", "none"]}
-      sx={{ width: "100%", bg: "primary.1", py: 2, px: 3, ...sx }}
+      sx={{ width: "100%", bg: "primary.5", py: 2, px: 3, ...sx }}
       {...props}
     >
       <Button
@@ -20,7 +20,7 @@ const MobileMenuHeader = ({ onToggleMenu, sx, ...props }) => {
         onClick={onToggleMenu}
         sx={{ p: 2 }}
       >
-        <Icon sx={{ color: "paper" }} width={4} height={4} name="Menu" />
+        <Icon sx={{ color: "primary.1" }} width={4} height={4} name="Menu" />
       </Button>
       <Heading mb={[2, 0]}>
         <LogoHeader />

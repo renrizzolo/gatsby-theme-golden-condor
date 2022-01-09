@@ -1,7 +1,7 @@
 import React from "react";
 import { Box } from "theme-ui";
 
-const NavWrapper = ({ isOpen, children, ...props }) => {
+const NavWrapper = ({ isOpen, children, sx, ...props }) => {
   return (
     <Box
       as="nav"
@@ -9,6 +9,8 @@ const NavWrapper = ({ isOpen, children, ...props }) => {
       py={[2, 3]}
       bg={"primary.5"}
       sx={{
+        borderBottom: 2,
+        borderBottomColor: "gray.4",
         visibility: [isOpen ? "visible" : "hidden", "visible"],
         opacity: [isOpen ? 1 : 0, 1],
         transform: [
@@ -20,6 +22,7 @@ const NavWrapper = ({ isOpen, children, ...props }) => {
         position: ["absolute", "relative"],
         zIndex: 1,
         width: "100%",
+        ...sx,
       }}
       {...props}
     >

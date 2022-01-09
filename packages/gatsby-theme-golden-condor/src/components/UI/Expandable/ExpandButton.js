@@ -24,19 +24,28 @@ const ExpandButton = ({
         py: 2,
         borderBottom: 1,
         borderColor: "gray.4",
+        outline: "none",
+        backgroundColor: "transparent",
+        border: "none",
+        color: "gray.2",
+        "&:hover": {
+          backgroundColor: "transparent",
+        },
+        "&:focus": {
+          boxShadow: "0px 0px 0px 2px currentColor",
+        },
         ...sx,
       }}
-      variant="transparent"
       {...props}
+      as={expandable ? "button" : props.as}
     >
-      <Text mr={2} sx={{ fontSize: 1, color: "gray.2", ...textSx }}>
+      <Text mr={2} sx={{ fontSize: 1, ...textSx }}>
         {children}
       </Text>
       {expandable && (
         <Icon
           sx={{
             transition: 1,
-            color: "gray.2",
 
             transform: isOpen ? `rotate(180deg)` : `rotate(0deg)`,
           }}
