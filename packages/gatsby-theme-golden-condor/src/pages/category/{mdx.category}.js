@@ -26,7 +26,7 @@ function CategoryPage({ data, params, path }) {
             <Heading mb={5} variant="jumbo" as="h1">
               {post.frontmatter.category?.name}
             </Heading>
-            <PostsGrid posts={allMdx?.nodes} />
+            <PostsGrid posts={allMdx?.nodes} layout="card" />
             <AfterPostsGrid
               path={path}
               type={"category"}

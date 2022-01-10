@@ -31,7 +31,7 @@ function Sidebar({ options, entries = [], currentPath, ...props }) {
           position: "sticky",
           top: 3,
         }}
-        id="gtgt-sidebar-nav"
+        id="gtgc-sidebar-nav"
         expandable
         toggle={(onClick, ariaProps, isOpen) => (
           <ExpandButton
@@ -45,7 +45,7 @@ function Sidebar({ options, entries = [], currentPath, ...props }) {
           </ExpandButton>
         )}
       >
-        <Heading mt={0} mb={3} variant="subHeading" as={"h4"}>
+        <Heading mt={[3, 3, 0]} mb={3} variant="subHeading" as={"h4"}>
           {heading}
         </Heading>
         <Flex as="ul" sx={{ listStyleType: "none", p: 0 }}>

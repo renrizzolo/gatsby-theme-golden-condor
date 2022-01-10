@@ -15,7 +15,7 @@ function TableOfContents({ headings, heading }) {
   return (
     <Expandable
       open={width >= breakpoints[0]}
-      id="gtgt-toc"
+      id="gtgc-toc"
       expandable
       toggle={(onClick, ariaProps, isOpen) => (
         <ExpandButton
@@ -32,6 +32,7 @@ function TableOfContents({ headings, heading }) {
       sx={{
         top: 3,
         position: "sticky",
+        mt: [3, 0],
       }}
     >
       <Box

@@ -17,7 +17,12 @@ function PostsGrid({
   // this just filters out posts without a path/slug
   const filteredPosts = usePosts({ posts });
   return (
-    <Grid columns={columns} gap={4} sx={{ gridRowGap: 5 }} {...rest}>
+    <Grid
+      columns={columns}
+      gap={4}
+      sx={layout === "card" ? { gridRowGap: 5 } : {}}
+      {...rest}
+    >
       {filteredPosts.map((p) => {
         const post = p.childMdx ?? p;
         return (

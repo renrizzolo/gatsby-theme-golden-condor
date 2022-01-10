@@ -31,6 +31,7 @@ const Item = ({
         mb: 1,
         px: 0,
         py: 0,
+        borderBottom: "none",
       }}
       textSx={{
         fontSize: 2,

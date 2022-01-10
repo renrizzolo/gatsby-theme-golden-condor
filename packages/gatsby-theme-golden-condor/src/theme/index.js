@@ -210,7 +210,6 @@ const theme = {
     },
     primary: {
       color: "primary.1",
-      borderRadius: 1,
       "&:hover": {
         color: "primary.0",
       },
@@ -228,6 +227,8 @@ const theme = {
   shadows: {
     1: "1px 1px 8px rgba(0,0,0,0.12)",
     2: "3px 3px 16px rgba(0,0,0,0.07)",
+    linkFocus: (theme) => `0px 0px 0px 2px ${theme.colors.primary[3]}`,
+
     focus: (theme) =>
       `inset 0px 0px 0px 2px rgba(255,255,255,0.8), 0px 0px 0px 2px ${theme.colors.primary[3]}`,
     focusInset: (theme) => `0px 0px 0px 2px inset ${theme.colors.primary[3]}`,
@@ -455,7 +456,7 @@ const theme = {
       a: {
         "&:focus": {
           outline: "none",
-          boxShadow: `0px 0px 0px 2px ${colors.primary[2]}`,
+          boxShadow: `0px 0px 0px 2px ${colors.primary[4]}`,
         },
       },
       // is just throwing classes here bad vs emotion global style?

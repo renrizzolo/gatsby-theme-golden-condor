@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import Icon from "@components/Icon";
 import { Flex } from "@components/UI";
-import { Text, Box } from "@theme-ui/components";
+import { Box } from "@theme-ui/components";
 
 const ExpandButton = ({
   expandable,
@@ -22,19 +22,19 @@ const ExpandButton = ({
         cursor: expandable ? "pointer" : "default",
         px: 1,
         py: 2,
-        borderBottom: 1,
-        borderColor: "gray.4",
-        outline: "none",
-        backgroundColor: "transparent",
         border: "none",
-        // just to apply font styles
-        fontFamily: "heading",
+        outline: "none",
+        borderBottom: 1,
+        borderBottomColor: "gray.4",
+        // borderBottomStyle: 'solid',
+        backgroundColor: "transparent",
+        fontFamily: "body",
         color: "gray.2",
         "&:hover": {
           backgroundColor: "transparent",
         },
         "&:focus": {
-          boxShadow: "0px 0px 0px 2px currentColor",
+          boxShadow: (theme) => `0px 0px 0px 2px ${theme.colors.primary[4]}`,
         },
         ...sx,
       }}
