@@ -3,6 +3,8 @@ import PropTypes from "prop-types";
 import { Link } from "@components/UI";
 import { Text } from "theme-ui";
 
+// @todo this is basically the same as Item except for the ExpandButton wrapper
+
 const SubItem = ({
   to,
   isActive,
@@ -16,10 +18,11 @@ const SubItem = ({
       as="li"
       sx={{
         listStyleType: "none",
-        fontSize: 1,
-        lineHeight: 1,
         display: "flex",
         alignItems: "center",
+        lineHeight: 1,
+        fontSize: 2,
+        px: 0,
         ...textSx,
       }}
     >
@@ -30,7 +33,11 @@ const SubItem = ({
           sx={{
             ...(isActive && {
               fontWeight: "bold",
+              color: "primary.1",
             }),
+            display: "flex",
+            flex: 1,
+            py: 1.5,
             ...linkSx,
           }}
         >

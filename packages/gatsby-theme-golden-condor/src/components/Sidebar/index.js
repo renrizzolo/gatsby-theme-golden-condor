@@ -1,5 +1,6 @@
 import React from "react";
-import { Box, Heading, Text } from "@theme-ui/components";
+import { Box, Heading } from "@theme-ui/components";
+import { Flex } from "@components/UI";
 import { getPath } from "@util";
 import Expandable from "@components/UI/Expandable";
 import useWindowSize from "@hooks/useWindowSize";
@@ -14,6 +15,8 @@ function Sidebar({ options, entries = [], currentPath, ...props }) {
   const { width: windowWidth } = useWindowSize();
   return (
     <Box
+      as="nav"
+      aria-label="Secondary Navigation"
       sx={{
         gridColumn: ["span 13", "span 13", "unset"],
         minWidth: "unset",
@@ -45,7 +48,7 @@ function Sidebar({ options, entries = [], currentPath, ...props }) {
         <Heading mt={0} mb={3} variant="subHeading" as={"h4"}>
           {heading}
         </Heading>
-        <Text as="ul" sx={{ listStyleType: "none", p: 0 }}>
+        <Flex as="ul" sx={{ listStyleType: "none", p: 0 }}>
           {entries.map((entry) => {
             if (!entry.childMdx?.slug) return null;
             const {
@@ -64,6 +67,7 @@ function Sidebar({ options, entries = [], currentPath, ...props }) {
                 open
                 key={path}
                 expandable={!!childEntries?.length}
+                sx={{ flex: 1 }}
                 toggle={(onClick, ariaProps, isOpen) => (
                   <Item
                     ariaProps={ariaProps}
@@ -126,7 +130,7 @@ function Sidebar({ options, entries = [], currentPath, ...props }) {
               </Expandable>
             );
           })}
-        </Text>
+        </Flex>
       </Expandable>
     </Box>
   );

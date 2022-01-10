@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "@components/UI";
 import ExpandButton from "@components/UI/Expandable/ExpandButton";
+import { Box } from "theme-ui";
 
 const Item = ({
   isActive,
@@ -26,24 +27,33 @@ const Item = ({
         display: "flex",
         alignItems: "center",
         listStyleType: "none",
-        mb: 2,
-        padding: 0,
-        border: "none",
+        lineHeight: 1,
+        mb: 1,
+        px: 0,
+        py: 0,
       }}
       textSx={{
         fontSize: 2,
+        display: "flex",
+        flex: 1,
         ...textSx,
       }}
     >
       {hasLink ? (
         <Link
           to={to}
-          sx={{ ...(isActive && { fontWeight: "bold" }), ...linkSx }}
+          sx={{
+            ...(isActive && { fontWeight: "bold", color: "primary.1" }),
+            display: "flex",
+            flex: 1,
+            py: 1.5,
+            ...linkSx,
+          }}
         >
           {children}
         </Link>
       ) : (
-        children
+        <Box sx={{ py: 2 }}>{children}</Box>
       )}
     </ExpandButton>
   );
