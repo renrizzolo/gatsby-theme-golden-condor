@@ -24,7 +24,6 @@ const Switch = function Switch({
 
   const onKeyPress = React.useCallback(
     (e) => {
-      console.log(e);
       if (e.keyCode === 13 && e.target === inputRef.current) {
         e.preventDefault();
         inputRef.current.checked = !inputRef.current.checked;

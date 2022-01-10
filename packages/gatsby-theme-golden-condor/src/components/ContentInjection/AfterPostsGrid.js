@@ -2,7 +2,6 @@ import { PropTypes } from "prop-types";
 import React from "react";
 
 const AfterPostsGrid = ({ path, type, collection, category }) => {
-  console.log({ path, type, collection, category });
   return null;
   // if (path === "/") return <div>Cool homepage footer content</div>;
   // if (collection === 'doc') return ...;
