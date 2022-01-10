@@ -8,7 +8,7 @@ import breakpoints from "@theme/breakpoints";
 import ExpandButton from "@components/UI/Expandable/ExpandButton";
 import useObserveActiveSection from "@hooks/useObserveActiveSection";
 
-function TableOfContents({ headings, label }) {
+function TableOfContents({ headings, heading }) {
   const { width } = useWindowSize();
   const [id, setId] = React.useState();
   useObserveActiveSection({ headings, highlightedId: id });
@@ -51,7 +51,7 @@ function TableOfContents({ headings, label }) {
         }}
       >
         <Heading mt={0} mb={3} variant="subHeading" as={"h4"}>
-          On this page
+          {heading}
         </Heading>
 
         <HeadingsList items={headings} level={2} setId={setId} />
@@ -61,12 +61,12 @@ function TableOfContents({ headings, label }) {
 }
 
 TableOfContents.defaultProps = {
-  label: "Table Of Contents",
+  heading: "On this page",
 };
 
 TableOfContents.propTypes = {
   headings: PropTypes.array.isRequired,
-  label: PropTypes.string,
+  heading: PropTypes.string.isRequired,
 };
 
 export default TableOfContents;

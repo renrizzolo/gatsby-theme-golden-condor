@@ -16,6 +16,7 @@ function HeadingsList({ items, level, setId }) {
       sx={{
         listStyleType: "none",
         p: 0,
+        mt: level > 2 ? 2 : 0,
       }}
     >
       {items &&
@@ -33,6 +34,7 @@ function HeadingsList({ items, level, setId }) {
                   },
                   "&.active": {
                     fontWeight: "bold",
+                    color: "primary.2",
                   },
                   fontSize: 1,
                   textDecoration: "none",
