@@ -6,11 +6,15 @@ module.exports = {
     title: "Gatsby Theme Golden Condor",
     author: "Ren Rizzolo",
     description: "Documentation site for Gatsby Theme Golden Condor",
-    image: "/icon.png",
+    image: "/golden-condor.png",
     social: [
       {
         label: "Github",
         url: "https://github.com/renrizzolo/gatsby-theme-golden-condor",
+      },
+      {
+        label: "Twitter",
+        url: "https://twitter.com/ren_riz",
       },
     ],
   },
