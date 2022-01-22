@@ -7,36 +7,45 @@ import SEO from "@components/SEO";
 import useGetPostOptions from "@hooks/useGetPostOptions";
 import AfterPostsGrid from "@components/ContentInjection/AfterPostsGrid";
 
-const HomePage = ({ data, posts, path }) => {
-  const {
-    childMdx: { collection, body, frontmatter },
-  } = data;
-  const { recentPosts = {} } = frontmatter;
+const HomePage = ({ data, posts, path, sourceInstanceName }) => {
+  const recentPosts = data?.childMdx?.frontmatter?.recentPosts || {};
   const postProps = useGetPostOptions(recentPosts);
-
   return (
     <>
-      {data && (
+      {data?.childMdx ? (
         <SEO
-          title={frontmatter.title}
+          title={data.childMdx.frontmatter.title}
           description={data.excerpt}
           image={data.image}
           pathname={path}
         />
+      ) : (
+        <SEO
+          title={`Entries in ${sourceInstanceName}`}
+          description={""}
+          pathname={path}
+        />
       )}
       <Layout>
-        {data && (
+        {data?.childMdx && (
           <Box p={4}>
             <Container>
-              <MDX content={body} embeddedImages={frontmatter.embeddedImages} />
+              <MDX
+                content={data.childMdx.body}
+                embeddedImages={data.childMdx.frontmatter.embeddedImages}
+              />
             </Container>
           </Box>
         )}
-        {frontmatter?.recentPosts && (
+        {(!!recentPosts || !data) && posts && (
           <Box p={4}>
-            <Container as="section" variant={recentPosts.container || "post"}>
+            <Container
+              as="section"
+              variant={recentPosts.container || "container"}
+            >
               <Heading variant="jumbo">
-                {recentPosts.heading || `Latest ${frontmatter.collection}s`}
+                {recentPosts.heading ||
+                  `Latest ${data?.childMdx?.collection || sourceInstanceName}s`}
               </Heading>
               <Box pb={[3, 5]} />
 
@@ -44,7 +53,7 @@ const HomePage = ({ data, posts, path }) => {
               <AfterPostsGrid
                 path={path}
                 type={"home-page"}
-                colletion={collection}
+                colletion={data?.childMdx?.collection || sourceInstanceName}
               />
               <Box pb={[3, 5]} />
             </Container>

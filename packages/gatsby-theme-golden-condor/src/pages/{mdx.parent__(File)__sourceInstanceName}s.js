@@ -9,8 +9,9 @@ import PostsGrid from "@components/PostsGrid";
 import HomePage from "@components/HomePage";
 import useThemeOptions from "@hooks/useThemeOptions";
 
-function BlogPosts(props) {
-  const { data, params, path } = props;
+function CollectionPage(props) {
+  console.log(props);
+  const { data, params, path, pageContext } = props;
   const { disableIndexPage } = useThemeOptions(
     params.parent__sourceInstanceName
   );
@@ -18,18 +19,24 @@ function BlogPosts(props) {
     posts: data.collection?.nodes,
     collectionName: params.parent__sourceInstanceName,
   });
+  console.log(filteredPosts);
   const { index } = data;
   return disableIndexPage ? (
     <Redirect noThrow to="/" />
   ) : (
-    <HomePage data={index} posts={filteredPosts} path={path} />
+    <HomePage
+      data={index}
+      posts={filteredPosts}
+      path={path}
+      sourceInstanceName={pageContext.parent__sourceInstanceName}
+    />
   );
 }
 
-export default BlogPosts;
+export default CollectionPage;
 
 export const query = graphql`
-  query ($parent__sourceInstanceName: String, $skip: Int = 0) {
+  query ($parent__sourceInstanceName: String) {
     index: file(
       relativePath: { in: ["index.mdx", "index.md"] }
       sourceInstanceName: { eq: $parent__sourceInstanceName }
@@ -47,7 +54,6 @@ export const query = graphql`
         sourceInstanceName: { eq: $parent__sourceInstanceName }
       }
       sort: { fields: [childMdx___frontmatter___date], order: DESC }
-      skip: $skip
     ) {
       nodes {
         childMdx {
