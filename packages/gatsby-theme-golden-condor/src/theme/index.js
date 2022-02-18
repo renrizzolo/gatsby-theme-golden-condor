@@ -62,7 +62,7 @@ const theme = {
   },
   fonts: {
     heading: `"${headingFont}", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif`,
-    body: `"${bodyFont}", Georgia, serif`,
+    body: `"${bodyFont}", Roboto, sans-serif`,
     monospace: `"${monoFont}", monospace`,
   },
   fontSizes: [11, 14, baseFontSize, 20, 24, 30, 46, 64, 72],
@@ -482,6 +482,7 @@ const theme = {
     },
 
     pre: {
+      margin: 0,
       code: {
         color: "inherit",
         fontFamily: "monospace",

@@ -52,7 +52,7 @@ module.exports = {
             showTOC: true,
           },
           podcast: {
-            containerVariant: "container",
+            containerVariant: "post",
             sidebarNav: { heading: "Podcasts" },
             meta: {
               timeToRead: false,
@@ -67,7 +67,6 @@ module.exports = {
         extensions: [`.mdx`, `.md`],
         gatsbyRemarkPlugins,
         // override the default theme for syntax highlighting
-        remarkPlugins: [require("./mdxPretty")],
       },
     },
     // any additional collection types need to be added here for sourcing

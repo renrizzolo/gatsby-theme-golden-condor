@@ -13,9 +13,11 @@ const PrettyCode = ({ children, element, ...props }) => {
         as={element}
         sx={{
           "[data-rehype-pretty-code-title]": {
+            fontFamily: "heading",
+            fontWeight: "bold",
             fontSize: 0,
             display: "inline-flex",
-            color: "gray.1",
+            color: "primary.1",
             py: 1,
           },
           "html.default &": {

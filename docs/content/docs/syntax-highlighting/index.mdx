@@ -93,15 +93,27 @@ See the full docs here: [https://github.com/atomiks/rehype-pretty-code](https://
 
 </Panel>
 
+### Titles
+
+Add a file title to your code block, with text inside double quotes (""):
+
+````
+```js title="file.js"
+
+```
+````
+
 ### Line highlighting
 
 Highlight lines 3, and 11 through 14.
 
-\`\`\`jsx {3, 11-14}
+````
+```jsx {3, 11-14}
+<your code \>
+```
+````
 
-< your code \>
-
-\`\`\`
+---
 
 ```jsx {3, 11-14}
 import React from "react";
@@ -122,17 +134,6 @@ function PostCard({ post }) {
     </Card>
   );
 }
-
-PostCard.propTypes = {
-  post: PropTypes.object.isRequired,
-  showExcerpt: PropTypes.bool,
-  textColor: PropTypes.string,
-};
-
-PostCard.defaultProps = {
-  textColor: "text",
-  showExcerpt: false,
-};
 
 export default PostCard;
 ```

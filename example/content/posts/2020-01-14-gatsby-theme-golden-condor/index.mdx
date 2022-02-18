@@ -126,12 +126,20 @@ You won't believe what's in my weekly newsletter (I don't have one).
 
 ## Syntax highlighting
 
-The syntax highlighting uses `@atomiks/mdx-pretty-code` (which uses `shikijs`), and is confgured in `src/theme/mdxPrettyCode.js`.
+The syntax highlighting uses `rehype-pretty-code` (which uses `shikijs`), and is confgured in `src/theme/mdxPrettyCode.js`.
 This is a modified (read: butchered) version of the _Ayu Mirage_ vscode theme.
 
-### mdx-pretty-code API
+### rehype-pretty-code API
 
 Code blocks are configured via the meta string after the top codeblock fence.
+
+### Titles
+
+Add a file title to your code block, with text inside double quotes (""):
+
+\`\`\`js title="..."
+...
+\`\`\`
 
 ### Line highlighting
 

@@ -19,9 +19,7 @@ The sidebar can be opted in to on a per-collection basis.
 
 To do so, the `sidebarNav` object needs to be present on the collection's config:
 
-`gatsby-config.js`
-
-```js {5-8}
+```js title="gatsby-config.js" {5-8}
   {
     resolve: `gatsby-theme-golden-condor`,
     options: {
@@ -45,7 +43,7 @@ The sidebar supports a sub-level with togglable display of child entries. It als
 
 1. In the parent `md(x)` file, add an `id` field:
 
-```md {3}
+```md title="parent.md" {3}
 ---
 title: Parent Page
 id: parent-page
@@ -54,19 +52,23 @@ id: parent-page
 
 2. In the child `md(x)` files, add a `parent` field, with the parent's `id` value:
 
-```md {3}
+<Grid columns={["1fr", "1fr 1fr"]}>
+
+```md title="child.md" {3}
 ---
 title: Child Page
 parent: parent-page
 ---
 ```
 
-```md {3}
+```md title="child-2.md" {3}
 ---
 title: Another Child Page
 parent: parent-page
 ---
 ```
+
+</Grid>
 
 This would result in a sidebar with the following layout:
 
@@ -123,7 +125,7 @@ This would result in a sidebar with the following layout:
 
 To create a 'linkless' parent page, in the parent page's `md(x)` file, add a null path field.
 
-```md {4}
+```md title="parent.md" {4}
 ---
 title: Parent Page
 id: parent-page

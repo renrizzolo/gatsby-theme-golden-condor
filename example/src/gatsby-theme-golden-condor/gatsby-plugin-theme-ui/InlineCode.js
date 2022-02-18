@@ -1,11 +1,11 @@
 import React from "react";
 import { useThemeUI } from "theme-ui";
-import InlineCode from "gatsby-theme-golden-condor/src/gatsby-plugin-theme-ui/InlineCode";
+import PrettyCode from "gatsby-theme-golden-condor/src/gatsby-plugin-theme-ui/PrettyCode";
 
-const InlineCodeShadowed = (props) => {
+const PrettyCodeShadowed = (props) => {
   const { theme } = useThemeUI();
   return (
-    <InlineCode
+    <PrettyCode
       {...props}
       codeProps={{
         sx: {
@@ -19,4 +19,4 @@ const InlineCodeShadowed = (props) => {
   );
 };
 
-export default InlineCodeShadowed;
+export default PrettyCodeShadowed;
