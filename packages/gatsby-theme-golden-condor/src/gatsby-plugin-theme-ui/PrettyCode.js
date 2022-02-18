@@ -1,15 +1,23 @@
 import React from "react";
+import { PropTypes } from "prop-types";
 import { Box, useThemeUI } from "theme-ui";
 
-const PrettyCode = ({ children, wrapperProps, codeProps, ...props }) => {
+const PrettyCode = ({ children, element, ...props }) => {
   const { theme } = useThemeUI();
   // in the case of multiple themes, the code blocks will be wrapped with this span
   // so we can use this to detect multiple themes and only apply the hiding css in that case
+  console.log(props, element);
   if (props["data-rehype-pretty-code-fragment"] != null) {
     return (
       <Box
-        as="span"
+        as={element}
         sx={{
+          "[data-rehype-pretty-code-title]": {
+            fontSize: 0,
+            display: "inline-flex",
+            color: "gray.1",
+            py: 1,
+          },
           "html.default &": {
             "[data-theme='dark']": {
               display: "none",
@@ -32,7 +40,6 @@ const PrettyCode = ({ children, wrapperProps, codeProps, ...props }) => {
             },
           },
         }}
-        {...wrapperProps}
         {...props}
       >
         {children}
@@ -40,7 +47,15 @@ const PrettyCode = ({ children, wrapperProps, codeProps, ...props }) => {
     );
   }
 
-  return <span {...props} children={children} />;
+  return element === "span" ? (
+    <span {...props} children={children} />
+  ) : (
+    <div {...props} children={children} />
+  );
+};
+
+PrettyCode.propTypes = {
+  element: PropTypes.oneOf(["span", "div"]),
 };
 
 export default PrettyCode;

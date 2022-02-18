@@ -61,7 +61,10 @@ const components = {
   ),
   hr: Divider,
   span(props) {
-    return <PrettyCode {...props} />;
+    return <PrettyCode element="span" {...props} />;
+  },
+  div(props) {
+    return <PrettyCode element="div" {...props} />;
   },
   table(props) {
     return (
