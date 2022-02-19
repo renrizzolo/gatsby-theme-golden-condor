@@ -6,7 +6,6 @@ const PrettyCode = ({ children, element, ...props }) => {
   const { theme } = useThemeUI();
   // in the case of multiple themes, the code blocks will be wrapped with this span
   // so we can use this to detect multiple themes and only apply the hiding css in that case
-  console.log(props, element);
   if (props["data-rehype-pretty-code-fragment"] != null) {
     return (
       <Box

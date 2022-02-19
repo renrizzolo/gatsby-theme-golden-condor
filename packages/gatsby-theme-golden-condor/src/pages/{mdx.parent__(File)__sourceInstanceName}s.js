@@ -10,7 +10,6 @@ import HomePage from "@components/HomePage";
 import useThemeOptions from "@hooks/useThemeOptions";
 
 function CollectionPage(props) {
-  console.log(props);
   const { data, params, path, pageContext } = props;
   const { disableIndexPage } = useThemeOptions(
     params.parent__sourceInstanceName
@@ -19,7 +18,6 @@ function CollectionPage(props) {
     posts: data.collection?.nodes,
     collectionName: params.parent__sourceInstanceName,
   });
-  console.log(filteredPosts);
   const { index } = data;
   return disableIndexPage ? (
     <Redirect noThrow to="/" />
