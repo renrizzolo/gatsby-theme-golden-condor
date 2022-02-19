@@ -8912,6 +8912,8 @@ __metadata:
     unist-util-visit: 2
   peerDependencies:
     gatsby: ^3.4.0
+    react: ^16 || ^17
+    react-dom: ^16 || ^17
   languageName: unknown
   linkType: soft
 
