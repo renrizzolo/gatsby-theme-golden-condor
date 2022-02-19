@@ -1,6 +1,6 @@
 {
   "name": "gatsby-theme-golden-condor",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "main": "index.js",
   "author": "Ren Rizzolo",
   "license": "MIT",
@@ -33,7 +33,7 @@
     "gatsby-transformer-yaml": "^3.14.0",
     "lodash.merge": "^4.6.2",
     "react-helmet": "^6.1.0",
-    "rehype-pretty-code": "latest",
+    "rehype-pretty-code": "0.2.2",
     "shiki": "^0.9.14",
     "theme-ui": "^0.13.1",
     "unist-util-visit": "2"
