@@ -1,11 +1,13 @@
 {
   "name": "gatsby-theme-golden-condor",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "main": "index.js",
   "author": "Ren Rizzolo",
   "license": "MIT",
   "peerDependencies": {
-    "gatsby": "^3.4.0"
+    "gatsby": "^3.4.0",
+    "react": "^16 || ^17",
+    "react-dom": "^16 || ^17"
   },
   "dependencies": {
     "@emotion/react": "^11.4.1",
