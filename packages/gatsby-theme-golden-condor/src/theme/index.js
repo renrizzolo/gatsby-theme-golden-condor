@@ -482,7 +482,7 @@ const theme = {
     },
 
     pre: {
-      margin: 0,
+      marginTop: 0,
       code: {
         color: "inherit",
         fontFamily: "monospace",

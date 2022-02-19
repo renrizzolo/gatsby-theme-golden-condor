@@ -1,6 +1,7 @@
 const path = require("path");
 const gatsbyRemarkPlugins = require("gatsby-theme-golden-condor/gatsbyRemarkPlugins");
-
+const prettyCodeOptions = require("./prettyCodeOptions");
+const rehypePrettyCode = require("rehype-pretty-code");
 module.exports = {
   siteMetadata: {
     title: "gatsby-theme-golden-condor example",
@@ -21,6 +22,15 @@ module.exports = {
         theme_color: "#1e1c14",
         display: `minimal-ui`,
         icon: `./src/images/theme-icon.png`, // This path is relative to the root of the site.
+      },
+    },
+    {
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+        extensions: [`.mdx`, `.md`],
+        rehypePlugins: [[rehypePrettyCode, prettyCodeOptions]],
+        // gatsbyRemarkPlugins,
+        // override the default theme for syntax highlighting
       },
     },
     {
@@ -61,14 +71,7 @@ module.exports = {
         },
       },
     },
-    {
-      resolve: `gatsby-plugin-mdx`,
-      options: {
-        extensions: [`.mdx`, `.md`],
-        gatsbyRemarkPlugins,
-        // override the default theme for syntax highlighting
-      },
-    },
+
     // any additional collection types need to be added here for sourcing
     {
       resolve: `gatsby-source-filesystem`,
