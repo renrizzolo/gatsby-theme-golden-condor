@@ -1,11 +1,7 @@
 import React from "react";
 import { Redirect } from "@reach/router";
 import { graphql } from "gatsby";
-import { Container, Box, Heading } from "theme-ui";
-import Layout from "@components/Layout";
-import SEO from "@components/SEO";
 import usePosts from "@hooks/usePosts";
-import PostsGrid from "@components/PostsGrid";
 import HomePage from "@components/HomePage";
 import useThemeOptions from "@hooks/useThemeOptions";
 
