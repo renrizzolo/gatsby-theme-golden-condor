@@ -26,8 +26,8 @@ const space = {
 
 const theme = {
   config: {
-    initialColorModeName: "light",
-    printColorModeName: "light",
+    initialColorModeName: "default",
+    printColorModeName: "default",
   },
   breakpoints: ["40rem", "56rem", "64rem"],
   space: {
