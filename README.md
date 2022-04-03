@@ -1,4 +1,16 @@
-# Gatsby Theme Golden Condor workspace
+# Gatsby Theme Golden Condor
+
+### A gatsby theme with **MDX** support, **theming** & **dark mode** via **[theme-ui](https://theme-ui.com)**, unlimited **collections** (custom post types), configurable **layouts**, built in **SEO**, component shadowing and more.
+
+```bash
+npm i gatsby-theme-golden-condor
+```
+
+[Documentation](https://gatsby-theme-golden-condor.netlify.app)
+
+---
+
+# Workspace
 
 ## Layout
 
