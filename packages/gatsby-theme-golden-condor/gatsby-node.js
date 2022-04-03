@@ -5,7 +5,7 @@ const { merge } = require("lodash");
 const { defaultCollectionsConfig } = require("./src/constants");
 
 // create the posts and pages directories with dummy content
-exports.onPreBootstrap = ({ store, reporter }, themeOptions) => {
+exports.onPluginInit = ({ store, reporter }, themeOptions) => {
   const pagesPath = `content/pages`;
   const postsPath = `content/posts`;
 
@@ -119,6 +119,13 @@ exports.onCreatePage = ({ page, getNode, actions, reporter }, themeOptions) => {
 // define some types that may not exist
 exports.createSchemaCustomization = ({ actions: { createTypes } }) => {
   createTypes(`
+   type SitePage implements Node {
+      context: SitePageContext
+    }
+    type SitePageContext {
+      id: String!
+      path: String
+    }
     type Mdx implements Node {
       path: String
       collection: String
@@ -162,7 +169,7 @@ exports.createResolvers = ({ createResolvers }) => {
       childEntries: {
         type: `[Mdx]`,
         resolve: async (source, args, context, info) => {
-          const entries = await context.nodeModel.runQuery({
+          const { entries } = await context.nodeModel.findAll({
             query: {
               filter: {
                 frontmatter: {
@@ -182,7 +189,7 @@ exports.createResolvers = ({ createResolvers }) => {
       path: {
         type: `String`,
         resolve: async (source, args, context, info) => {
-          const entry = await context.nodeModel.runQuery({
+          const entry = await context.nodeModel.findOne({
             query: {
               filter: {
                 context: {
@@ -198,13 +205,13 @@ exports.createResolvers = ({ createResolvers }) => {
           // (see docs/sidebar)
           return typeof source.frontmatter?.path !== "undefined"
             ? null
-            : entry[0]?.path;
+            : entry?.path;
         },
       },
       collection: {
         type: `String`,
         resolve: async (source, args, context, info) => {
-          const entry = await context.nodeModel.runQuery({
+          const entry = await context.nodeModel.findOne({
             query: {
               filter: {
                 childMdx: {
@@ -216,13 +223,13 @@ exports.createResolvers = ({ createResolvers }) => {
             },
             type: `File`,
           });
-          return entry[0]?.sourceInstanceName;
+          return entry?.sourceInstanceName;
         },
       },
       category: {
         type: `String`,
         resolve: async (source, args, context, info) => {
-          const entry = await context.nodeModel.runQuery({
+          const entry = await context.nodeModel.findOne({
             query: {
               filter: {
                 id: {
@@ -235,7 +242,7 @@ exports.createResolvers = ({ createResolvers }) => {
             },
             type: `Mdx`,
           });
-          return entry[0]?.frontmatter?.category?.slug || "";
+          return entry?.frontmatter?.category?.slug || "";
         },
       },
     },

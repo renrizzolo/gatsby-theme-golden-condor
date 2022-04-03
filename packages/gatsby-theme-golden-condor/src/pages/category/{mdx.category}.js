@@ -11,6 +11,7 @@ function CategoryPage({ data, params, path }) {
   if (!data) return <NotFound />;
   const { allMdx } = data;
   const post = allMdx?.nodes?.[0];
+  if (!post) return <NotFound />;
 
   return (
     <>
