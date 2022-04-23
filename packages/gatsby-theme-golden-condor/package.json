@@ -14,8 +14,8 @@
   ],
   "peerDependencies": {
     "gatsby": "^4.0.0",
-    "react": "^16 || ^17",
-    "react-dom": "^16 || ^17"
+    "react": "^16 || ^17 || ^18",
+    "react-dom": "^16 || ^17 || ^18"
   },
   "engines": {
     "node": ">=14.15.0"
