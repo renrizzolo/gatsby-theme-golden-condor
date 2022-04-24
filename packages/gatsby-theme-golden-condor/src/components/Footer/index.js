@@ -3,9 +3,8 @@ import { useStaticQuery, graphql } from "gatsby";
 import { Box, Container, Divider, Text } from "theme-ui";
 import { Flex, Link } from "@components/UI";
 import LogoFooter from "@components/Logo/LogoFooter";
-import { StaticImage } from "gatsby-plugin-image";
 
-function Footer() {
+function Footer({ sx, ...footerProps }) {
   const data = useStaticQuery(graphql`
     query FooterNav {
       site {
@@ -41,8 +40,10 @@ function Footer() {
         sx={{
           borderTop: 2,
           borderTopColor: "gray.4",
+          ...sx,
         }}
         bg="primary.5"
+        {...footerProps}
       >
         <Container>
           <Flex
