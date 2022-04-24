@@ -1,0 +1,100 @@
+---
+title: MDX Components
+excerpt: see or edit the components available inside your mdx files
+parent: configuration
+date: 2021-12-27
+---
+
+## MDX Components
+
+<Panel type="info">
+  Also see:{" "}
+  <Link href="https://theme-ui.com/mdx-components">
+    Theme UI MDX Components
+  </Link>
+</Panel>
+
+### components object
+
+This is the theme's default components configuration. These components are available to use within your MDX files.
+
+```jsx
+const components = {
+  Container,
+  Panel,
+  Link,
+  Button,
+  Grid,
+  GridItem,
+  Box,
+  Divider,
+  AspectRatio,
+  Text,
+  Heading,
+  Caption,
+  CodeDisclosure,
+  CodeSummary,
+  GatsbyImage,
+  figure: ({ children, ...props }) => {
+    return (
+      <Box as="figure" {...props}>
+        {children}
+      </Box>
+    );
+  },
+  figcaption: ({ children, ...props }) => {
+    return (
+      <Text
+        as="figcaption"
+        color="gray.1"
+        mt={1}
+        sx={{ fontSize: 1 }}
+        mb={3}
+        {...props}
+      >
+        {children}
+      </Text>
+    );
+  },
+  blockquote: ({ children, ...rest }) => (
+    <Message variant="default" {...rest}>
+      {children}
+    </Message>
+  ),
+  hr: Divider,
+  span(props) {
+    return <PrettyCode element="span" {...props} />;
+  },
+  div(props) {
+    return <PrettyCode element="div" {...props} />;
+  },
+  table(props) {
+    return (
+      <Box
+        sx={{
+          display: "block",
+          width: "100%",
+          overflowX: "auto",
+          WebkitOverflowScrolling: "touch",
+        }}
+      >
+        <table {...props} />
+      </Box>
+    );
+  },
+};
+```
+
+### Adding your own
+
+To add your own MDX components, shadow the `gatsby-plugin-theme-ui` components file (note the nested shadow path):
+
+```jsx title="src/gatsby-theme-golden-condor/gatsby-plugin-theme-ui/components.js"
+import React from "react";
+import components from "gatsby-theme-golden-condor/src/gatsby-plugin-theme-ui/components";
+
+export default {
+  ...components,
+  // your overrides / additions
+};
+```
