@@ -119,7 +119,13 @@ exports.onCreatePage = ({ page, getNode, actions, reporter }, themeOptions) => {
 // define some types that may not exist
 exports.createSchemaCustomization = ({ actions: { createTypes } }) => {
   createTypes(`
-   type SitePage implements Node {
+    type NavigationYaml implements Node {
+      label: String!
+      path:  String
+      href: String
+      target: String
+    }
+    type SitePage implements Node {
       context: SitePageContext
     }
     type SitePageContext {

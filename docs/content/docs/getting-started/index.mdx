@@ -55,7 +55,7 @@ module.exports = {
     image: "static-image.png",
     social: [
       {
-        name: "...",
+        label: "...",
         url: "...",
       },
     ],
@@ -74,9 +74,9 @@ For more information on these options check out <Link to="/doc/theme-options">Th
 
 </Panel>
 
-### Remove default pages `index.js`
+### Remove default pages
 
-Delete the `src/pages/index.js` file that was created by gatsby init.
+Delete the `src/pages` folder that was created by gatsby init.
 
 ### Run develop
 
@@ -86,6 +86,8 @@ This will create the default `posts`, `pages` and `navigation.yaml` file in the 
 ```bash
 npm run develop
 ```
+
+<Panel type="info">You may need to run `npm run clean` first.</Panel>
 
 ### Edit content
 

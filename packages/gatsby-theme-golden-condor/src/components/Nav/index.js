@@ -16,6 +16,8 @@ const Nav = () => {
         nodes {
           label
           path
+          href
+          target
         }
       }
     }
@@ -37,8 +39,14 @@ const Nav = () => {
               <LogoHeader />
             </Heading>
             <NavLinksWrapper>
-              {links.nodes.map(({ path, label }) => (
-                <NavLink to={path} label={label} key={path} />
+              {links.nodes.map(({ path, href, target, label }) => (
+                <NavLink
+                  to={path}
+                  label={label}
+                  href={href}
+                  target={target}
+                  key={path}
+                />
               ))}
             </NavLinksWrapper>
 

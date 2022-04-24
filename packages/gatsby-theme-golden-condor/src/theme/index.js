@@ -373,6 +373,7 @@ const theme = {
     },
     h1: {
       variant: "text.display",
+      fontSize: 6,
     },
     h2: {
       variant: "text.heading",

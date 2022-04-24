@@ -3,6 +3,7 @@ import { useStaticQuery, graphql } from "gatsby";
 import { Box, Container, Divider, Text } from "theme-ui";
 import { Flex, Link } from "@components/UI";
 import LogoFooter from "@components/Logo/LogoFooter";
+import { StaticImage } from "gatsby-plugin-image";
 
 function Footer() {
   const data = useStaticQuery(graphql`
@@ -20,6 +21,8 @@ function Footer() {
         nodes {
           label
           path
+          href
+          target
         }
       }
     }
@@ -61,9 +64,9 @@ function Footer() {
                 gap: 3,
               }}
             >
-              {links.nodes?.map(({ locations, path, label }) => (
+              {links.nodes?.map(({ locations, path, href, label, target }) => (
                 <Text key={path} as="li">
-                  <Link nav py={2} to={path}>
+                  <Link nav py={2} to={path} href={href} target={target}>
                     {label}
                   </Link>
                 </Text>
