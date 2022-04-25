@@ -23,8 +23,12 @@ To use your own syntax highlighting theme, you need to:
 // gatsby-config.js
 const rehypePrettyCode = require("rehype-pretty-code");
 
-// import to the theme's existing remark plugins
+// import the theme's existing remark plugins
 const gatsbyRemarkPlugins = require("gatsby-theme-golden-condor/gatsbyRemarkPlugins");
+
+// optionally import the theme's existing rehype-pretty-code options
+const prettyCodeOptions = require("gatsby-theme-golden-condor/src/theme/prettyCodeOptions");
+
   // ...
   {
     resolve: `gatsby-plugin-mdx`,
@@ -34,16 +38,15 @@ const gatsbyRemarkPlugins = require("gatsby-theme-golden-condor/gatsbyRemarkPlug
         [
           rehypePrettyCode,
           {
-            options: {
-              // parse your VS Code theme JSON file or a shiki theme string
-              theme: JSON.parse(
-                fs.readFileSync(
-                  require.resolve("./src/theme/ayu-mirage.json"),
-                  "utf-8"
-                )
-              ),
-            },
-            // other optional stuff
+            // optionally spread the existing options.
+            ...prettyCodeOptions,
+            // parse your VS Code theme JSON file or a shiki theme string
+            theme: JSON.parse(
+              fs.readFileSync(
+                require.resolve("./src/theme/ayu-mirage.json"),
+                "utf-8"
+              )
+            ),
           },
         ],
       ],
@@ -59,7 +62,7 @@ These will both be rendered on the page, as `<code data-theme="light" />{:html}`
 The theme hides the opposite color mode's syntax highlighting theme with css, in the `PrettyCode` component and `theme.styles.pre.code` for code blocks.
 
 ```js
-options: {
+{
   // parse your VS Code theme JSON file or a shiki theme string
   theme: {
     dark: JSON.parse(
