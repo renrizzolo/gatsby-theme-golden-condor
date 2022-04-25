@@ -28,6 +28,7 @@ const myTheme = {
   styles: {
     ...theme.styles,
     pre: {
+      ...theme.styles.pre,
       code: {
         ...theme.styles.pre.code,
         "html.default &": {
