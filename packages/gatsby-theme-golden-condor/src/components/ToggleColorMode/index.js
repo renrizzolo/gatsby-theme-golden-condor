@@ -18,7 +18,7 @@ function ToggleColorMode() {
   return (
     <Flex flexDirection="row">
       <Box sx={{ flex: 1, position: "relative", pointerEvents: "none" }}>
-        {colorMode === "default" ? (
+        {colorMode === "light" ? (
           <Icon name="Sun" sx={{ ...iconStyles, color: "primary.1" }} />
         ) : (
           <Icon
@@ -29,9 +29,7 @@ function ToggleColorMode() {
       </Box>
       <ColorModeSwitch
         colorMode={colorMode}
-        onChange={() =>
-          setColorMode(colorMode === "default" ? "dark" : "default")
-        }
+        onChange={() => setColorMode(colorMode === "light" ? "dark" : "light")}
       />
     </Flex>
   );

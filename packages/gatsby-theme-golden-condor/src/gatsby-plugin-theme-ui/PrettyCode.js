@@ -19,7 +19,7 @@ const PrettyCode = ({ children, element, ...props }) => {
             color: "primary.1",
             py: 1,
           },
-          "html.default &": {
+          "html.light &": {
             "[data-theme='dark']": {
               display: "none",
             },
@@ -36,7 +36,7 @@ const PrettyCode = ({ children, element, ...props }) => {
             "html.dark &": {
               backgroundColor: "dark",
             },
-            "html.default &": {
+            "html.light &": {
               backgroundColor: "light",
             },
           },

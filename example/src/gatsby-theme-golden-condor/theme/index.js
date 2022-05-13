@@ -31,7 +31,7 @@ const myTheme = {
       ...theme.styles.pre,
       code: {
         ...theme.styles.pre.code,
-        "html.default &": {
+        "html.light &": {
           backgroundColor: "dark",
         },
       },

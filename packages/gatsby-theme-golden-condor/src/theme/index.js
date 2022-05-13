@@ -26,8 +26,8 @@ const space = {
 
 const theme = {
   config: {
-    initialColorModeName: "default",
-    printColorModeName: "default",
+    initialColorModeName: "light",
+    printColorModeName: "light",
   },
   breakpoints: ["40rem", "56rem", "64rem"],
   space: {
@@ -493,7 +493,7 @@ const theme = {
         "html.dark &": {
           backgroundColor: "dark",
         },
-        "html.default &": {
+        "html.light &": {
           backgroundColor: "light",
         },
         borderRadius: 1,
