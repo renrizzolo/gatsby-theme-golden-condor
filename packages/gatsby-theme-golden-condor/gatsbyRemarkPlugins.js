@@ -1,7 +1,7 @@
 module.exports = [
   `gatsby-remark-unwrap-images`,
   {
-    resolve: "gatsby-remark-embed-video",
+    resolve: "gatsby-remark-embed-video-lite",
     options: {
       width: 700,
       ratio: 1.77, // Optional: Defaults to 16/9 = 1.77
