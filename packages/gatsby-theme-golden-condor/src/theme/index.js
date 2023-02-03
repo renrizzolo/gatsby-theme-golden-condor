@@ -490,12 +490,7 @@ const theme = {
         p: 3,
         display: "grid",
         flexDirection: "column",
-        "html.dark &": {
-          backgroundColor: "dark",
-        },
-        "html.light &": {
-          backgroundColor: "light",
-        },
+        backgroundColor: "codeBg",
         borderRadius: 1,
         overflow: "auto",
         // adds line numbers

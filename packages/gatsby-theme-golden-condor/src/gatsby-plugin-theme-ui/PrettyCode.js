@@ -33,12 +33,7 @@ const PrettyCode = ({ children, element, ...props }) => {
           // (code blocks are styled in theme.styles.pre.code)
           " > code": {
             ...theme.styles.inlineCode,
-            "html.dark &": {
-              backgroundColor: "dark",
-            },
-            "html.light &": {
-              backgroundColor: "light",
-            },
+            backgroundColor: "codeBg",
           },
         }}
         {...props}

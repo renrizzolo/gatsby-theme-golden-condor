@@ -20,6 +20,7 @@ const CodeDisclosure = ({ children }) => {
         pre: { margin: 0, transition: 1 },
         details: {
           code: { py: 0, borderRadius: 0 },
+          lineHeight: 1.5,
           position: "relative",
           "&[open]": {
             // doesn't seem to animate consistently after the first open?
@@ -38,7 +39,7 @@ const CodeDisclosure = ({ children }) => {
           mb: -3,
           cursor: "pointer",
           fontFamily: "monospace",
-          bg: "muted",
+          background: "codeBg",
           color: "primary.2",
           py: 1,
           pr: 3,

@@ -44,6 +44,7 @@ const colors = {
   light: "#f3eeed",
   paper: "#ffffff",
   dark: "#0d0d0f",
+  codeBg: "#f3eeed",
   modes: {
     dark: {
       paper: "#000000",
@@ -56,6 +57,7 @@ const colors = {
       secondary: secondaryDark,
       accent: primaryDark[3],
       gray: grayDark,
+      codeBg: "#0d0d0f",
     },
   },
 };
