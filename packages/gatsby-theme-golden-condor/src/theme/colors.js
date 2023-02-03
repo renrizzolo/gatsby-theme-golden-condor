@@ -45,6 +45,7 @@ const colors = {
   paper: "#ffffff",
   dark: "#0d0d0f",
   codeBg: "#f3eeed",
+  codeColor: primary[2],
   modes: {
     dark: {
       paper: "#000000",
@@ -58,6 +59,7 @@ const colors = {
       accent: primaryDark[3],
       gray: grayDark,
       codeBg: "#0d0d0f",
+      codeColor: primary[2],
     },
   },
 };

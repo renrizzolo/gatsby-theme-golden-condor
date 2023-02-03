@@ -40,7 +40,7 @@ const CodeDisclosure = ({ children }) => {
           cursor: "pointer",
           fontFamily: "monospace",
           background: "codeBg",
-          color: "primary.2",
+          color: "codeColor",
           py: 1,
           pr: 3,
           "&:not([data-indent])": {
@@ -64,7 +64,7 @@ const CodeDisclosure = ({ children }) => {
           "&[data-summary]:hover:before": { opacity: 1 },
 
           "&::marker": {
-            color: "primary.3",
+            color: "codeColor",
           },
         },
       }}
