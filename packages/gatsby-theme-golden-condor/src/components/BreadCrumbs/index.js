@@ -6,7 +6,7 @@ import { Link, Flex } from "@components/UI";
 function Node({ to, label, lastNode }) {
   return (
     <>
-      <Text as="span" sx={{ fontSize: 1, whiteSpace: "nowrap" }}>
+      <Text as="span" sx={{ fontSize: 1 }}>
         {to ? <Link to={to}>{label}</Link> : label}
       </Text>
       {!lastNode && " / "}

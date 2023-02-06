@@ -8,6 +8,8 @@ import NavLink from "./NavLink";
 import MobileMenuHeader from "./MobileMenuHeader";
 import NavWrapper from "./NavWrapper";
 import NavLinksWrapper from "./NavLinksWrapper";
+import AfterNavLinks from "@components/ContentInjection/AfterNavLinks";
+import AfterColorModeSwitch from "@components/ContentInjection/AfterColorModeSwitch";
 
 const Nav = () => {
   const data = useStaticQuery(graphql`
@@ -48,11 +50,12 @@ const Nav = () => {
                   key={path}
                 />
               ))}
+              <AfterNavLinks />
             </NavLinksWrapper>
-
             <Box ml="auto" mb={[2, 0]}>
               <ToggleColorMode />
             </Box>
+            <AfterColorModeSwitch />
           </Flex>
         </Container>
       </NavWrapper>
